@@ -1,0 +1,17 @@
+version: '3'
+services:
+  homebridge:
+    image: oznu/homebridge:ubuntu
+    container_name: homebridge
+    restart: unless-stopped
+    network_mode: host
+    ports:
+      - "8581:8581/tcp"
+    environment:
+      - TZ=${TIMEZONE}
+      - HOMEBRIDGE_CONFIG_UI_PORT=8581
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/homebridge:/homebridge
+
+volumes:
+  homebridge:
