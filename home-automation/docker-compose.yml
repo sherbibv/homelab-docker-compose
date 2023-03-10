@@ -11,7 +11,7 @@ services:
       - TZ=${TIMEZONE}
       - HOMEBRIDGE_CONFIG_UI_PORT=8581
     volumes:
-      - ${VOLUMES_PATH}/utility-services/homebridge:/homebridge
+      - ${VOLUMES_PATH}/home-automation/homebridge:/homebridge
 
 volumes:
   homebridge:
