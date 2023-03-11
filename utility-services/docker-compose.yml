@@ -19,3 +19,15 @@ services:
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
+
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/uptime-kuma/data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "1337:3001"
+    restart: unless-stopped
