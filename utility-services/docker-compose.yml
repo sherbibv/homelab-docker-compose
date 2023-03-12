@@ -1,7 +1,7 @@
 version: '3'
 services:
   wireguard:
-    image: weejewel/wg-easy:6
+    image: weejewel/wg-easy:7
     container_name: wireguard
     environment:
       - WG_HOST=${DOMAIN_URL}
@@ -21,7 +21,7 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
 
   uptime-kuma:
-    image: louislam/uptime-kuma:1.19.5
+    image: louislam/uptime-kuma:1.20.2
     container_name: uptime-kuma
     environment:
       - TZ=${TIMEZONE}
