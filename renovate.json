@@ -2,5 +2,11 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["^oznu\\/homebridge\\/"],
+      "versionScheme": "regex:^(?<compatibility>.*(\\d+-)?)(?<major>\\d+)-(?<minor>\\d+)-(?<patch>\\d+)?$"
+    }
   ]
 }
