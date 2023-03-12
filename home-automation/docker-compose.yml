@@ -1,7 +1,7 @@
 version: '3'
 services:
   homebridge:
-    image: oznu/homebridge:ubuntu
+    image: oznu/homebridge:2023-01-08
     container_name: homebridge
     restart: unless-stopped
     network_mode: host
