@@ -1,7 +1,7 @@
 version: '3'
 services:
   wireguard:
-    image: weejewel/wg-easy:6
+    image: weejewel/wg-easy:7
     container_name: wireguard
     environment:
       - WG_HOST=${DOMAIN_URL}
