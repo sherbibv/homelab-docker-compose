@@ -14,7 +14,7 @@ services:
     restart: unless-stopped
 
   prowlarr:
-    image: ghcr.io/linuxserver/prowlarr:1.2.2
+    image: ghcr.io/linuxserver/prowlarr:1.8.1259
     container_name: prowlarr
     environment:
       - TZ=${TIMEZONE}
