@@ -1,0 +1,40 @@
+version: "3.9"
+
+services:
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr:3.0.10
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management/sonarr:/config
+      - ${MEDIA_HDD_PATH}/data:/media
+    ports:
+      - 8989:8989
+    restart: unless-stopped
+
+  prowlarr:
+    image: ghcr.io/linuxserver/prowlarr:1.2.2
+    container_name: prowlarr
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management/prowlarr:/config
+    ports:
+      - 9696:9696
+    restart: unless-stopped
+
+  deluge:
+    image: ghcr.io/linuxserver/deluge:2.1.1
+    container_name: deluge
+    ports:
+      - 8112:8112
+    environment:
+      - TZ=${TIMEZONE}
+      - DELUGE_LOGLEVEL=error
+    volumes:
+      - ${VOLUMES_PATH}/media-management/deluge:/config
+      - ${MEDIA_HDD_PATH}/data/downloads:/downloads
+    restart: unless-stopped
