@@ -8,5 +8,7 @@
 ## Services:
 - Utility services
   - Wireguard
+  - Uptime-Kuma
+  - PiHole - todo
 - Home automation
   - Homebridge
