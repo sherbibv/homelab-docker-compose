@@ -5,6 +5,8 @@ services:
     image: ghcr.io/linuxserver/sonarr:3.0.10
     container_name: sonarr
     environment:
+      - PUID=1000
+      - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/media-management/sonarr:/config
