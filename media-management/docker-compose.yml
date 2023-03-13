@@ -14,6 +14,21 @@ services:
     ports:
       - 8989:8989
     restart: unless-stopped
+  
+  bazarr:
+    image: ghcr.io/linuxserver/bazarr:1.2.0
+    container_name: bazarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management/bazarr:/config
+      - ${MEDIA_HDD_PATH}/data/movies:/movies
+      - ${MEDIA_HDD_PATH}/data/series:/tv
+    ports:
+      - 6767:6767
+    restart: unless-stopped
 
   prowlarr:
     image: ghcr.io/linuxserver/prowlarr:1.2.2
