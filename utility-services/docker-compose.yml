@@ -20,7 +20,7 @@ services:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
     healthcheck:
-      test: curl --fail http://localhost:51821 || exit 1
+      test: wget -qO- http://localhost:51821 >/dev/null || exit 1
       interval: 60s
       retries: 5
       timeout: 10s
