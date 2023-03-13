@@ -1,4 +1,4 @@
-version: '3'
+version: '3.4'
 services:
   homebridge:
     image: oznu/homebridge:2023-01-08
@@ -17,6 +17,7 @@ services:
       interval: 60s
       retries: 5
       timeout: 10s
+      start_period: 20s
 
 volumes:
   homebridge:
