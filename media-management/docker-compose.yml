@@ -48,7 +48,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
-      # - JELLYFIN_PublishedServerUrl=${LOCAL_IP} #optional
     group_add: 
       - "44"
     volumes:
@@ -57,9 +56,8 @@ services:
       - ${MEDIA_HDD_PATH}/data/movies:/data/movies
     ports:
       - 8096:8096
-      - 8920:8920 #optional
-      - 7359:7359/udp #optional
-    # - 1900:1900/udp #optional
+      - 8920:8920
+      - 7359:7359/udp
     devices:
       - /dev/dri:/dev/dri #optional
       - /dev/vcsm-cma:/dev/vcsm-cma #optional
