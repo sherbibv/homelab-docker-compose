@@ -10,7 +10,7 @@
     },
     {
       "packagePatterns": ["^ghcr.io\\/linuxserver\\/"],
-      "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+      "versionScheme": "regex:^(?!.*1\\.8\\.1259)(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     }
   ]
 }
