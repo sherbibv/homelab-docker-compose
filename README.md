@@ -9,6 +9,11 @@
 - Utility services
   - Wireguard
   - Uptime-Kuma
-  - PiHole - todo
+- Media-management:
+  - Sonarr
+  - Bazarr
+  - Prowlarr
+  - Jellyfin
+  - Deluge
 - Home automation
   - Homebridge
