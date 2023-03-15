@@ -59,12 +59,7 @@ services:
       - 8920:8920
       - 7359:7359/udp
     devices:
-      - /dev/dri:/dev/dri #optional
-      - /dev/vcsm-cma:/dev/vcsm-cma #optional
-      - /dev/vchiq:/dev/vchiq #optional
-      - /dev/video10:/dev/video10 #optional
-      - /dev/video11:/dev/video11 #optional
-      - /dev/video12:/dev/video12 #optional
+      - /dev/dri:/dev/dri # intel hw acc
     restart: unless-stopped
 
   deluge:
