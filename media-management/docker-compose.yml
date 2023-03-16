@@ -14,7 +14,21 @@ services:
     ports:
       - 8989:8989
     restart: unless-stopped
-  
+
+  radarr:
+    image: ghcr.io/linuxserver/radarr:4.3.2
+    container_name: radarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management/radarr:/config
+      - ${MEDIA_HDD_PATH}/data:/media
+    ports:
+      - 7878:7878
+    restart: unless-stopped
+
   bazarr:
     image: ghcr.io/linuxserver/bazarr:1.2.0
     container_name: bazarr
