@@ -11,6 +11,7 @@
   - Uptime-Kuma
 - Media-management:
   - Sonarr
+  - Radarr
   - Bazarr
   - Prowlarr
   - Jellyfin
