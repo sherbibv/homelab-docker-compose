@@ -4,13 +4,14 @@ services:
   scprime:
     image: scprime/scprime:1.7.2
     container_name: scprime
-    command: -M gctwh
+    command: -M gctwh --disable-api-security
     #network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
       - SCPRIME_WALLET_PASSWORD=${SCPRIME_WALLET_PASSWORD}
       - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
+      - TZ=${TIMEZONE}
     ports:
       - 4280:4280
       - 4281:4281
