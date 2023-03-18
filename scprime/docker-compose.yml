@@ -5,7 +5,7 @@ services:
     image: scprime/scprime:1.7.2
     container_name: scprime
     command: -M gctwh
-    network_mode: host
+    #network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
