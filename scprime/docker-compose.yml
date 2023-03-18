@@ -2,9 +2,9 @@ version: '3.9'
 
 services:
   scprime:
+    image: scprime/scprime:1.7.2
     container_name: scprime
     command: -M gctwh
-    image: scprime/scprime:1.7.2
     network_mode: host
     environment:
       - PUID=1000
@@ -26,6 +26,7 @@ services:
 
   sup-lite:
     image: scprime/supervisor-lite:1.0
+    container_name: scprime-supervisor
     command: --api-addr 192.168.0.110:4280 --host-addr=localhost:4282
     restart: unless-stopped
     environment:
