@@ -18,3 +18,4 @@
   - Deluge
 - Home automation
   - Homebridge
+- ScPrime
