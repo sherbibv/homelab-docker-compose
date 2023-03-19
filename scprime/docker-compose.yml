@@ -36,7 +36,7 @@ services:
       test: > 
           wget -qO- \
           --header='User-Agent: ScPrime-Agent' \
-          http://192.168.0.110:4280/host >/dev/null || exit 1
+          http://192.168.0.110:4280/host || exit 1
       interval: 60s
       retries: 5
       timeout: 10s
