@@ -5,7 +5,6 @@ services:
     image: scprime/scprime:1.7.2
     container_name: scprime
     command: -M gctwh --disable-api-security
-    #network_mode: host
     environment:
       - PUID=1000
       - PGID=1000
@@ -29,9 +28,16 @@ services:
     image: scprime/supervisor-lite:1.0
     container_name: scprime-supervisor
     command: --api-addr 192.168.0.110:4280 --host-addr=localhost:4282
-    restart: unless-stopped
     environment:
+      - TZ=${TIMEZONE}
       - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
+    restart: unless-stopped
+    healthcheck:
+      test: wget -qO- http://192.168.0.110:4280/host >/dev/null || exit 1
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 20s
 
 volumes:
   scp-data:
