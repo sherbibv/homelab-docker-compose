@@ -27,7 +27,7 @@ services:
   sup-lite:
     image: scprime/supervisor-lite:1.0
     container_name: scprime-supervisor
-    command: --api-addr 192.168.0.110:4280 --host-addr=localhost:4282
+    command: --api-addr 192.168.0.110:4280 --host-addr=localhost:4282 --announce-interval=10m --check-ip-interval=2m
     environment:
       - TZ=${TIMEZONE}
       - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
