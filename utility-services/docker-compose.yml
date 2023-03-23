@@ -25,7 +25,25 @@ services:
       retries: 5
       timeout: 10s
       start_period: 20s
-
+      
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:2023.03.0
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "80:80/tcp"
+    environment:
+      TZ=${TIMEZONE}
+      WEBPASSWORD=${PIHOLE_PASSWORD}
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/pihole/etc-pihole/:/etc/pihole/
+      - ${VOLUMES_PATH}/utility-services/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    
   netdata:
     image: netdata/netdata:v1.38.1
     container_name: netdata
