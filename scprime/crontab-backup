@@ -1,3 +1,3 @@
-0 */4 * * * rsync -av --delete ${SCPRIME_METADATA_PATH} ${SCPRIME_BACKUP_PATH} >/var/log/rsync.log 2>&1
+0 */4 * * * rsync -av --delete ${SCPRIME_METADATA_PATH}/ ${SCPRIME_BACKUP_PATH}/scprime-metadata >/var/log/rsync.log 2>&1
 0 1 * * * tar -cvf ${SCPRIME_BACKUP_PATH}/metadata_backup_$(date +"\%Y-\%m-\%d_\%H-\%M-\%S").tar ${SCPRIME_BACKUP_PATH}/scprime-metadata
 0 1 * * * find ${SCPRIME_BACKUP_PATH}/*.tar -mtime +7 -exec rm -f {} \;
