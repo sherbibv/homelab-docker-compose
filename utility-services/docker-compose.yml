@@ -35,8 +35,8 @@ services:
       - "67:67/udp"
       - "80:80/tcp"
     environment:
-      TZ=${TIMEZONE}
-      WEBPASSWORD=${PIHOLE_PASSWORD}
+      TZ: ${TIMEZONE}
+      WEBPASSWORD: ${PIHOLE_PASSWORD}
     volumes:
       - ${VOLUMES_PATH}/utility-services/pihole/etc-pihole/:/etc/pihole/
       - ${VOLUMES_PATH}/utility-services/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
