@@ -40,5 +40,17 @@ services:
       timeout: 10s
       start_period: 60s
 
+  supercronic:
+    image: supercronic:latest
+    command: supercronic -debug backup-crontab
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${SCPRIME_METADATA_PATH}:/scprime-metadata
+      - ${SCPRIME_BACKUP_PATH}:/backup
+    restart: unless-stopped
+
 volumes:
   scp-data:
