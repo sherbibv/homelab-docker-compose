@@ -6,7 +6,6 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - CLOUDFLARE_TOKEN=${CLOUDFLARE_TOKEN}
     command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
     restart: unless-stopped
 
