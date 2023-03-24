@@ -1,3 +1,3 @@
 0 */4 * * * rsync -av --delete /scprime-metadata/ /backup/scprime-metadata >/var/log/rsync.log 2>&1
-0 1 * * *  tar -cvf /backup/metadata_backup_$(date +"%Y-%m-%d_%H-%M-%S").tar /backup/scprime-metadata
-0 1 * * *  find /backup/*.tar -mtime +7 -exec rm -f {} \;
+0 2 * * *  tar -cvf /backup/metadata_backup_$(date +"%Y-%m-%d_%H-%M-%S").tar /backup/scprime-metadata
+0 2 * * *  find /backup/*.tar -mtime +7 -exec rm -f {} \;
