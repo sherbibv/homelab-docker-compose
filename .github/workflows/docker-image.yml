@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build ./scprime --file supercronic.Dockerfile --tag supercronic:$(date +%s)
+      run: ls && docker build . --file /scprime/supercronic.Dockerfile --tag supercronic:$(date +%s)
