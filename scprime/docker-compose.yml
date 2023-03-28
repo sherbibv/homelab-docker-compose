@@ -41,7 +41,7 @@ services:
       start_period: 60s
 
   supercronic:
-    image: supercronic:latest
+    image: ghcr.io/sherbibv/supercronic:latest
     container_name: supercronic-scprime
     command: supercronic -debug backup-crontab
     environment:
