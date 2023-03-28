@@ -17,7 +17,6 @@ services:
       - 4282:4282
       - 4283:4283
       - 4284:4284
-      - 4285:4285
     volumes:
       - ${SCPRIME_METADATA_PATH}:/scp-data
       - ${SCPRIME_DATA_PATH}/space1:/scp1_1
