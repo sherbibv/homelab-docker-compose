@@ -24,6 +24,13 @@ services:
       - ${SCPRIME_DATA_PATH}/space2:/scp1_2
       - ${SCPRIME_DATA_PATH}/space3:/scp1_3
     restart: unless-stopped
+    healthcheck:
+      test: >
+          wget -qO- --no-check-certificate https://192.168.0.110:4283/health || exit 1
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
 
   sup-lite:
     image: scprime/supervisor-lite:1.0
