@@ -27,4 +27,4 @@ jobs:
             file: ./scprime/supercronic.Dockerfile
             push: true
             provenance: false
-            tag: ghcr.io/${{ github.actor }}/supercronic:latest
+            tags: ghcr.io/${{ github.actor }}/supercronic:latest
