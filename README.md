@@ -15,7 +15,11 @@
   - Bazarr
   - Prowlarr
   - Jellyfin
+  - Plex
   - Deluge
 - Home automation
   - Homebridge
 - ScPrime
+  - ScPrime
+  - Supervisor-lite
+  - Supercronic
