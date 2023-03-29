@@ -1,14 +1,5 @@
 version: '3.4'
 services:
-  cloudflare:
-    image: cloudflare/cloudflared:2023.3.1
-    container_name: cloudflare
-    environment:
-      - PUID=1000
-      - PGID=1000
-    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
-    restart: unless-stopped
-
   wireguard:
     image: weejewel/wg-easy:7
     container_name: wireguard
