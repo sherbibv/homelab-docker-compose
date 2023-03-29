@@ -8,8 +8,6 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
-      - SCPRIME_WALLET_PASSWORD=${SCPRIME_WALLET_PASSWORD}
-      - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
       - TZ=${TIMEZONE}
     ports:
       - 4280:4280
@@ -37,7 +35,6 @@ services:
     command: --api-addr ${SERVER_IP}:4280 --host-addr=localhost:4282 --announce-interval=10m --check-ip-interval=2m
     environment:
       - TZ=${TIMEZONE}
-      - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
     restart: unless-stopped
     healthcheck:
       test: > 
