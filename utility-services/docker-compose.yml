@@ -12,11 +12,9 @@ services:
   wireguard:
     image: weejewel/wg-easy:7
     container_name: wireguard
-    dns: 192.168.0.244
     environment:
       - WG_HOST=${DOMAIN_URL}
       - PASSWORD=${WIREGUARD_UI_PASSWORD}
-      - WG_DEFAULT_DNS=192.168.0.244
     volumes:
       - ${VOLUMES_PATH}/utility-services/wireguard:/etc/wireguard
     ports:
