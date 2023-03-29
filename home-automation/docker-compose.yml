@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     network_mode: host
     ports:
-      - "8581:8581/tcp"
+      - 8581:8581/tcp
     environment:
       - TZ=${TIMEZONE}
       - HOMEBRIDGE_CONFIG_UI_PORT=8581
