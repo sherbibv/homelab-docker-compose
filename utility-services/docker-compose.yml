@@ -1,7 +1,7 @@
 version: '3.4'
 
 networks:
-  services:
+  pihole-macvlan:
     external: true
 
 services:
@@ -17,7 +17,7 @@ services:
       TZ: ${TIMEZONE}
       WEBPASSWORD: ${PIHOLE_PASSWORD}
       PIHOLE_DNS_: 1.1.1.1
-      ServerIP: ${SERVER_IP}
+      ServerIP: 192.168.0.253
     volumes:
       - ${VOLUMES_PATH}/utility-services/pihole/etc-pihole/:/etc/pihole/
       - ${VOLUMES_PATH}/utility-services/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
@@ -28,7 +28,8 @@ services:
       - 127.0.0.1
       - 1.1.1.1
     networks:
-      - services
+      - pihole-macvlan
+      - bridge
 
   wireguard:
     image: weejewel/wg-easy:7
