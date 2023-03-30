@@ -58,6 +58,7 @@ services:
   supercronic:
     image: ghcr.io/sherbibv/supercronic:latest
     container_name: supercronic-scprime
+    network_mode: none
     command: supercronic -debug backup-crontab
     environment:
       - PUID=1000
@@ -67,8 +68,6 @@ services:
       - ${SCPRIME_METADATA_PATH}:/scprime-metadata
       - ${SCPRIME_BACKUP_PATH}:/backup
     restart: unless-stopped
-    networks:
-      - none
 
 volumes:
   scp-data:
