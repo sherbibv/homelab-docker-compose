@@ -1,13 +1,8 @@
-version: '3.9'
+version: '3.4'
 
 networks:
   services:
-    name: "services"
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.30.0.0/16
-          gateway: 172.30.0.1
+    external: true
 
 services:
   pihole:
@@ -33,17 +28,16 @@ services:
       - 127.0.0.1
       - 1.1.1.1
     networks:
-      services:
-        ipv4_address: 172.30.0.200
+      - services
 
   wireguard:
     image: weejewel/wg-easy:7
     container_name: wireguard
-    dns: 172.30.0.200
+    dns: 192.168.0.253
     environment:
       - WG_HOST=${DOMAIN_URL}
       - PASSWORD=${WIREGUARD_UI_PASSWORD}
-      - WG_DEFAULT_DNS=172.30.0.200
+      - WG_DEFAULT_DNS=192.168.0.253
     volumes:
       - ${VOLUMES_PATH}/utility-services/wireguard:/etc/wireguard
     ports:
@@ -58,8 +52,6 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
     depends_on:
       - pihole
-    networks:
-      - services
     healthcheck:
       test: wget -qO- http://localhost:51821 >/dev/null || exit 1
       interval: 60s
