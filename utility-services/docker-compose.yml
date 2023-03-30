@@ -36,11 +36,9 @@ services:
   wireguard:
     image: weejewel/wg-easy:7
     container_name: wireguard
-    dns: 192.168.0.253
     environment:
       - WG_HOST=${DOMAIN_URL}
       - PASSWORD=${WIREGUARD_UI_PASSWORD}
-      - WG_DEFAULT_DNS=192.168.0.253
     volumes:
       - ${VOLUMES_PATH}/utility-services/wireguard:/etc/wireguard
     ports:
@@ -53,8 +51,6 @@ services:
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
-    depends_on:
-      - pihole
     healthcheck:
       test: wget -qO- http://localhost:51821 >/dev/null || exit 1
       interval: 60s
