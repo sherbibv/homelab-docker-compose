@@ -1,8 +1,13 @@
-version: '3.4'
+version: '3.9'
 
 networks:
   services:
-    external: true
+    name: "services"
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/16
+          gateway: 172.30.0.1
 
 services:
   pihole:
@@ -28,16 +33,17 @@ services:
       - 127.0.0.1
       - 1.1.1.1
     networks:
-      - services
+      services:
+        ipv4_address: 172.30.0.100
 
   wireguard:
     image: weejewel/wg-easy:7
     container_name: wireguard
-    dns: 192.168.0.252
+    dns: 172.30.0.100
     environment:
       - WG_HOST=${DOMAIN_URL}
       - PASSWORD=${WIREGUARD_UI_PASSWORD}
-      - WG_DEFAULT_DNS=192.168.0.252
+      - WG_DEFAULT_DNS=172.30.0.100
     volumes:
       - ${VOLUMES_PATH}/utility-services/wireguard:/etc/wireguard
     ports:
