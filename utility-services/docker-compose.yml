@@ -34,16 +34,16 @@ services:
       - 1.1.1.1
     networks:
       services:
-        ipv4_address: 172.30.0.100
+        ipv4_address: 172.30.0.200
 
   wireguard:
     image: weejewel/wg-easy:7
     container_name: wireguard
-    dns: 172.30.0.100
+    dns: 172.30.0.200
     environment:
       - WG_HOST=${DOMAIN_URL}
       - PASSWORD=${WIREGUARD_UI_PASSWORD}
-      - WG_DEFAULT_DNS=172.30.0.100
+      - WG_DEFAULT_DNS=172.30.0.200
     volumes:
       - ${VOLUMES_PATH}/utility-services/wireguard:/etc/wireguard
     ports:
