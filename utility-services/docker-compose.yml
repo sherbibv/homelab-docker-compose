@@ -3,6 +3,8 @@ version: '3.4'
 networks:
   pihole-macvlan:
     external: true
+  pihole-bridge:
+    external: true
 
 services:
   pihole:
@@ -29,7 +31,7 @@ services:
       - 1.1.1.1
     networks:
       - pihole-macvlan
-      - bridge
+      - pihole-bridge
 
   wireguard:
     image: weejewel/wg-easy:7
