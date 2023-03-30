@@ -3,42 +3,16 @@ version: '3.4'
 networks:
   pihole-macvlan:
     external: true
-  pihole-bridge:
-    external: true
 
 services:
-  pihole:
-    container_name: pihole
-    image: pihole/pihole:2023.02.2
-    ports:
-      - "53:53/tcp"
-      - "53:53/udp"
-      - "67:67/udp"
-      - "8080:80/tcp"
-    environment:
-      TZ: ${TIMEZONE}
-      WEBPASSWORD: ${PIHOLE_PASSWORD}
-      PIHOLE_DNS_: 1.1.1.1
-      ServerIP: 192.168.0.253
-    volumes:
-      - ${VOLUMES_PATH}/utility-services/pihole/etc-pihole/:/etc/pihole/
-      - ${VOLUMES_PATH}/utility-services/pihole/etc-dnsmasq.d/:/etc/dnsmasq.d/
-    cap_add:
-      - NET_ADMIN
-    restart: unless-stopped
-    dns:
-      - 127.0.0.1
-      - 1.1.1.1
-    networks:
-      - pihole-macvlan
-      - pihole-bridge
-
   wireguard:
     image: weejewel/wg-easy:7
     container_name: wireguard
+    dns: 192.168.0.253
     environment:
       - WG_HOST=${DOMAIN_URL}
       - PASSWORD=${WIREGUARD_UI_PASSWORD}
+      - WG_DEFAULT_DNS=192.168.0.253
     volumes:
       - ${VOLUMES_PATH}/utility-services/wireguard:/etc/wireguard
     ports:
