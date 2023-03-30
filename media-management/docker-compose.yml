@@ -1,5 +1,9 @@
 version: "3.9"
 
+networks:
+  media-management:
+    external: true
+
 services:
   sonarr:
     image: ghcr.io/linuxserver/sonarr:3.0.10
@@ -14,6 +18,8 @@ services:
     ports:
       - 8989:8989
     restart: unless-stopped
+    networks:
+      - media-management
 
   radarr:
     image: ghcr.io/linuxserver/radarr:4.3.2
@@ -28,6 +34,8 @@ services:
     ports:
       - 7878:7878
     restart: unless-stopped
+    networks:
+      - media-management
 
   bazarr:
     image: ghcr.io/linuxserver/bazarr:1.2.0
@@ -43,6 +51,8 @@ services:
     ports:
       - 6767:6767
     restart: unless-stopped
+    networks:
+      - media-management
 
   prowlarr:
     image: ghcr.io/linuxserver/prowlarr:1.2.2
@@ -54,6 +64,8 @@ services:
     ports:
       - 9696:9696
     restart: unless-stopped
+    networks:
+      - media-management
 
   jellyfin:
     image: ghcr.io/linuxserver/jellyfin:amd64-10.8.9
@@ -75,6 +87,8 @@ services:
     devices:
       - /dev/dri:/dev/dri # intel hw acc
     restart: unless-stopped
+    networks:
+      - media-management
 
   plex:
     image: lscr.io/linuxserver/plex:1.31.3
@@ -92,6 +106,8 @@ services:
     devices:
       - /dev/dri:/dev/dri # intel hw acc
     restart: unless-stopped
+    networks:
+      - media-management
 
   deluge:
     image: ghcr.io/linuxserver/deluge:2.1.1
@@ -105,3 +121,5 @@ services:
       - ${VOLUMES_PATH}/media-management/deluge:/config
       - ${MEDIA_HDD_PATH}/data/downloads:/downloads
     restart: unless-stopped
+    networks:
+      - media-management
