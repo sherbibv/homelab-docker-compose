@@ -94,6 +94,8 @@ services:
     image: lscr.io/linuxserver/plex:1.31.3
     container_name: plex
     #network_mode: host
+    ports:
+      - 32400:32400
     environment:
       - PUID=1000
       - PGID=1000
