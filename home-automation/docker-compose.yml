@@ -1,14 +1,11 @@
 version: '3.4'
 
-networks:
-  home-automation:
-    external: true
-
 services:
   homebridge:
     image: oznu/homebridge:2023-01-08
     container_name: homebridge
     restart: unless-stopped
+    network_mode: host
     ports:
       - 8581:8581/tcp
     environment:
@@ -22,8 +19,6 @@ services:
       retries: 5
       timeout: 10s
       start_period: 20s
-    networks:
-      - home-automation
 
 volumes:
   homebridge:
