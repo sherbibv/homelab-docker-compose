@@ -7,6 +7,7 @@ services:
     environment:
       - WG_HOST=${DOMAIN_URL}
       - PASSWORD=${WIREGUARD_UI_PASSWORD}
+      - WG_ALLOWED_IPS=${SERVER_SUBNET}
     volumes:
       - ${VOLUMES_PATH}/utility-services/wireguard:/etc/wireguard
     ports:
