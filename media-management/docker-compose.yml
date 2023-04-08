@@ -110,6 +110,24 @@ services:
     networks:
       - media-management
 
+  tvheadend:
+    image: lscr.io/linuxserver/tvheadend:amd64-a10f7ea4-ls157
+    container_name: tvheadend
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management/tvheadend/config:/config
+      - ${VOLUMES_PATH}/media-management/tvheadend/recordings:/recordings
+    ports:
+      - 9981:9981
+      - 9982:9982
+    restart: unless-stopped
+    devices:
+      - /dev/dvb:/dev/dvb
+      - /dev/dri:/dev/dri
+
   deluge:
     image: ghcr.io/linuxserver/deluge:2.1.1
     container_name: deluge
