@@ -74,6 +74,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
+      - HEALTHCHECK_URL=http://localhost:8096/health
     group_add: 
       - "44"
     volumes:
