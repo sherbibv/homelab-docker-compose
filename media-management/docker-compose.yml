@@ -129,7 +129,7 @@ services:
       - /dev/dri:/dev/dri
 
   plextraktsync-scheduler:
-    image: mcuadros/ofelia:latest
+    image: mcuadros/ofelia:v0.3.7
     container_name: plextraktsync-scheduler
     depends_on:
       - plextraktsync
@@ -141,7 +141,7 @@ services:
       ofelia.job-run.plextraktsync.container: "plextraktsync"
 
   plextraktsync:
-    image: ghcr.io/taxel/plextraktsync:latest
+    image: ghcr.io/taxel/plextraktsync:0.25.17
     container_name: plextraktsync
     command: sync
     volumes:
