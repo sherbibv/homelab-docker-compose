@@ -53,7 +53,7 @@ services:
       - ${SCPRIME_BACKUP_PATH}:/scprime-backup
 
   dockerproxy:
-    image: ghcr.io/tecnativa/docker-socket-proxy:latest
+    image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1
     container_name: dockerproxy
     environment:
       - CONTAINERS=1
