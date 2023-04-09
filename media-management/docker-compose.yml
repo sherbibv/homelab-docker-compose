@@ -127,6 +127,8 @@ services:
     devices:
       - /dev/dvb:/dev/dvb
       - /dev/dri:/dev/dri
+    networks:
+      - media-management
 
   plextraktsync-scheduler:
     image: mcuadros/ofelia:v0.3.7
@@ -139,6 +141,8 @@ services:
     labels:
       ofelia.job-run.plextraktsync.schedule: "@every 6h"
       ofelia.job-run.plextraktsync.container: "plextraktsync"
+    networks:
+      - media-management
 
   plextraktsync:
     image: ghcr.io/taxel/plextraktsync:0.25.17
@@ -146,6 +150,8 @@ services:
     command: sync
     volumes:
       - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/config
+    networks:
+      - media-management
 
   tautulli:
     image: ghcr.io/tautulli/tautulli:v2.12.2
@@ -159,6 +165,8 @@ services:
       - TZ=${TIMEZONE}
     ports:
       - 8181:8181
+    networks:
+      - media-management
 
   deluge:
     image: ghcr.io/linuxserver/deluge:2.1.1
