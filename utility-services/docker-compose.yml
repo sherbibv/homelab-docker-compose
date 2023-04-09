@@ -60,7 +60,7 @@ services:
       - PUID=1000
       - PGID=1000
     ports:
-      - 8080:80
+      - 8081:80
       - 8443:443
     volumes:
       - ${VOLUMES_PATH}/utility-services/speedtest/config:/config
