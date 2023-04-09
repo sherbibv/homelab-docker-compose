@@ -36,7 +36,7 @@ services:
       - ${VOLUMES_PATH}/utility-services/uptime-kuma/data:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
-      - "1337:3001"
+      - 1337:3001
     restart: unless-stopped
 
   homepage:
