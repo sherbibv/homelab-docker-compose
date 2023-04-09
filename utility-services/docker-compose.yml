@@ -51,7 +51,6 @@ services:
       - ${MEDIA_HDD_PATH}:/media
       - ${SCPRIME_DATA_PATH}:/scprime-data
       - ${SCPRIME_BACKUP_PATH}:/scprime-backup
-      - /var/run/docker.sock:/var/run/docker.sock
 
   dockerproxy:
     image: ghcr.io/tecnativa/docker-socket-proxy:v0.1.1
