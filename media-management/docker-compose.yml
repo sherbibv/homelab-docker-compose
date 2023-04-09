@@ -143,8 +143,7 @@ services:
   plextraktsync:
     image: ghcr.io/taxel/plextraktsync:latest
     container_name: plextraktsync
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
+    command: sync
     volumes:
       - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/config
 
