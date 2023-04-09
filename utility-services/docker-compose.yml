@@ -54,7 +54,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
 
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:0.11.12
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.11.12
     container_name: speedtest-tracker
     environment:
       - PUID=1000
