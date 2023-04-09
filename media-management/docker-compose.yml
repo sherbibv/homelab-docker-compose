@@ -147,6 +147,19 @@ services:
     volumes:
       - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/config
 
+  tautulli:
+    image: ghcr.io/tautulli/tautulli:v2.12.2
+    container_name: tautulli
+    restart: unless-stopped
+    volumes:
+      - ${VOLUMES_PATH}/media-management/tautulli/config:/config
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    ports:
+      - 8181:8181
+
   deluge:
     image: ghcr.io/linuxserver/deluge:2.1.1
     container_name: deluge
