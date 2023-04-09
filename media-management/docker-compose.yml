@@ -86,10 +86,16 @@ services:
       - 8920:8920
       - 7359:7359/udp
     devices:
-      - /dev/dri:/dev/dri # intel hw acc
+      - /dev/dri:/dev/dri
     restart: unless-stopped
     networks:
       - media-management
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8096/health | grep -q 'Healthy'
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
 
   plex:
     image: lscr.io/linuxserver/plex:1.31.3
