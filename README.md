@@ -18,6 +18,7 @@
   - Jellyfin
   - Plex
   - TVHeadend
+  - Tautulli
   - Deluge
   - PlexTraktSync-scheduler
   - PlexTraktSync
