@@ -107,7 +107,7 @@ services:
 
   scrutiny:
     container_name: scrutiny
-    image: ghcr.io/analogj/scrutiny:0.7.1
+    image: ghcr.io/analogj/scrutiny:master-omnibus
     cap_add:
       - SYS_RAWIO
     ports:
