@@ -100,5 +100,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${SCPRIME_METADATA_PATH}:/scprime-metadata
-      - ${BACKUP_PATH}/scprime:/backup
+      - ${BACKUP_PATH}/scprime:/scprime-backup
+      - ${VOLUMES_PATH}/utility-services/homepage:/homepage
+      - ${BACKUP_PATH}/homepage:/homepage-backup
     restart: unless-stopped
