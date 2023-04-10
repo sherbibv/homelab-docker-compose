@@ -91,7 +91,7 @@ services:
 
   supercronic:
     image: ghcr.io/sherbibv/supercronic:latest
-    container_name: supercronic-scprime
+    container_name: supercronic
     network_mode: none
     command: supercronic -debug backup-crontab
     environment:
