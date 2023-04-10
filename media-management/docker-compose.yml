@@ -146,6 +146,8 @@ services:
   plextraktsync-scheduler:
     image: mcuadros/ofelia:v0.3.7
     container_name: plextraktsync-scheduler
+    environment:
+      - TZ=${TIMEZONE}
     depends_on:
       - plextraktsync
     command: daemon --docker
@@ -161,6 +163,8 @@ services:
     image: ghcr.io/taxel/plextraktsync:0.25.17
     container_name: plextraktsync
     command: sync
+    environment:
+      - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/config
     networks:
