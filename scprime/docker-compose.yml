@@ -47,19 +47,5 @@ services:
       timeout: 10s
       start_period: 60s
 
-  supercronic:
-    image: ghcr.io/sherbibv/supercronic:latest
-    container_name: supercronic-scprime
-    network_mode: none
-    command: supercronic -debug backup-crontab
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TIMEZONE}
-    volumes:
-      - ${SCPRIME_METADATA_PATH}:/scprime-metadata
-      - ${BACKUP_PATH}/scprime:/backup
-    restart: unless-stopped
-
 volumes:
   scp-data:
