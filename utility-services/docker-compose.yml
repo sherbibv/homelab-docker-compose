@@ -1,5 +1,9 @@
 version: '3.4'
 
+networks:
+  utility-services:
+    external: true
+
 services:
   wireguard:
     image: weejewel/wg-easy:7
@@ -38,6 +42,8 @@ services:
     ports:
       - 1337:3001
     restart: unless-stopped
+    networks:
+      - utility-services
 
   homepage:
     image: ghcr.io/benphelps/homepage:v0.6.16
@@ -51,6 +57,8 @@ services:
       - ${MEDIA_HDD_PATH}:/media
       - ${SCPRIME_DATA_PATH}:/scprime-data
       - ${SCPRIME_BACKUP_PATH}:/scprime-backup
+    networks:
+      - utility-services
 
   dockerproxy:
     image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1
@@ -63,6 +71,8 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
+    networks:
+      - utility-services
 
   speedtest-tracker:
     image: ghcr.io/alexjustesen/speedtest-tracker:v0.11.12
@@ -76,3 +86,5 @@ services:
     volumes:
       - ${VOLUMES_PATH}/utility-services/speedtest/config:/config
     restart: unless-stopped
+    networks:
+      - utility-services
