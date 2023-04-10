@@ -98,7 +98,7 @@ services:
       start_period: 1m00s
 
   plex:
-    image: lscr.io/linuxserver/plex:1.31.3
+    image: lscr.io/linuxserver/plex:1.32.0
     container_name: plex
     ports:
       - 32400:32400
