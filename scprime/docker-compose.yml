@@ -58,7 +58,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${SCPRIME_METADATA_PATH}:/scprime-metadata
-      - ${SCPRIME_BACKUP_PATH}:/backup
+      - ${BACKUP_PATH}/scprime:/backup
     restart: unless-stopped
 
 volumes:

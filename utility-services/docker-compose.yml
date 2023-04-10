@@ -56,7 +56,7 @@ services:
       - ${VOLUMES_PATH}/utility-services/homepage/config:/app/config
       - ${MEDIA_HDD_PATH}:/media
       - ${SCPRIME_DATA_PATH}:/scprime-data
-      - ${SCPRIME_BACKUP_PATH}:/scprime-backup
+      - ${BACKUP_PATH}:/backup
     networks:
       - utility-services
 
