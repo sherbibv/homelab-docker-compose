@@ -113,6 +113,7 @@ services:
       - ${MEDIA_HDD_PATH}/data/movies:/movies
     devices:
       - /dev/dri:/dev/dri # intel hw acc
+      - /dev/dvb:/dev/dvb
     restart: unless-stopped
     networks:
       - media-management
