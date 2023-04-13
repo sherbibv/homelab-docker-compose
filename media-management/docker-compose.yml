@@ -109,6 +109,7 @@ services:
       - VERSION=docker
     volumes:
       - ${VOLUMES_PATH}/media-management/plex:/config
+      - ${VOLUMES_PATH}/media-management/plex/transponders:/usr/lib/plexmediaserver/Resources/Tuner/Shared/scanners/dvbc/transponders
       - ${MEDIA_HDD_PATH}/data/series:/tv
       - ${MEDIA_HDD_PATH}/data/movies:/movies
     devices:
@@ -133,7 +134,6 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/media-management/tvheadend/config:/config
-      - ${VOLUMES_PATH}/media-management/tvheadend/transponders/:/usr/lib/plexmediaserver/Resources/Tuner/Shared/scanners/dvbc/transponders
       - ${VOLUMES_PATH}/media-management/tvheadend/recordings:/recordings
     ports:
       - 9981:9981
