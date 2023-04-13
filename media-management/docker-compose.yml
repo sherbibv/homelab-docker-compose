@@ -140,13 +140,6 @@ services:
     devices:
       - /dev/dvb:/dev/dvb
       - /dev/dri:/dev/dri
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 50M
-        reservations:
-          cpus: '1'
     networks:
       - media-management
 
