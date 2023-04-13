@@ -108,7 +108,8 @@ services:
       - TZ=${TIMEZONE}
       - VERSION=docker
     volumes:
-      - ${VOLUMES_PATH}/media-management/plex:/config
+      - ${VOLUMES_PATH}/media-management/plex:/configpw
+      - ${VOLUMES_PATH}/media-management/plex/usr:/usr
       - ${MEDIA_HDD_PATH}/data/series:/tv
       - ${MEDIA_HDD_PATH}/data/movies:/movies
     devices:
