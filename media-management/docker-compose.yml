@@ -109,7 +109,6 @@ services:
       - VERSION=docker
     volumes:
       - ${VOLUMES_PATH}/media-management/plex:/config
-      - ${VOLUMES_PATH}/media-management/plex/transponders:/usr/lib/plexmediaserver/Resources/Tuner/Shared/scanners/dvbc/transponders
       - ${MEDIA_HDD_PATH}/data/series:/tv
       - ${MEDIA_HDD_PATH}/data/movies:/movies
     devices:
