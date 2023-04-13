@@ -113,7 +113,6 @@ services:
       - ${MEDIA_HDD_PATH}/data/movies:/movies
     devices:
       - /dev/dri:/dev/dri # intel hw acc
-      - /dev/dvb:/dev/dvb
     restart: unless-stopped
     networks:
       - media-management
@@ -141,6 +140,13 @@ services:
     devices:
       - /dev/dvb:/dev/dvb
       - /dev/dri:/dev/dri
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 50M
+        reservations:
+          cpus: '1'
     networks:
       - media-management
 
