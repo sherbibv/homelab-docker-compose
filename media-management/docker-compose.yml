@@ -133,6 +133,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/media-management/tvheadend/config:/config
+      - ${VOLUMES_PATH}/media-management/tvheadend/transponders/:/usr/lib/plexmediaserver/Resources/Tuner/Shared/scanners/dvbc/transponders
       - ${VOLUMES_PATH}/media-management/tvheadend/recordings:/recordings
     ports:
       - 9981:9981
