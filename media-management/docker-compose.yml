@@ -133,7 +133,7 @@ services:
     ports:
       - 8866:8866
     volumes:
-      - ${VOLUMES_PATH}/nextpvr/config:/config
+      - ${VOLUMES_PATH}/media-management/nextpvr/config:/config
       - ${MEDIA_HDD_PATH}/data/nextpvr/buffer:/buffer
       - ${MEDIA_HDD_PATH}/data/nextpvr/recordings:/recordings
     devices:
