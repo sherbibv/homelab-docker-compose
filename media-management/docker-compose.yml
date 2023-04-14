@@ -125,6 +125,7 @@ services:
 
   nextpvr:
     image: nextpvr/nextpvr_amd64:latest
+    container_name: nextpvr
     environment:
       - TZ=${TIMEZONE}
       - PUID=1000
