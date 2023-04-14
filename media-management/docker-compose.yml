@@ -171,7 +171,7 @@ services:
       - media-management
 
   tautulli:
-    image: ghcr.io/tautulli/tautulli:v2.12.2
+    image: ghcr.io/tautulli/tautulli:v2.12.3
     container_name: tautulli
     restart: unless-stopped
     volumes:
