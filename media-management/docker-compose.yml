@@ -156,6 +156,7 @@ services:
     labels:
       ofelia.job-run.plextraktsync.schedule: "@every 6h"
       ofelia.job-run.plextraktsync.container: "plextraktsync"
+    restart: unless-stopped
     networks:
       - media-management
 
