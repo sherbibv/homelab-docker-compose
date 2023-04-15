@@ -18,10 +18,10 @@
   - Jellyfin
   - Plex
   - NextPVR
-  - Tautulli
-  - Deluge
   - PlexTraktSync-scheduler
   - PlexTraktSync
+  - Tautulli
+  - Deluge
 - Home automation
   - Homebridge
 - ScPrime
