@@ -10,6 +10,8 @@
   - Wireguard
   - Uptime-Kuma
   - Homepage
+  - Speedtest-tracker
+  - Supercronic
 - Media-management:
   - Sonarr
   - Radarr
@@ -27,7 +29,6 @@
 - ScPrime
   - ScPrime
   - Supervisor-lite
-  - Supercronic
 
 Obs:
 In order to set up plextraktsync you will need to first start the container in interactive mode and perform the login.
