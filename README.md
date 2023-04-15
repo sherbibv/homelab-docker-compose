@@ -17,7 +17,7 @@
   - Prowlarr
   - Jellyfin
   - Plex
-  - TVHeadend
+  - NextPVR
   - Tautulli
   - Deluge
   - PlexTraktSync-scheduler
