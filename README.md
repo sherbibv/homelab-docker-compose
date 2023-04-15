@@ -10,6 +10,10 @@
   - Wireguard
   - Uptime-Kuma
   - Homepage
+  - Dockerproxy
+  - Speedtest-tracker
+  - Supercronic
+  - Scrutiny
 - Media-management:
   - Sonarr
   - Radarr
@@ -17,17 +21,16 @@
   - Prowlarr
   - Jellyfin
   - Plex
-  - TVHeadend
-  - Tautulli
-  - Deluge
+  - NextPVR
   - PlexTraktSync-scheduler
   - PlexTraktSync
+  - Tautulli
+  - Deluge
 - Home automation
   - Homebridge
 - ScPrime
   - ScPrime
   - Supervisor-lite
-  - Supercronic
 
 Obs:
 In order to set up plextraktsync you will need to first start the container in interactive mode and perform the login.
