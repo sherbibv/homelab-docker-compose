@@ -10,8 +10,10 @@
   - Wireguard
   - Uptime-Kuma
   - Homepage
+  - Dockerproxy
   - Speedtest-tracker
   - Supercronic
+  - Scrutiny
 - Media-management:
   - Sonarr
   - Radarr
