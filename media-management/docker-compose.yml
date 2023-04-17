@@ -22,7 +22,7 @@ services:
       - media-management
 
   radarr:
-    image: ghcr.io/linuxserver/radarr:4.4.4
+    image: ghcr.io/linuxserver/radarr:4.3.2
     container_name: radarr
     environment:
       - PUID=1000
@@ -75,7 +75,7 @@ services:
       - PGID=1000
       - TZ=${TIMEZONE}
       - HEALTHCHECK_URL=http://localhost:8096/health
-    group_add: 
+    group_add:
       - "44"
     volumes:
       - ${VOLUMES_PATH}/media-management/jellyfin:/config
@@ -154,17 +154,15 @@ services:
     command: daemon --docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    restart: unless-stopped
     labels:
-      ofelia.job-run.plextraktsync.schedule: "@every 30s"
+      ofelia.job-run.plextraktsync.schedule: "@every 6h"
       ofelia.job-run.plextraktsync.container: "plextraktsync"
-      ofelia.job-local.nextpvr.schedule: "@every 30s"
-      ofelia.job-local.nextpvr.command: "docker restart nextpvr"
+    restart: unless-stopped
     networks:
       - media-management
 
   plextraktsync:
-    image: ghcr.io/taxel/plextraktsync:0.26.1
+    image: ghcr.io/taxel/plextraktsync:0.25.17
     container_name: plextraktsync
     command: sync
     environment:
