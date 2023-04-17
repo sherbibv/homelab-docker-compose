@@ -142,10 +142,13 @@ services:
     restart: unless-stopped
     networks:
       - media-management
+    labels:
+      ofelia.job-local.nextpvr.schedule: "0 0 3 * * *"
+      ofelia.job-local.nextpvr.command: "docker restart nextpvr"
 
-  plextraktsync-scheduler:
+  ofelia:
     image: mcuadros/ofelia:v0.3.7
-    container_name: plextraktsync-scheduler
+    container_name: ofelia
     environment:
       - TZ=${TIMEZONE}
     depends_on:
@@ -154,11 +157,6 @@ services:
     command: daemon --docker
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-    labels:
-      ofelia.job-run.plextraktsync.schedule: "@every 6h"
-      ofelia.job-run.plextraktsync.container: "plextraktsync"
-      ofelia.job-local.nextpvr.schedule: "0 0 3 * * *"
-      ofelia.job-local.nextpvr.command: "docker restart nextpvr"
     restart: unless-stopped
     networks:
       - media-management
@@ -173,6 +171,9 @@ services:
       - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/config
     networks:
       - media-management
+    labels:
+      ofelia.job-run.plextraktsync.schedule: "@every 6h"
+      ofelia.job-run.plextraktsync.container: "plextraktsync"
 
   tautulli:
     image: ghcr.io/tautulli/tautulli:v2.12.3
