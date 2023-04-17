@@ -22,7 +22,7 @@ services:
       - media-management
 
   radarr:
-    image: ghcr.io/linuxserver/radarr:4.3.2
+    image: ghcr.io/linuxserver/radarr:4.4.4
     container_name: radarr
     environment:
       - PUID=1000
@@ -164,7 +164,7 @@ services:
       - media-management
 
   plextraktsync:
-    image: ghcr.io/taxel/plextraktsync:0.25.17
+    image: ghcr.io/taxel/plextraktsync:0.26.1
     container_name: plextraktsync
     command: sync
     environment:
