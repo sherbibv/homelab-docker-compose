@@ -143,6 +143,7 @@ services:
     networks:
       - media-management
     labels:
+      ofelia.enabled: "true"
       ofelia.job-local.nextpvr.schedule: "0 0 3 * * *"
       ofelia.job-local.nextpvr.command: "docker restart nextpvr"
 
@@ -172,6 +173,7 @@ services:
     networks:
       - media-management
     labels:
+      ofelia.enabled: "true"
       ofelia.job-run.plextraktsync.schedule: "@every 6h"
       ofelia.job-run.plextraktsync.container: "plextraktsync"
 
