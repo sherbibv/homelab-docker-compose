@@ -22,7 +22,6 @@
   - Jellyfin
   - Plex
   - NextPVR
-  - PlexTraktSync-scheduler
   - PlexTraktSync
   - Tautulli
   - Deluge
