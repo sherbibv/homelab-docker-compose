@@ -91,7 +91,7 @@ services:
       - utility-services
 
   supercronic:
-    image: ghcr.io/sherbibv/supercronic:0.0.2
+    image: ghcr.io/sherbibv/supercronic:0.0.3
     container_name: supercronic
     network_mode: none
     command: supercronic -debug backup-crontab
