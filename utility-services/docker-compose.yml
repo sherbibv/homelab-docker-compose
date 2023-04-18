@@ -104,6 +104,7 @@ services:
       - ${BACKUP_PATH}/scprime:/scprime-backup
       - ${VOLUMES_PATH}/utility-services/homepage:/homepage
       - ${BACKUP_PATH}/homepage:/homepage-backup
+      - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
 
   scrutiny:
