@@ -123,28 +123,8 @@ services:
       retries: 3
       start_period: 1m00s
 
-#  nextpvr:
-#    image: nextpvr/nextpvr_amd64:latest
-#    container_name: nextpvr
-#    environment:
-#      - TZ=${TIMEZONE}
-#      - PUID=1000
-#      - PGID=1000
-#    ports:
-#      - 8866:8866
-#    volumes:
-#      - ${VOLUMES_PATH}/media-management/nextpvr/config:/config
-#      - ${MEDIA_HDD_PATH}/data/nextpvr/buffer:/buffer
-#      - ${MEDIA_HDD_PATH}/data/nextpvr/recordings:/recordings
-#    devices:
-#      - /dev/dvb:/dev/dvb
-#      - /dev/dri:/dev/dri
-#    restart: unless-stopped
-#    networks:
-#      - media-management
-
   tvheadend:
-    image: lscr.io/linuxserver/tvheadend:amd64-a10f7ea4-ls157
+    image: lscr.io/linuxserver/tvheadend:amd64-f32c7c59-ls159
     container_name: tvheadend
     environment:
       - PUID=1000
