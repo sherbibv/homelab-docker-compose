@@ -150,6 +150,7 @@ services:
     ports:
       - 9981:9981
       - 9982:9982
+      - 9983:9983
     restart: unless-stopped
     devices:
       - /dev/dvb:/dev/dvb
