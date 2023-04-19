@@ -14,7 +14,7 @@
     },
     {
       "packagePatterns": ["^ghcr.io\\/linuxserver\\/prowlarr"],
-      "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d{0,2}+)?$"
+      "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     }
   ]
 }
