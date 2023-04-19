@@ -20,6 +20,13 @@ services:
     restart: unless-stopped
     networks:
       - media-management
+    healthcheck:
+      test: >
+          curl --connect-timeout 15 --silent --show-error --fail http://localhost:8989/ping | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
 
   radarr:
     image: ghcr.io/linuxserver/radarr:4.4.4
@@ -36,6 +43,13 @@ services:
     restart: unless-stopped
     networks:
       - media-management
+    healthcheck:
+      test: >
+          curl --connect-timeout 15 --silent --show-error --fail http://localhost:7878/ping | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
 
   bazarr:
     image: ghcr.io/linuxserver/bazarr:1.2.0
