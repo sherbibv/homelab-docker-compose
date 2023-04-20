@@ -20,6 +20,13 @@ services:
     restart: unless-stopped
     networks:
       - media-management
+    healthcheck:
+      test: >
+          curl --connect-timeout 15 --silent --show-error --fail http://localhost:8989/ping | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
 
   radarr:
     image: ghcr.io/linuxserver/radarr:4.4.4
@@ -36,6 +43,13 @@ services:
     restart: unless-stopped
     networks:
       - media-management
+    healthcheck:
+      test: >
+          curl --connect-timeout 15 --silent --show-error --fail http://localhost:7878/ping | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
 
   bazarr:
     image: ghcr.io/linuxserver/bazarr:1.2.0
@@ -123,26 +137,6 @@ services:
       retries: 3
       start_period: 1m00s
 
-#  nextpvr:
-#    image: nextpvr/nextpvr_amd64:latest
-#    container_name: nextpvr
-#    environment:
-#      - TZ=${TIMEZONE}
-#      - PUID=1000
-#      - PGID=1000
-#    ports:
-#      - 8866:8866
-#    volumes:
-#      - ${VOLUMES_PATH}/media-management/nextpvr/config:/config
-#      - ${MEDIA_HDD_PATH}/data/nextpvr/buffer:/buffer
-#      - ${MEDIA_HDD_PATH}/data/nextpvr/recordings:/recordings
-#    devices:
-#      - /dev/dvb:/dev/dvb
-#      - /dev/dri:/dev/dri
-#    restart: unless-stopped
-#    networks:
-#      - media-management
-
   tvheadend:
     image: lscr.io/linuxserver/tvheadend:amd64-f32c7c59-ls159
     container_name: tvheadend
@@ -156,6 +150,7 @@ services:
     ports:
       - 9981:9981
       - 9982:9982
+      - 9983:9983
     restart: unless-stopped
     devices:
       - /dev/dvb:/dev/dvb
@@ -203,3 +198,9 @@ services:
     restart: unless-stopped
     networks:
       - media-management
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8112 || exit 1
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s

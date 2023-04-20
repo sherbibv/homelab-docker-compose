@@ -76,7 +76,7 @@ services:
       - utility-services
 
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.11.12
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.11.13
     container_name: speedtest-tracker
     environment:
       - PUID=1000
@@ -91,7 +91,7 @@ services:
       - utility-services
 
   supercronic:
-    image: ghcr.io/sherbibv/supercronic:0.0.5
+    image: ghcr.io/sherbibv/supercronic:0.0.6
     container_name: supercronic
     network_mode: none
     command: supercronic -debug backup-crontab
@@ -109,7 +109,7 @@ services:
 
   scrutiny:
     container_name: scrutiny
-    image: ghcr.io/analogj/scrutiny:master-omnibus
+    image: ghcr.io/analogj/scrutiny:v0.7.1-omnibus
     cap_add:
       - SYS_RAWIO
     ports:

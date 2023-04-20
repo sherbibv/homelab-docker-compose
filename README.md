@@ -21,7 +21,7 @@
   - Prowlarr
   - Jellyfin
   - Plex
-  - NextPVR
+  - TvHeadEnd
   - PlexTraktSync
   - Tautulli
   - Deluge
