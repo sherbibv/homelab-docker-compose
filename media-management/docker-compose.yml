@@ -159,7 +159,7 @@ services:
       - media-management
 
   plextraktsync:
-    image: ghcr.io/taxel/plextraktsync:0.26.1
+    image: ghcr.io/taxel/plextraktsync:0.26.2
     container_name: plextraktsync
     command: sync
     environment:
