@@ -150,3 +150,5 @@ services:
     ports:
       - 8200:8200
     restart: unless-stopped
+    networks:
+      - utility-services
