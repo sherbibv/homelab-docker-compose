@@ -186,6 +186,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 9999:8080
+    restart: unless-stopped
     networks:
       - utility-services
     healthcheck:
@@ -194,3 +195,19 @@ services:
       timeout: 30s
       retries: 5
       start_period: 30s
+
+  homebox:
+    image: ghcr.io/hay-kot/homebox:v0.9.1
+    container_name: homebox
+    restart: unless-stopped
+    environment:
+      - TZ=${TIMEZONE}
+      - HBOX_LOG_LEVEL=info
+      - HBOX_LOG_FORMAT=text
+      - HBOX_WEB_MAX_UPLOAD_SIZE=10
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/homebox/data:/data/
+    ports:
+      - 3100:7745
+    networks:
+      - utility-services
