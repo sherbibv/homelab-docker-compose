@@ -171,22 +171,3 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
-
-  duplicati:
-    image: lscr.io/linuxserver/duplicati:2.0.6
-    container_name: duplicati
-    environment:
-      - PUID=0
-      - PGID=0
-      - TZ=${TIMEZONE}
-    volumes:
-      - ${VOLUMES_PATH}/utility-services/duplicati/config:/config
-      - ${VOLUMES_PATH}:/docker-source
-      - ${BACKUP_PATH}/duplicati/docker:/docker-backup
-      - ${SCPRIME_METADATA_PATH}:/scprime-source
-      - ${BACKUP_PATH}/duplicati/scprime:/scprime-backup
-    ports:
-      - 8200:8200
-    restart: unless-stopped
-    networks:
-      - utility-services
