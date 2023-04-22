@@ -16,6 +16,7 @@
   - Scrutiny
   - Filebrowser
   - Duplicacy
+  - Dozzle
 - Media-management:
   - Sonarr
   - Radarr
