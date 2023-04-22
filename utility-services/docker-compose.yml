@@ -106,8 +106,6 @@ services:
       - ${BACKUP_PATH}/scprime:/scprime-backup
       - /var/run/docker.sock:/var/run/docker.sock
     restart: unless-stopped
-    networks:
-      - none
 
   scrutiny:
     container_name: scrutiny
