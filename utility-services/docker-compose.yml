@@ -134,6 +134,23 @@ services:
       timeout: 10s
       start_period: 20s
 
+  filebrowser:
+    image: filebrowser/filebrowser:s6
+    container_name: filebrowser
+    ports:
+      - 8300:80
+    environment:
+      - PUID=0
+      - PGID=0
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/filebrowser/database:/database
+      - ${VOLUMES_PATH}/utility-services/filebrowser/config:/config
+      - /:/srv
+    restart: unless-stopped
+    networks:
+      - utility-services
+
   duplicati:
     image: lscr.io/linuxserver/duplicati:2.0.6
     container_name: duplicati
