@@ -169,6 +169,8 @@ services:
       - ${SCPRIME_METADATA_PATH}:/scprime-source
       - ${BACKUP_PATH}/duplicacy/scprime:/scprime-backup
     restart: unless-stopped
+    networks:
+      - utility-services
 
   duplicati:
     image: lscr.io/linuxserver/duplicati:2.0.6
