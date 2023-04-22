@@ -23,7 +23,7 @@
   - Prowlarr
   - Jellyfin
   - Plex
-  - TvHeadEnd
+  - TVHeadend
   - PlexTraktSync
   - Tautulli
   - Deluge
