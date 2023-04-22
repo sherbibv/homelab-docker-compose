@@ -17,6 +17,7 @@
   - Filebrowser
   - Duplicacy
   - Dozzle
+  - Homebox
 - Media-management:
   - Sonarr
   - Radarr
