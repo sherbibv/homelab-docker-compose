@@ -1,5 +1,9 @@
 version: '3.9'
 
+networks:
+  scprime:
+    external: true
+
 services:
   scprime:
     image: scprime/scprime:1.7.2
@@ -23,6 +27,8 @@ services:
       - ${SCPRIME_DATA_PATH}/space2:/scp1_2
       - ${SCPRIME_DATA_PATH}/space3:/scp1_3
     restart: unless-stopped
+    networks:
+      - utility-services
     healthcheck:
       test: >
           wget -qO- --no-check-certificate https://${SERVER_IP}:4283/health || exit 1
@@ -39,6 +45,8 @@ services:
       - TZ=${TIMEZONE}
       - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
     restart: unless-stopped
+    networks:
+      - utility-services
     healthcheck:
       test: > 
           wget -qO- --header='User-Agent: ScPrime-Agent' http://${SERVER_IP}:4280/host || exit 1
