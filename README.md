@@ -14,6 +14,8 @@
   - Speedtest-tracker
   - Supercronic
   - Scrutiny
+  - Filebrowser
+  - Duplicacy
 - Media-management:
   - Sonarr
   - Radarr
