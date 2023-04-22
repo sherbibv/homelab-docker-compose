@@ -151,6 +151,25 @@ services:
     networks:
       - utility-services
 
+  duplicacy:
+    image: saspus/duplicacy-web:mini
+    container_name: duplicacy
+    hostname: duplicacy-web
+    environment:
+      TZ: ${TIMEZONE}
+      DUPLICACY_WEB_VERSION: Stable
+    ports:
+      - 3875:3875
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/duplicacy/config:/config
+      - ${VOLUMES_PATH}/utility-services/duplicacy/logs:/logs
+      - ${VOLUMES_PATH}/utility-services/duplicacy/cache:/cache
+      - ${VOLUMES_PATH}:/docker-source
+      - ${BACKUP_PATH}/duplicacy/docker:/docker-backup
+      - ${SCPRIME_METADATA_PATH}:/scprime-source
+      - ${BACKUP_PATH}/duplicacy/scprime:/scprime-backup
+    restart: unless-stopped
+
   duplicati:
     image: lscr.io/linuxserver/duplicati:2.0.6
     container_name: duplicati
