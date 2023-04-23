@@ -82,7 +82,7 @@ services:
       - media-management
 
   jellyfin:
-    image: ghcr.io/linuxserver/jellyfin:amd64-10.8.9
+    image: ghcr.io/linuxserver/jellyfin:amd64-10.8.10
     container_name: jellyfin
     environment:
       - PUID=1000
