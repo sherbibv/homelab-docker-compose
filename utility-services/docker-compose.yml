@@ -156,14 +156,16 @@ services:
       - utility-services
 
   duplicacy:
-    image: saspus/duplicacy-web:mini
     container_name: duplicacy
-    hostname: duplicacy-web
-    environment:
-      TZ: ${TIMEZONE}
-      DUPLICACY_WEB_VERSION: Stable
+    hostname: duplicacy
+    image: cr.hotio.dev/hotio/duplicacy:release-1.6.3
     ports:
       - 3875:3875
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - UMASK=002
+      - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/utility-services/duplicacy/config:/config
       - ${VOLUMES_PATH}/utility-services/duplicacy/logs:/logs
