@@ -28,6 +28,7 @@
   - TVHeadend
   - PlexTraktSync
   - Tautulli
+  - Overseerr
   - Deluge
 - Home automation
   - Homebridge

@@ -184,6 +184,22 @@ services:
     networks:
       - media-management
 
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:1.32.5
+    container_name: overseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=${TIMEZONE}
+      - PUID=1000
+      - PGID=1000
+    ports:
+      - 5055:5055
+    volumes:
+      - ${VOLUMES_PATH}/media-management/overseerr/config:/config
+    restart: unless-stopped
+    networks:
+      - media-management
+
   deluge:
     image: ghcr.io/linuxserver/deluge:2.1.1
     container_name: deluge
