@@ -185,7 +185,7 @@ services:
       - media-management
 
   overseerr:
-    image: lscr.io/linuxserver/overseerr:1.31.5
+    image: lscr.io/linuxserver/overseerr:1.32.5
     container_name: overseerr
     environment:
       - LOG_LEVEL=debug
