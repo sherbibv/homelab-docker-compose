@@ -81,36 +81,6 @@ services:
     networks:
       - media-management
 
-  jellyfin:
-    image: ghcr.io/linuxserver/jellyfin:amd64-10.8.10
-    container_name: jellyfin
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TIMEZONE}
-      - HEALTHCHECK_URL=http://localhost:8096/health
-    group_add:
-      - "44"
-    volumes:
-      - ${VOLUMES_PATH}/media-management/jellyfin:/config
-      - ${MEDIA_HDD_PATH}/data/series:/data/tvshows
-      - ${MEDIA_HDD_PATH}/data/movies:/data/movies
-    ports:
-      - 8096:8096
-      - 8920:8920
-      - 7359:7359/udp
-    devices:
-      - /dev/dri:/dev/dri
-    restart: unless-stopped
-    networks:
-      - media-management
-    healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8096/health | grep -q 'Healthy'
-      interval: 1m00s
-      timeout: 15s
-      retries: 3
-      start_period: 1m00s
-
   plex:
     image: lscr.io/linuxserver/plex:1.32.0
     container_name: plex
