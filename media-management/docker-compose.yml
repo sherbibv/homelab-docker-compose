@@ -166,6 +166,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/config
+      - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/xdg
     networks:
       - media-management
 
