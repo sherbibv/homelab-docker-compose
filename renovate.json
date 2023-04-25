@@ -11,6 +11,11 @@
     {
       "packagePatterns": ["^ghcr.io\\/linuxserver\\/"],
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+    },
+    {
+      "packagePatterns": ["^lscr.io\\/linuxserver\\/overseerr"],
+      "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
     }
   ]
 }
