@@ -127,16 +127,17 @@ services:
       - /dev/dri:/dev/dri
     networks:
       - media-management
-
+     
   plextraktsync:
-    image: ghcr.io/taxel/plextraktsync:0.26.4
+    image: lscr.io/linuxserver-labs/plextraktsync:0.26.4-ls14
     container_name: plextraktsync
-    command: sync
     environment:
+      - PUID=1000
+      - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
-      - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/config
-      - ${VOLUMES_PATH}/media-management/plextraktsync/config:/app/xdg
+      - ${VOLUMES_PATH}/media-management/plextraktsync/config:/config
+    restart: unless-stopped
     networks:
       - media-management
 
