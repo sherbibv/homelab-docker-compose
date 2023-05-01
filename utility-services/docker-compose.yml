@@ -50,7 +50,7 @@ services:
       - utility-services
 
   homepage:
-    image: ghcr.io/benphelps/homepage:v0.6.17
+    image: ghcr.io/benphelps/homepage:v0.6.16
     container_name: homepage
     environment:
       - TZ=${TIMEZONE}
