@@ -52,7 +52,7 @@ services:
       start_period: 60s
 
   bazarr:
-    image: ghcr.io/linuxserver/bazarr:1.2.0
+    image: ghcr.io/linuxserver/bazarr:1.2.1
     container_name: bazarr
     environment:
       - PUID=1000
