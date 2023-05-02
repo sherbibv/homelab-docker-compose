@@ -180,7 +180,7 @@ services:
 
   dozzle:
     container_name: dozzle
-    image: amir20/dozzle:v4.10.3
+    image: amir20/dozzle:v4.10.4
     environment:
       - DOZZLE_USERNAME=${DOZZLE_USERNAME}
       - DOZZLE_PASSWORD=${DOZZLE_PASSWORD}
