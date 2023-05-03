@@ -192,3 +192,16 @@ services:
       timeout: 15s
       retries: 3
       start_period: 1m00s
+  wizarr:
+    container_name: wizarr
+    image: ghcr.io/wizarrrr/wizarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - APP_URL=https://wizarr.sherbibv.eu/
+      - DISABLE_BUILTIN_AUTH=false
+      - TZ=${TIMEZONE}
+    ports:
+      - 5690:5690
+    volumes:
+      - ${VOLUMES_PATH}/media-management/wizarr/database:/data/database
