@@ -192,6 +192,7 @@ services:
       timeout: 15s
       retries: 3
       start_period: 1m00s
+     
   wizarr:
     container_name: wizarr
     image: ghcr.io/wizarrrr/wizarr
@@ -205,3 +206,5 @@ services:
       - 5690:5690
     volumes:
       - ${VOLUMES_PATH}/media-management/wizarr/database:/data/database
+    networks:
+      - media-management
