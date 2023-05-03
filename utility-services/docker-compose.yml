@@ -206,3 +206,5 @@ services:
       - PGID=1000
     command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
     restart: unless-stopped
+    networks:
+      - utility-services
