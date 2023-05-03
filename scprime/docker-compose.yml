@@ -6,7 +6,7 @@ networks:
 
 services:
   scprime:
-    image: scprime/scprime:1.7.2
+    image: scprime/scprime:1.8.0
     container_name: scprime
     command: -M gctwh --disable-api-security
     environment:
