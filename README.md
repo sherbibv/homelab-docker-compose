@@ -17,6 +17,7 @@
   - Filebrowser
   - Duplicacy
   - Dozzle
+  - Cloudflare
 - Media-management:
   - Sonarr
   - Radarr
@@ -29,6 +30,7 @@
   - Tautulli
   - Overseerr
   - Deluge
+  - Wizarr
 - Home automation
   - Homebridge
 - ScPrime
