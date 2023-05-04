@@ -206,5 +206,6 @@ services:
       - 5690:5690
     volumes:
       - ${VOLUMES_PATH}/media-management/wizarr/database:/data/database
+    restart: unless-stopped
     networks:
       - media-management
