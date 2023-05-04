@@ -94,20 +94,20 @@ services:
     networks:
       - utility-services
 
-  supercronic:
-    image: ghcr.io/sherbibv/supercronic:0.0.9
-    container_name: supercronic
-    network_mode: none
-    command: supercronic -debug backup-crontab
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=${TIMEZONE}
-    volumes:
-      - ${SCPRIME_METADATA_PATH}:/scprime-metadata
-      - ${BACKUP_PATH}/scprime:/scprime-backup
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
+#   supercronic:
+#     image: ghcr.io/sherbibv/supercronic:0.0.9
+#     container_name: supercronic
+#     network_mode: none
+#     command: supercronic -debug backup-crontab
+#     environment:
+#       - PUID=1000
+#       - PGID=1000
+#       - TZ=${TIMEZONE}
+#     volumes:
+#       - ${SCPRIME_METADATA_PATH}:/scprime-metadata
+#       - ${BACKUP_PATH}/scprime:/scprime-backup
+#       - /var/run/docker.sock:/var/run/docker.sock
+#     restart: unless-stopped
 
   scrutiny:
     container_name: scrutiny
