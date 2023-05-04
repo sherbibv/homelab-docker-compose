@@ -18,6 +18,7 @@
   - Duplicacy
   - Dozzle
   - Cloudflare
+  - PairDrop
 - Media-management:
   - Sonarr
   - Radarr
