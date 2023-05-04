@@ -224,3 +224,18 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
+      
+  changedetection:
+    image: lscr.io/linuxserver/changedetection.io:0.41.20230503
+    container_name: changedetection
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/changedetection/config:/config
+    ports:
+      - 5000:5000
+    restart: unless-stopped
+    networks:
+      - utility-services
