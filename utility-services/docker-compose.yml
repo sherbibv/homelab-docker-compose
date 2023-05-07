@@ -3,48 +3,18 @@ version: '3.4'
 networks:
   utility-services:
     external: true
-  none:
-    external: true
 
 services:
-  wireguard:
-    image: weejewel/wg-easy:7
-    container_name: wireguard
-    environment:
-      - WG_HOST=${DOMAIN_URL}
-      - PASSWORD=${WIREGUARD_UI_PASSWORD}
-      - WG_ALLOWED_IPS=${SERVER_SUBNET}
-    volumes:
-      - ${VOLUMES_PATH}/utility-services/wireguard:/etc/wireguard
-    ports:
-      - "51820:51820/udp"
-      - "51821:51821/tcp"
-    restart: unless-stopped
-    cap_add:
-      - NET_ADMIN
-      - SYS_MODULE
-    sysctls:
-      - net.ipv4.ip_forward=1
-      - net.ipv4.conf.all.src_valid_mark=1
-    networks:
-      - utility-services
-    healthcheck:
-      test: wget -qO- http://localhost:51821 >/dev/null || exit 1
-      interval: 60s
-      retries: 5
-      timeout: 10s
-      start_period: 20s
-
   uptime-kuma:
     image: louislam/uptime-kuma:1.21.2
     container_name: uptime-kuma
+    ports:
+      - 1337:3001
     environment:
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/utility-services/uptime-kuma/data:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 1337:3001
     restart: unless-stopped
     networks:
       - utility-services
@@ -52,10 +22,10 @@ services:
   homepage:
     image: ghcr.io/benphelps/homepage:v0.6.17
     container_name: homepage
-    environment:
-      - TZ=${TIMEZONE}
     ports:
       - 3000:3000
+    environment:
+      - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/utility-services/homepage/config:/app/config
       - ${MEDIA_HDD_PATH}:/media
@@ -68,11 +38,11 @@ services:
   dockerproxy:
     image: ghcr.io/tecnativa/docker-socket-proxy:0.1.1
     container_name: dockerproxy
+    ports:
+      - 2375:2375
     environment:
       - CONTAINERS=1
       - POST=0
-    ports:
-      - 2375:2375
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
@@ -82,38 +52,21 @@ services:
   speedtest-tracker:
     image: ghcr.io/alexjustesen/speedtest-tracker:v0.11.14
     container_name: speedtest-tracker
-    environment:
-      - PUID=1000
-      - PGID=1000
     ports:
       - 8081:80
       - 8443:443
+    environment:
+      - PUID=1000
+      - PGID=1000
     volumes:
       - ${VOLUMES_PATH}/utility-services/speedtest/config:/config
     restart: unless-stopped
     networks:
       - utility-services
 
-#   supercronic:
-#     image: ghcr.io/sherbibv/supercronic:0.0.9
-#     container_name: supercronic
-#     network_mode: none
-#     command: supercronic -debug backup-crontab
-#     environment:
-#       - PUID=1000
-#       - PGID=1000
-#       - TZ=${TIMEZONE}
-#     volumes:
-#       - ${SCPRIME_METADATA_PATH}:/scprime-metadata
-#       - ${BACKUP_PATH}/scprime:/scprime-backup
-#       - /var/run/docker.sock:/var/run/docker.sock
-#     restart: unless-stopped
-
   scrutiny:
-    container_name: scrutiny
     image: ghcr.io/analogj/scrutiny:v0.7.1-omnibus
-    cap_add:
-      - SYS_RAWIO
+    container_name: scrutiny
     ports:
       - 8082:8080
       - 8086:8086
@@ -123,12 +76,14 @@ services:
       - /run/udev:/run/udev:ro
       - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
       - ${VOLUMES_PATH}/utility-services/influxdb:/opt/scrutiny/influxdb
-    restart: unless-stopped
+    cap_add:
+      - SYS_RAWIO
     devices:
       - /dev/sda # 6Tb drive
       - /dev/sdb # SSD
       - /dev/sdc # Media drive
       - /dev/sdd # Backup drive
+    restart: unless-stopped
     networks:
       - utility-services
     healthcheck:
@@ -156,9 +111,8 @@ services:
       - utility-services
 
   duplicacy:
-    container_name: duplicacy
-    hostname: duplicacy
     image: cr.hotio.dev/hotio/duplicacy:release-1.6.3
+    container_name: duplicacy
     ports:
       - 3875:3875
     environment:
@@ -174,20 +128,21 @@ services:
       - ${BACKUP_PATH}/duplicacy/docker:/docker-backup
       - ${SCPRIME_METADATA_PATH}:/scprime-source
       - ${BACKUP_PATH}/duplicacy/scprime:/scprime-backup
+    hostname: duplicacy
     restart: unless-stopped
     networks:
       - utility-services
 
   dozzle:
-    container_name: dozzle
     image: amir20/dozzle:v4.10.4
+    container_name: dozzle
+    ports:
+      - 9999:8080
     environment:
       - DOZZLE_USERNAME=${DOZZLE_USERNAME}
       - DOZZLE_PASSWORD=${DOZZLE_PASSWORD}
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 9999:8080
     restart: unless-stopped
     networks:
       - utility-services
@@ -197,21 +152,12 @@ services:
       timeout: 30s
       retries: 5
       start_period: 30s
-      
-  cloudflare:
-    image: cloudflare/cloudflared:2023.5.0
-    container_name: cloudflare
-    environment:
-      - PUID=1000
-      - PGID=1000
-    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
-    restart: unless-stopped
-    networks:
-      - utility-services
-      
+
   pairdrop:
     image: lscr.io/linuxserver/pairdrop:1.6.3
     container_name: pairdrop
+    ports:
+      - 3003:3000
     environment:
       - PUID=1000
       - PGID=1000
@@ -219,8 +165,6 @@ services:
       - RATE_LIMIT=false
       - WS_FALLBACK=false
       - DEBUG_MODE=false
-    ports:
-      - 3003:3000
     restart: unless-stopped
     networks:
       - utility-services
@@ -228,14 +172,14 @@ services:
   changedetection:
     image: lscr.io/linuxserver/changedetection.io:0.41.20230503
     container_name: changedetection
+    ports:
+      - 5000:5000
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/utility-services/changedetection/config:/config
-    ports:
-      - 5000:5000
     restart: unless-stopped
     networks:
       - utility-services

@@ -1,0 +1,53 @@
+version: "3.9"
+
+networks:
+  media-services:
+    external: true
+
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:1.32.0
+    container_name: plex
+    ports:
+      - 32400:32400
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+      - VERSION=docker
+    volumes:
+      - ${VOLUMES_PATH}/media-services/plex:/config
+      - ${MEDIA_HDD_PATH}/data/series:/tv
+      - ${MEDIA_HDD_PATH}/data/movies:/movies
+    devices:
+      - /dev/dri:/dev/dri # intel hw acc
+    restart: unless-stopped
+    networks:
+      - media-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:32400/identity
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
+
+  tvheadend:
+    image: lscr.io/linuxserver/tvheadend:amd64-f32c7c59-ls159
+    container_name: tvheadend
+    ports:
+      - 9981:9981
+      - 9982:9982
+      - 9983:9983
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-services/tvheadend/config:/config
+      - ${MEDIA_HDD_PATH}/data/tvheadend/recordings:/recordings
+    devices:
+      - /dev/dvb:/dev/dvb
+      - /dev/dri:/dev/dri
+    restart: unless-stopped
+    networks:
+      - media-services

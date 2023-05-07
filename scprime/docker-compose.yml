@@ -8,24 +8,24 @@ services:
   scprime:
     image: scprime/scprime:1.8.0
     container_name: scprime
-    command: -M gctwh --disable-api-security
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - SCPRIME_WALLET_PASSWORD=${SCPRIME_WALLET_PASSWORD}
-      - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
-      - TZ=${TIMEZONE}
     ports:
       - 4280:4280
       - 4281:4281
       - 4282:4282
       - 4283:4283
       - 4284:4284
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - SCPRIME_WALLET_PASSWORD=${SCPRIME_WALLET_PASSWORD}
+      - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
+      - TZ=${TIMEZONE}
     volumes:
       - ${SCPRIME_METADATA_PATH}:/scp-data
       - ${SCPRIME_DATA_PATH}/space1:/scp1_1
       - ${SCPRIME_DATA_PATH}/space2:/scp1_2
       - ${SCPRIME_DATA_PATH}/space3:/scp1_3
+    command: -M gctwh --disable-api-security
     restart: unless-stopped
     networks:
       - scprime
@@ -40,10 +40,10 @@ services:
   sup-lite:
     image: scprime/supervisor-lite:1.0
     container_name: scprime-supervisor
-    command: --api-addr ${SERVER_IP}:4280 --host-addr=localhost:4282 --announce-interval=10m --check-ip-interval=2m
     environment:
       - TZ=${TIMEZONE}
       - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
+    command: --api-addr ${SERVER_IP}:4280 --host-addr=localhost:4282 --announce-interval=10m --check-ip-interval=2m
     restart: unless-stopped
     networks:
       - scprime
