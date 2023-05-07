@@ -42,4 +42,4 @@ services:
     command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
     restart: unless-stopped
     networks:
-      - utility-services
+      - network-services
