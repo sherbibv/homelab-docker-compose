@@ -5,20 +5,6 @@ networks:
     external: true
 
 services:
-  uptime-kuma:
-    image: louislam/uptime-kuma:1.21.3
-    container_name: uptime-kuma
-    ports:
-      - 1337:3001
-    environment:
-      - TZ=${TIMEZONE}
-    volumes:
-      - ${VOLUMES_PATH}/utility-services/uptime-kuma/data:/app/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
-    networks:
-      - utility-services
-
   homepage:
     image: ghcr.io/benphelps/homepage:v0.6.17
     container_name: homepage

@@ -33,6 +33,20 @@ services:
       timeout: 10s
       start_period: 20s
 
+  uptime-kuma:
+    image: louislam/uptime-kuma:1.21.3
+    container_name: uptime-kuma
+    ports:
+      - 1337:3001
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/network-services/uptime-kuma/data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+    networks:
+      - network-services
+
   cloudflare:
     image: cloudflare/cloudflared:2023.5.0
     container_name: cloudflare
