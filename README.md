@@ -37,6 +37,3 @@
 - ScPrime
   - ScPrime
   - Supervisor-lite
-
-Obs:
-In order to set up plextraktsync you will need to first start the container in interactive mode and perform the login.
