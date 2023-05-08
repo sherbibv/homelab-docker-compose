@@ -69,7 +69,7 @@ services:
       - media-management-services
 
   prowlarr:
-    image: lscr.io/linuxserver/prowlarr:1.4.1
+    image: lscr.io/linuxserver/prowlarr:1.8.1259
     container_name: prowlarr
     ports:
       - 9696:9696
