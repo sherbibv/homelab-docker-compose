@@ -6,32 +6,32 @@
 3. use .env.example for env variables in stack definition
 
 ## Services:
-- Utility services
-  - Wireguard
-  - Uptime-Kuma
-  - Homepage
-  - Dockerproxy
-  - Speedtest-tracker
-  - Supercronic
-  - Scrutiny
-  - Filebrowser
-  - Duplicacy
-  - Dozzle
-  - Cloudflare
-  - PairDrop
-- Media-management:
+- Media services
+  - Plex
+  - TVHeadend
+- Media-management
   - Sonarr
   - Radarr
   - Bazarr
   - Prowlarr
-  - Jellyfin
-  - Plex
-  - TVHeadend
   - PlexTraktSync
   - Tautulli
   - Overseerr
   - Deluge
   - Wizarr
+- Network services
+  - Wireguard
+  - Cloudflare
+- Utility services
+  - Uptime-Kuma
+  - Homepage
+  - Dockerproxy
+  - Speedtest-tracker
+  - Scrutiny
+  - Filebrowser
+  - Duplicacy
+  - Dozzle
+  - PairDrop
 - Home automation
   - Homebridge
 - ScPrime
