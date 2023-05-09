@@ -5,6 +5,13 @@
 2. add a git stack for each module
 3. use .env.example for env variables in stack definition
 
+## Docker networks
+- media-management-services
+- media-services
+- network-services
+- scprime
+- utility-services
+
 ## Services:
 - Media services
   - Plex
