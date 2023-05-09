@@ -12,6 +12,7 @@ services:
       - 3000:3000
     environment:
       - TZ=${TIMEZONE}
+      - HOMEPAGE_VAR_SONARR_KEY=${HOMEPAGE_VAR_SONARR_KEY}
     volumes:
       - ${VOLUMES_PATH}/utility-services/homepage/config:/app/config
       - ${MEDIA_HDD_PATH}:/media
