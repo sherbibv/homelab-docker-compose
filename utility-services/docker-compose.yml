@@ -75,10 +75,10 @@ services:
     cap_add:
       - SYS_RAWIO
     devices:
-      - /dev/sda # 6Tb drive
-      - /dev/sdb # SSD
-      - /dev/sdc # Media drive
-      - /dev/sdd # Backup drive
+      - /dev/sdc # 6Tb drive
+      - /dev/nvme0n1 # SSD
+      - /dev/sdb # Media drive
+      - /dev/sda # Backup drive
     restart: unless-stopped
     networks:
       - utility-services
