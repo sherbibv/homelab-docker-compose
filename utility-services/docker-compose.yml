@@ -74,6 +74,7 @@ services:
       - ${VOLUMES_PATH}/utility-services/influxdb:/opt/scrutiny/influxdb
     cap_add:
       - SYS_RAWIO
+    privileged: true
     devices:
       - /dev/sdc # 6Tb drive
       - /dev/nvme0n1 # SSD
