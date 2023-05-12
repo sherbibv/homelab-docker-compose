@@ -152,7 +152,7 @@ services:
       start_period: 30s
 
   pairdrop:
-    image: lscr.io/linuxserver/pairdrop:1.7.0
+    image: lscr.io/linuxserver/pairdrop:1.7.1
     container_name: pairdrop
     ports:
       - 3003:3000
