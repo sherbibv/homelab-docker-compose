@@ -3,6 +3,8 @@ version: "3.9"
 networks:
   media-services:
     external: true
+  daapd:
+    external: true
 
 services:
   plex:
@@ -51,3 +53,18 @@ services:
     restart: unless-stopped
     networks:
       - media-services
+
+  daapd:
+    image: lscr.io/linuxserver/daapd:28.6.20230510
+    container_name: daapd
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+      - SPOTIFY_CONNECT_NAME=Raspi-Homepod
+    volumes:
+      - ${VOLUMES_PATH}/media-services/daapd/config:/config
+      - ${VOLUMES_PATH}/media-services/daapd/music:/music
+    restart: unless-stopped
+    networks:
+      - daapd
