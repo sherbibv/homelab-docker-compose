@@ -21,6 +21,10 @@
       "packagePatterns": ["^lscr.io\\/linuxserver\\/prowlarr"],
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d{1,3}$/"
+    },
+    {
+      "packagePatterns": ["^lscr.io\\/linuxserver\\/tvheadend"],
+      "versionScheme": "regex:^amd64-(?<compatibility>.*-ls(?<major>\\d+)(?<minor>\\d)(?<patch>\\d)$"
     }
   ]
 }
