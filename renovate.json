@@ -28,7 +28,7 @@
     },
     {
       "packagePatterns": ["^lscr.io\\/linuxserver-labs\\/plextraktsync"],
-      "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(ls(?<revision>\\d+))?$"
+      "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(ls(?<build>\\d+))?$"
     }
   ]
 }
