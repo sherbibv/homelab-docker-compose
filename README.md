@@ -19,6 +19,7 @@ Create networks with ```docker network create <network_name>```
 - Media services
   - Plex
   - TVHeadend
+  - daapd (OwnTone)
 - Media-management
   - Sonarr
   - Radarr
