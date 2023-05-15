@@ -27,7 +27,7 @@
       "versionScheme": "regex:^amd64-(?<compatibility>)?.*-ls(?<major>\\d+)?$"
     },
     {
-      "packagePatterns": ["^lscr.io\\/linuxserver\\/plextraktsync"],
+      "packagePatterns": ["^lscr.io\\/linuxserver-labs\\/plextraktsync"],
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(ls(?<revision>\\d+))?$"
     }
   ]
