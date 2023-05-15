@@ -6,11 +6,14 @@
 3. use .env.example for env variables in stack definition
 
 ## Docker networks
+Create networks with ```docker network create <network_name>```
+
 - media-management-services
 - media-services
 - network-services
 - scprime
 - utility-services
+- daapd (macvlan)
 
 ## Services:
 - Media services
