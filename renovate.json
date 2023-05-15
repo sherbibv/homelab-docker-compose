@@ -24,7 +24,7 @@
     },
     {
       "packagePatterns": ["^lscr.io\\/linuxserver\\/tvheadend"],
-      "versionScheme": "regex:^(?<compatibility>.*-ls(?<major>\\d+)(?<minor>\\d)(?<patch>\\d)$"
+      "versionScheme": "regex:^(?<compatibility>.*-ls(?<major>\\d+)(?<minor>\\d)(?<patch>\\d)?$"
     }
   ]
 }
