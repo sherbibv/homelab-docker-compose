@@ -68,3 +68,9 @@ services:
     restart: unless-stopped
     networks:
       - daapd
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:3689/api/config
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
