@@ -6,7 +6,7 @@ networks:
 
 services:
   scprime:
-    image: scprime/scprime:1.8.0
+    image: scprime/scprime:1.8.1
     container_name: scprime
     ports:
       - 4280:4280
