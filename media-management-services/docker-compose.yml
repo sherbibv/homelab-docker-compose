@@ -110,7 +110,7 @@ services:
     networks:
       - media-management-services
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8181/api/v2?apikey=${TAUTULLI_API_KEY}&cmd=status | grep -q 'Ok'
+      test: curl --connect-timeout 15 --silent --show-error --fail -G "http://localhost:8181/api/v2" --data-urlencode "apikey=${TAUTULLI_API_KEY}" --data-urlencode "cmd=status" | grep -q 'Ok'
       interval: 1m00s
       timeout: 15s
       retries: 3
