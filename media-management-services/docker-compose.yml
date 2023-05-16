@@ -131,6 +131,13 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+    healthcheck:
+      test: wget -qO- http://localhost:5055/api/v1/status | grep -q '"restartRequired":false'
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
+
 
   deluge:
     image: lscr.io/linuxserver/deluge:2.1.1
