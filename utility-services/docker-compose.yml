@@ -176,6 +176,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
+      - WEBDRIVER_URL=http://${SERVER_IP}:4444
     volumes:
       - ${VOLUMES_PATH}/utility-services/changedetection/config:/config
     restart: unless-stopped
