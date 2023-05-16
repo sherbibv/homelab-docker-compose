@@ -182,3 +182,14 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
+
+  selenium:
+    image: selenium/standalone-chrome:113.0
+    container_name: selenium-chrome
+    ports:
+      - 4444:4444
+      - 7900:7900
+    shm_size: 2g
+    restart: unless-stopped
+    networks:
+      - utility-services
