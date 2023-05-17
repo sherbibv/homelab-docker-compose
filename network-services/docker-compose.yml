@@ -24,8 +24,8 @@ services:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
-    networks:
-      - network-services
+#     networks:
+#       - network-services
     healthcheck:
       test: wget -qO- http://localhost:51821 >/dev/null || exit 1
       interval: 60s
