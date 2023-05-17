@@ -21,7 +21,6 @@ For macvlan network use ```docker network create -d macvlan --subnet=192.168.0.0
 - Media services
   - Plex
   - TVHeadend
-  - daapd (OwnTone)
 - Media-management
   - Sonarr
   - Radarr
