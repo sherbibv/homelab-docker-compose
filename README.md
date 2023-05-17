@@ -8,20 +8,16 @@
 ## Docker networks
 Create networks with ```docker network create <network_name>``` command.
 
-For macvlan network use ```docker network create -d macvlan --subnet=192.168.0.0/24 --gateway=192.168.0.1 --ip-range=192.168.0.100/32 -o parent=enp0s31f6 daapd``` command.
-
 - media-management-services
 - media-services
 - network-services
 - scprime
 - utility-services
-- daapd (macvlan)
 
 ## Services:
 - Media services
   - Plex
   - TVHeadend
-  - daapd (OwnTone)
 - Media-management
   - Sonarr
   - Radarr
