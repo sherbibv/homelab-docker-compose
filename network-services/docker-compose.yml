@@ -15,6 +15,7 @@ services:
       - WG_HOST=${DOMAIN_URL}
       - PASSWORD=${WIREGUARD_UI_PASSWORD}
       - WG_ALLOWED_IPS=${SERVER_SUBNET}
+      - WG_POST_UP=iptables -t nat -A POSTROUTING -s 10.8.0.0/24 -o ens3 -j MASQUERADE; iptables -A INPUT -p udp -m udp --dport 51820 -j ACCEPT; iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j ACCEPT; 
     volumes:
       - ${VOLUMES_PATH}/network-services/wireguard:/etc/wireguard
     cap_add:
