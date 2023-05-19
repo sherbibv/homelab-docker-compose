@@ -168,7 +168,7 @@ services:
       - utility-services
       
   changedetection:
-    image: lscr.io/linuxserver/changedetection.io:0.41.20230510
+    image: lscr.io/linuxserver/changedetection.io:0.42.20230518
     container_name: changedetection
     ports:
       - 5000:5000
