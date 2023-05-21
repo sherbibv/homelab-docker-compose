@@ -68,7 +68,7 @@ services:
     networks:
       - media-management-services
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail -G "http://localhost:6767/api/system/health" --header "X-API-KEY: ${BAZARR_API_KEY}" | grep -q '[]'
+      test: curl --connect-timeout 15 --silent --show-error --fail -G "http://localhost:6767/api/system/health" --header "X-API-KEY:${BAZARR_API_KEY}" | grep -q '[]'
       interval: 60s
       retries: 5
       timeout: 10s
