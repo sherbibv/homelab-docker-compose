@@ -150,7 +150,7 @@ services:
     networks:
       - media-management-services
     healthcheck:
-      test: wget -qO- http://localhost:5055/api/v1/status | grep -q '"restartRequired":false'
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:5055/api/v1/status | grep -q '"restartRequired":false'
       interval: 1m00s
       timeout: 15s
       retries: 3
