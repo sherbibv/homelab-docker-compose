@@ -82,7 +82,7 @@ services:
       - media-management-services
 
   plextraktsync:
-    image: lscr.io/linuxserver-labs/plextraktsync:0.26.4-ls18
+    image: lscr.io/linuxserver-labs/plextraktsync:0.26.4-ls19
     container_name: plextraktsync
     environment:
       - PUID=1000
