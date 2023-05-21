@@ -59,6 +59,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
+      - BAZARR_API_KEY=${BAZARR_API_KEY}
     volumes:
       - ${VOLUMES_PATH}/media-management-services/bazarr:/config
       - ${MEDIA_HDD_PATH}/data/movies:/movies
@@ -66,6 +67,12 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail -H "X-API-KEY: ${BAZARR_API_KEY}" http://localhost:6767/api/system/health | grep -q '[]'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
 
   prowlarr:
     image: lscr.io/linuxserver/prowlarr:1.4.1
