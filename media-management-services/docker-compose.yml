@@ -80,6 +80,12 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:9696/ping | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
 
   plextraktsync:
     image: lscr.io/linuxserver-labs/plextraktsync:0.26.4-ls18

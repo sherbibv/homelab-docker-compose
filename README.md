@@ -41,6 +41,8 @@ Create networks with ```docker network create <network_name>``` command.
   - Duplicacy
   - Dozzle
   - PairDrop
+  - ChangeDetection.io
+  - Selenium-Chrome
 - Home automation
   - Homebridge
 - ScPrime
