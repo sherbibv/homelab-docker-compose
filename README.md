@@ -1,4 +1,4 @@
-# homebridge-docker-compose
+# homelab-docker-compose
 
 ## Run with portainer
 1. install portainer community edition
