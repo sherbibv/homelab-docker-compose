@@ -24,15 +24,16 @@ Create networks with ```docker network create <network_name>``` command.
   - Bazarr
   - Prowlarr
   - PlexTraktSync
+  - Plex-Auto-Languages
   - Tautulli
   - Overseerr
   - Deluge
   - Wizarr
 - Network services
   - Wireguard
+  - Uptime-Kuma
   - Cloudflare
 - Utility services
-  - Uptime-Kuma
   - Homepage
   - Dockerproxy
   - Speedtest-tracker
