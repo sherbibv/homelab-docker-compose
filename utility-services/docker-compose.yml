@@ -76,11 +76,6 @@ services:
     cap_add:
       - SYS_RAWIO
     privileged: true
-    devices:
-      - /dev/sdc # 6Tb drive
-      - /dev/nvme0n1 # SSD
-      - /dev/sdb # Media drive
-      - /dev/sda # Backup drive
     restart: unless-stopped
     networks:
       - utility-services
