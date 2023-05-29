@@ -170,7 +170,7 @@ services:
       - 8112:8112
     environment:
       - TZ=${TIMEZONE}
-      - DELUGE_LOGLEVEL=error
+      - DELUGE_LOGLEVEL=debug
     volumes:
       - ${VOLUMES_PATH}/media-management-services/deluge:/config
       - ${MEDIA_HDD_PATH}/data/downloads:/downloads
