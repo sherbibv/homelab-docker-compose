@@ -72,7 +72,7 @@ services:
     volumes:
       - /run/udev:/run/udev:ro
       - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
-      - ${VOLUMES_PATH}/utility-services/influxdb:/opt/scrutiny/influxdb
+      - ${VOLUMES_PATH}/utility-services/scrutiny/influxdb:/opt/scrutiny/influxdb
     cap_add:
       - SYS_RAWIO
     privileged: true
