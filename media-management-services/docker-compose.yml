@@ -171,6 +171,8 @@ services:
     environment:
       - TZ=${TIMEZONE}
       - DELUGE_LOGLEVEL=debug
+      - PUID=1000
+      - PGID=1000
     volumes:
       - ${VOLUMES_PATH}/media-management-services/deluge:/config
       - ${MEDIA_HDD_PATH}/data/downloads:/downloads
