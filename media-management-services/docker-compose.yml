@@ -170,7 +170,6 @@ services:
       - 8112:8112
     environment:
       - TZ=${TIMEZONE}
-      - DELUGE_LOGLEVEL=debug
       - PUID=1000
       - PGID=1000
     volumes:
