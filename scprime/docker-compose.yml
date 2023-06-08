@@ -5,55 +5,32 @@ networks:
     external: true
 
 services:
-  scprime:
-    image: scprime/scprime:1.8.1
-    container_name: scprime
+  xa-miner:
+    image: scprime/xaminer:1.4.14
+    container_name: xa-miner
     ports:
-      - 4280:4280
-      - 4281:4281
+      - 8021:8021
       - 4282:4282
+      - 42820:42820
       - 4283:4283
-      - 4284:4284
+      - 8980:80
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PORT=80
+      - HOST_ADDR=4282
+      - SIAMUX_ADDR=42820
+      - HOST_HTTP_API_ADDR=4283
+      - HOST_PLATFORM=linux
+      - INSTALL_TYPE=Migrate
+      - INSTALLER_VERSION=1.3.0
       - SCPRIME_WALLET_PASSWORD=${SCPRIME_WALLET_PASSWORD}
-      - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
       - TZ=${TIMEZONE}
     volumes:
-      - ${SCPRIME_METADATA_PATH}:/scp-data
-      - ${SCPRIME_DATA_PATH}/space1:/scp1_1
-      - ${SCPRIME_DATA_PATH}/space2:/scp1_2
-      - ${SCPRIME_DATA_PATH}/space3:/scp1_3
-    command: -M gctwh --disable-api-security
+      - ${SCPRIME_METADATA_PATH}:/root/.scprime
+      - ${XA_MINER_CONFIG_PATH}:/root/scprime
+      - ${SCPRIME_DATA_PATH}/space1:/mnt/hdd-scp/space1
+      - ${SCPRIME_DATA_PATH}/space2:/mnt/hdd-scp/space2
+      - ${SCPRIME_DATA_PATH}/space3:/mnt/hdd-scp/space3
     restart: unless-stopped
+    runtime: runc
     networks:
       - scprime
-    healthcheck:
-      test: >
-          wget -qO- --no-check-certificate https://${SERVER_IP}:4283/health || exit 1
-      interval: 60s
-      retries: 5
-      timeout: 10s
-      start_period: 60s
-
-  sup-lite:
-    image: scprime/supervisor-lite:1.1
-    container_name: scprime-supervisor
-    environment:
-      - TZ=${TIMEZONE}
-      - SCPRIME_API_PASSWORD=${SCPRIME_API_PASSWORD}
-    command: --api-addr ${SERVER_IP}:4280 --host-addr=localhost:4282 --announce-interval=10m --check-ip-interval=2m
-    restart: unless-stopped
-    networks:
-      - scprime
-    healthcheck:
-      test: > 
-          wget -qO- --header='User-Agent: ScPrime-Agent' http://${SERVER_IP}:4280/host || exit 1
-      interval: 60s
-      retries: 5
-      timeout: 10s
-      start_period: 60s
-
-volumes:
-  scp-data:
