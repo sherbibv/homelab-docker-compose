@@ -44,5 +44,4 @@ Create networks with ```docker network create <network_name>``` command.
 - Home automation
   - Homebridge
 - ScPrime
-  - ScPrime
-  - Supervisor-lite
+  - Xa-Miner
