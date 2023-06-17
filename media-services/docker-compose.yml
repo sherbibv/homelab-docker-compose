@@ -34,7 +34,7 @@ services:
       start_period: 1m00s
 
   tvheadend:
-    image: lscr.io/linuxserver/tvheadend:amd64-9df7d2d6-ls170
+    image: lscr.io/linuxserver/tvheadend:amd64-dbf97330-ls171
     container_name: tvheadend
     ports:
       - 9981:9981
