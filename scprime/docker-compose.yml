@@ -6,7 +6,7 @@ networks:
 
 services:
   xa-miner:
-    image: scprime/xaminer:1.4.15
+    image: scprime/xaminer:1.4.16
     container_name: xa-miner
     ports:
       - 8021:8021
