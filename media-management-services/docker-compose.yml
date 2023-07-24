@@ -142,7 +142,7 @@ services:
       start_period: 1m00s
 
   overseerr:
-    image: lscr.io/linuxserver/overseerr:1.33.0
+    image: lscr.io/linuxserver/overseerr:1.33.1
     container_name: overseerr
     ports:
       - 5055:5055
