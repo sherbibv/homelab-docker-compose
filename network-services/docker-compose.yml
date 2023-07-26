@@ -48,7 +48,7 @@ services:
       - network-services
 
   cloudflare:
-    image: cloudflare/cloudflared:2023.7.2
+    image: cloudflare/cloudflared:2023.7.3
     container_name: cloudflare
     environment:
       - PUID=1000
