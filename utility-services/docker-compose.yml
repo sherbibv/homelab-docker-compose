@@ -68,7 +68,7 @@ services:
       - 8086:8086
     environment:
       - TZ=${TIMEZONE}
-      - COLLECTOR_CRON_SCHEDULE="0 * * * *"
+      - COLLECTOR_CRON_SCHEDULE="0 0 * * *"
     volumes:
       - /run/udev:/run/udev:ro
       - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
