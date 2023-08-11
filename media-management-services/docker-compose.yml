@@ -107,7 +107,7 @@ services:
       - media-management-services
 
   plex-auto-languages:
-    image: remirigal/plex-auto-languages:v1.2.2
+    image: remirigal/plex-auto-languages:v1.2.3
     container_name: plex-auto-languages
     environment:
       - PLEX_URL=http://${DOMAIN_URL}:32400
