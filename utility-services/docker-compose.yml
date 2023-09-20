@@ -6,7 +6,7 @@ networks:
 
 services:
   homepage:
-    image: ghcr.io/benphelps/homepage:v0.6.34
+    image: ghcr.io/benphelps/homepage:v0.6.35
     container_name: homepage
     ports:
       - 3000:3000
