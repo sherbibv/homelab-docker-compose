@@ -127,7 +127,7 @@ services:
       - utility-services
 
   dozzle:
-    image: amir20/dozzle:v4.11.5
+    image: amir20/dozzle:v5.0.0
     container_name: dozzle
     ports:
       - 9999:8080
