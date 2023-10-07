@@ -54,6 +54,8 @@ services:
     environment:
       - PUID=1000
       - PGID=1000
+      - DB_CONNECTION=sqlite
+      - DB_HOST=/config/database.sqlite
     volumes:
       - ${VOLUMES_PATH}/utility-services/speedtest/config:/config
     restart: unless-stopped
