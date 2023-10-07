@@ -187,17 +187,15 @@ services:
 
   wizarr:
     container_name: wizarr
-    image: ghcr.io/wizarrrr/wizarr:v2
+    image: ghcr.io/wizarrrr/wizarr:latest
     ports:
       - 5690:5690
     environment:
       - PUID=1000
       - PGID=1000
-      - APP_URL=https://wizarr.sherbibv.eu/
-      - DISABLE_BUILTIN_AUTH=false
       - TZ=${TIMEZONE}
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/wizarr/database:/data/database
+      - ${VOLUMES_PATH}/media-management-services/wizarr3/database:/data/database
     restart: unless-stopped
     networks:
       - media-management-services
