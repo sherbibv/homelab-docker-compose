@@ -29,6 +29,36 @@
     {
       "packagePatterns": ["^lscr.io\\/linuxserver-labs\\/plextraktsync"],
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(ls(?<build>\\d+))?$"
+    },
+    {
+      "matchFileNames": ["home-automation/docker-compose.yaml"],
+      "groupName": "Home automation",
+      "groupSlug": "home-automation"
+    },
+    {
+      "matchFileNames": ["media-management-services/docker-compose.yaml"],
+      "groupName": "Media Management Services",
+      "groupSlug": "media-management-services"
+    },
+    {
+      "matchFileNames": ["media-services/docker-compose.yaml"],
+      "groupName": "Media Services",
+      "groupSlug": "media-services"
+    },
+    {
+      "matchFileNames": ["network-services/docker-compose.yaml"],
+      "groupName": "Network Services",
+      "groupSlug": "network-services"
+    },
+    {
+      "matchFileNames": ["utility-services/docker-compose.yaml"],
+      "groupName": "Utility Services",
+      "groupSlug": "utility-services"
+    },
+    {
+      "matchFileNames": ["scprime/docker-compose.yaml"],
+      "groupName": "SCPrime",
+      "groupSlug": "scprime"
     }
   ]
 }
