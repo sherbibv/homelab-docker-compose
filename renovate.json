@@ -31,32 +31,32 @@
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(ls(?<build>\\d+))?$"
     },
     {
-      "matchFileNames": ["home-automation/docker-compose.yaml"],
+      "matchFileNames": ["home-automation/docker-compose.yml"],
       "groupName": "Home automation",
       "groupSlug": "home-automation"
     },
     {
-      "matchFileNames": ["media-management-services/docker-compose.yaml"],
+      "matchFileNames": ["media-management-services/docker-compose.yml"],
       "groupName": "Media Management Services",
       "groupSlug": "media-management-services"
     },
     {
-      "matchFileNames": ["media-services/docker-compose.yaml"],
+      "matchFileNames": ["media-services/docker-compose.yml"],
       "groupName": "Media Services",
       "groupSlug": "media-services"
     },
     {
-      "matchFileNames": ["network-services/docker-compose.yaml"],
+      "matchFileNames": ["network-services/docker-compose.yml"],
       "groupName": "Network Services",
       "groupSlug": "network-services"
     },
     {
-      "matchFileNames": ["utility-services/docker-compose.yaml"],
+      "matchFileNames": ["utility-services/docker-compose.yml"],
       "groupName": "Utility Services",
       "groupSlug": "utility-services"
     },
     {
-      "matchFileNames": ["scprime/docker-compose.yaml"],
+      "matchFileNames": ["scprime/docker-compose.yml"],
       "groupName": "SCPrime",
       "groupSlug": "scprime"
     }
