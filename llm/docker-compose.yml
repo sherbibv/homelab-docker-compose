@@ -5,6 +5,7 @@ services:
     image: local/llama.cpp:0.0.5 # version was build locally using the llama.cpp script from my other repo
     container_name: llama.cpp
     restart: unless-stopped
+    runtime: nvidia
     network_mode: host
     command: -s -m $LLM_MODEL_PATH --host $LLM_HOST --port $LLM_PORT --ctx-size 4096 -ngl 32
     volumes:
