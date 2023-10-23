@@ -7,6 +7,6 @@ services:
     restart: unless-stopped
     runtime: nvidia
     network_mode: host
-    command: -s -m $LLM_MODEL_PATH --host $LLM_HOST --port $LLM_PORT --ctx-size 4096 -ngl 32
+    command: -s -m $LLM_MODEL_PATH --host $LLM_HOST --port $LLM_PORT --ctx-size 4096 -ngl 43
     volumes:
       - ${VOLUMES_PATH}/llm/models:/models
