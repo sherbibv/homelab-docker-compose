@@ -6,6 +6,6 @@ services:
     container_name: llama.cpp
     restart: unless-stopped
     network_mode: host
-    command: -s -m $LLM_MODEL_PATH --host $LLM_HOST --port $LLM_PORT --ctx-size 4096
+    command: -s -m $LLM_MODEL_PATH --host $LLM_HOST --port $LLM_PORT --ctx-size 4096 -ngl 32
     volumes:
       - ${VOLUMES_PATH}/llm/models:/models
