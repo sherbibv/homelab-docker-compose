@@ -5,7 +5,6 @@ services:
     image:  ghcr.io/ggerganov/llama.cpp:full-cuda
     container_name: llama.cpp
     restart: unless-stopped
-    runtime: nvidia
     network_mode: host
     command: -s -m $LLM_MODEL_PATH --host $LLM_HOST --port $LLM_PORT -ngl $LLM_NGL --ctx-size $LLM_CTX_SIZE
     volumes:
