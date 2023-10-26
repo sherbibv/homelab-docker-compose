@@ -147,3 +147,19 @@ services:
       timeout: 30s
       retries: 5
       start_period: 30s
+  
+  pairdrop:
+    image: lscr.io/linuxserver/pairdrop:1.7.6
+    container_name: pairdrop 
+    ports:
+      - 3003:3000
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=S<TIMEZONE)
+      - RATE_LIMIT=false
+      - WS_FALLBACK=false
+      - DEBUG_MODE=false 
+    restart: unless-stopped 
+    networks:
+      - utility-services
