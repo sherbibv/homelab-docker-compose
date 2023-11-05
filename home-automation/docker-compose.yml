@@ -35,6 +35,7 @@ services:
       - 1883:1883
       - 9001:9001
     restart: unless-stopped
+    command: mosquitto -c /mosquitto-no-auth.conf
     volumes:
       - ${VOLUMES_PATH}/utility-services/mosquitto-data:/mosquitto
 
