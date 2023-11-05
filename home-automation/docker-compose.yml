@@ -37,7 +37,9 @@ services:
     restart: unless-stopped
     command: mosquitto -c /mosquitto-no-auth.conf
     volumes:
-      - ${VOLUMES_PATH}/utility-services/mosquitto-data:/mosquitto
+      - ${VOLUMES_PATH}/utility-services/mqtt/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ${VOLUMES_PATH}/utility-services/mqtt/data:/mosquitto/data
+      - ${VOLUMES_PATH}/utility-services/mqtt/log:/mosquitto/log
 
   zigbee2mqtt:
     image: koenkk/zigbee2mqtt:1.33.2
