@@ -40,7 +40,7 @@ services:
       - 9001:9001
     restart: unless-stopped
     volumes:
-      - ${VOLUMES_PATH}/utility-services/mqtt/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ${VOLUMES_PATH}/utility-services/mqtt/config:/mosquitto/config
       - ${VOLUMES_PATH}/utility-services/mqtt/data:/mosquitto/data
       - ${VOLUMES_PATH}/utility-services/mqtt/log:/mosquitto/log
     networks:
