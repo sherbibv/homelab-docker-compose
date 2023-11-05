@@ -17,6 +17,40 @@ services:
       retries: 5
       timeout: 10s
       start_period: 20s
+    
+  homeassistant:
+    image: ghcr.io/home-assistant/home-assistant:2023.11.0
+    container_name: homeassistant
+    restart: unless-stopped
+    privileged: true
+    network_mode: host
+    volumes:
+      - ${VOLUMES_PATH}/home-automation/homeassistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+    
+  mqtt:
+    image: eclipse-mosquitto:2.0.18
+    container_name: mqtt
+    ports:
+      - 1883:1883
+      - 9001:9001
+    restart: unless-stopped
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/mosquitto-data:/mosquitto
+
+  zigbee2mqtt:
+    image: koenkk/zigbee2mqtt:1.33.2
+    container_name: zigbee2mqtt
+    restart: unless-stopped
+    ports:
+      - 9055:8080
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/zigbee2mqtt-data:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      - /dev/ttyUSB0:/dev/ttyUSB0
 
 volumes:
   homebridge:
