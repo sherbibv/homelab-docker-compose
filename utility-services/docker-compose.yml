@@ -128,26 +128,6 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
-
-  dozzle:
-    image: amir20/dozzle:v5.3.0
-    container_name: dozzle
-    ports:
-      - 9999:8080
-    environment:
-      - DOZZLE_USERNAME=${DOZZLE_USERNAME}
-      - DOZZLE_PASSWORD=${DOZZLE_PASSWORD}
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: unless-stopped
-    networks:
-      - utility-services
-    healthcheck:
-      test: [ "CMD", "/dozzle", "healthcheck" ]
-      interval: 3s
-      timeout: 30s
-      retries: 5
-      start_period: 30s
   
   pairdrop:
     image: lscr.io/linuxserver/pairdrop:1.9.4
