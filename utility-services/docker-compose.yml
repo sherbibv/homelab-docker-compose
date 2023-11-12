@@ -47,7 +47,7 @@ services:
       - utility-services
 
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.13.1
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.13.3
     container_name: speedtest-tracker
     ports:
       - 8081:80
