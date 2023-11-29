@@ -48,6 +48,45 @@ services:
     restart: unless-stopped
     networks:
       - network-services
+      
+  unifi:
+    image: lscr.io/linuxserver/unifi-network-application:8.0.7
+    container_name: unifi
+    ports:
+      - 8776:8443
+      - 3478:3478
+      - 8787:8080
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+      - MONGO_USER=${UNIFI_MONGO_USER}
+      - MONGO_PASS=${UNIFI_MONGO_PASS}
+      - MONGO_HOST=${MONGO_HOST}
+      - MONGO_PORT=27017
+      - MONGO_DBNAME=${UNIFI_MONGO_DBNAME}
+      - MEM_LIMIT=1024 #optional
+      - MEM_STARTUP=1024 #optional
+    volumes:
+      - ${VOLUMES_PATH}/network-services/unifi-network-application/unifi/config:/config
+    restart: unless-stopped
+    networks:
+      - network-services
+    
+  mongo:
+    image: mongo:7.0.4
+    container_name: mongo
+    ports: 
+      - 27017:27017
+    volumes:
+      - ${VOLUMES_PATH}/network-services/unifi-network-application/mongodb/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ${VOLUMES_PATH}/network-services/unifi-network-application/mongodb/db:/data/db
+      - ${VOLUMES_PATH}/network-services/unifi-network-application/mongodb/configdb:/data/configdb
+    command: 
+      mongod --port 27017
+    restart: unless-stopped
+    networks:
+      - network-services
 
   cloudflare:
     image: cloudflare/cloudflared:2023.10.0
