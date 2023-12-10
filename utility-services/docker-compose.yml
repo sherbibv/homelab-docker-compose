@@ -109,7 +109,7 @@ services:
       - utility-services
 
   duplicacy:
-    image: cr.hotio.dev/hotio/duplicacy:release-1.6.3
+    image: ghcr.io/hotio/duplicacy:release-1.7.2
     container_name: duplicacy
     ports:
       - 3875:3875
