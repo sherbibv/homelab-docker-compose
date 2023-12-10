@@ -8,6 +8,8 @@ services:
   homebridge:
     image: homebridge/homebridge:2023-11-28
     container_name: homebridge
+    expose:
+      - 8581
     restart: unless-stopped
     network_mode: host
     environment:
@@ -25,6 +27,8 @@ services:
   homeassistant:
     image: linuxserver/homeassistant:2023.12.1
     container_name: homeassistant
+    expose:
+      - 8123
     restart: unless-stopped
     privileged: true
     network_mode: host
