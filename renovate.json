@@ -13,20 +13,7 @@
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
     },
     {
-      "packagePatterns": ["^lscr.io\\/linuxserver\\/overseerr"],
-      "versioning": {
-        "major": {
-          "exclude": [
-            "2021"
-          ]
-        },
-        "minor": {
-          "enabled": true
-        },
-        "patch": {
-          "enabled": true
-        }
-      }
+      "packagePatterns": ["^linuxserver\\/overseerr"],
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/"
     },
