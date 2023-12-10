@@ -120,7 +120,7 @@ services:
       - media-management-services
 
   tautulli:
-    image: linuxserver/tautulli:2.13.4
+    image: linuxserver/tautulli:2021.12.16
     container_name: tautulli
     ports:
       - 8181:8181
@@ -164,7 +164,7 @@ services:
       start_period: 1m00s
 
   deluge:
-    image: linuxserver/deluge:2.1.1
+    image: linuxserver/deluge:18.04.1
     container_name: deluge
     ports:
       - 8112:8112
