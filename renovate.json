@@ -17,7 +17,7 @@
       "versioning": {
         "major": {
           "exclude": [
-            "2021.*.*"  // Exclude versions matching the date format
+            "2021"
           ]
         },
         "minor": {
