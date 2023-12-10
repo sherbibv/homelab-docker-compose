@@ -6,7 +6,7 @@ networks:
 
 services:
   plex:
-    image: lscr.io/linuxserver/plex:1.32.8
+    image: linuxserver/plex:1.32.8
     container_name: plex
     ports:
       - 32400:32400
@@ -32,7 +32,7 @@ services:
       start_period: 1m00s
 
   tvheadend:
-    image: lscr.io/linuxserver/tvheadend:amd64-d85c957a-ls196
+    image: linuxserver/tvheadend:amd64-d85c957a-ls196
     container_name: tvheadend
     ports:
       - 9981:9981
