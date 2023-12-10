@@ -14,6 +14,19 @@
     },
     {
       "packagePatterns": ["^lscr.io\\/linuxserver\\/overseerr"],
+      "versioning": {
+        "major": {
+          "exclude": [
+            "2021.*.*"  // Exclude versions matching the date format
+          ]
+        },
+        "minor": {
+          "enabled": true
+        },
+        "patch": {
+          "enabled": true
+        }
+      }
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/"
     },
