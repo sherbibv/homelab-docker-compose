@@ -6,7 +6,7 @@ networks:
 
 services:
   homebridge:
-    image: homebridge/homebridge:latest
+    image: homebridge/homebridge:2023-11-28
     container_name: homebridge
     restart: unless-stopped
     network_mode: host
