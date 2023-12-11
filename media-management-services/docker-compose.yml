@@ -94,7 +94,7 @@ services:
       start_period: 60s
 
   plextraktsync:
-    image: lscr.io/linuxserver-labs/plextraktsync:0.27.12-ls58
+    image: lscr.io/linuxserver-labs/plextraktsync:0.27.13-ls59
     container_name: plextraktsync
     environment:
       - PUID=1000
