@@ -50,7 +50,7 @@ services:
       - network-services
       
   unifi:
-    image: linuxserver/unifi-network-application:8.0.7
+    image: linuxserver/unifi-network-application:8.0.24
     container_name: unifi
     ports:
       - 8776:8443
