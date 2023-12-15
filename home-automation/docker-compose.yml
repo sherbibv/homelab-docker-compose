@@ -25,7 +25,7 @@ services:
       start_period: 20s
     
   homeassistant:
-    image: linuxserver/homeassistant:2023.12.2
+    image: linuxserver/homeassistant:2023.12.3
     container_name: homeassistant
     expose:
       - 8123
