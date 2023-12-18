@@ -37,8 +37,7 @@
     },
     {
       "packagePatterns": ["^ghcr\\.io\\/netbootxyz\\/netbootxyz"],
-      "versionScheme": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-nbxyz(?<compatibility>\\d+)$",
-      "allowedVersions": "/^(\\d{1,2}\\.)(\\d*\\.)*\\d*-nbxyz(\\d+)$"
+      "versionScheme": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-nbxyz(?<compatibility>\\d+)$"
     },
     {
       "matchFileNames": ["home-automation/docker-compose.yml"],
