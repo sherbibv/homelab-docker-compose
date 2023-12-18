@@ -1,0 +1,29 @@
+version: '3.4'
+
+networks:
+  backup-services:
+    external: true
+
+services:
+  duplicacy:
+    image: ghcr.io/hotio/duplicacy:release-1.7.2
+    container_name: duplicacy
+    ports:
+      - 3875:3875
+    environment:
+      - PUID=0
+      - PGID=0
+      - UMASK=002
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${BACKUP_VOLUMES_PATH}/duplicacy/config:/config
+      - ${BACKUP_VOLUMES_PATH}/duplicacy/logs:/logs
+      - ${BACKUP_VOLUMES_PATH}/duplicacy/cache:/cache
+      - ${VOLUMES_PATH}:/docker-source
+      - ${BACKUP_PATH}/duplicacy/docker:/docker-backup # used for local backups
+      - ${SCPRIME_METADATA_PATH}:/scprime-source
+      - ${BACKUP_PATH}/duplicacy/scprime:/scprime-backup # used for local backups
+    hostname: duplicacy
+    restart: unless-stopped
+    networks:
+      - backup-services

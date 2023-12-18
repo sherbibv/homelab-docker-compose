@@ -107,29 +107,6 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
-
-  duplicacy:
-    image: ghcr.io/hotio/duplicacy:release-1.7.2
-    container_name: duplicacy
-    ports:
-      - 3875:3875
-    environment:
-      - PUID=0
-      - PGID=0
-      - UMASK=002
-      - TZ=${TIMEZONE}
-    volumes:
-      - ${VOLUMES_PATH}/utility-services/duplicacy/config:/config
-      - ${VOLUMES_PATH}/utility-services/duplicacy/logs:/logs
-      - ${VOLUMES_PATH}/utility-services/duplicacy/cache:/cache
-      - ${VOLUMES_PATH}:/docker-source
-      - ${BACKUP_PATH}/duplicacy/docker:/docker-backup
-      - ${SCPRIME_METADATA_PATH}:/scprime-source
-      - ${BACKUP_PATH}/duplicacy/scprime:/scprime-backup
-    hostname: duplicacy
-    restart: unless-stopped
-    networks:
-      - utility-services
   
   pairdrop:
     image: linuxserver/pairdrop:1.10.2
