@@ -122,3 +122,15 @@ services:
     restart: unless-stopped 
     networks:
       - utility-services
+
+  netbootxyz:
+    image: ghcr.io/netbootxyz/netbootxyz:0.7.0-nbxyz2
+    container_name: netbootxyz
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/netbootxyz/config:/config
+      - ${VOLUMES_PATH}/utility-services/netbootxyz/assets:/assets
+    ports:
+      - 3004:3000
+      - 69:69/udp
+      - 8083:80
+    restart: unless-stopped

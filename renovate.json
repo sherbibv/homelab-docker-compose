@@ -36,6 +36,18 @@
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-(ls(?<build>\\d+))?$"
     },
     {
+      "packagePatterns": ["^ghcr\\.io\\/netbootxyz\\/netbootxyz"],
+      "versioning": {
+        "regex": [
+          "^(?<version>\\d+\\.\\d+\\.\\d+-nbxyz\\d+)$",
+          "^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$"
+        ]
+      },
+      "allowedVersions": [
+        "/^(\\d{1,3}\\.)(\\d*\\.)*\\d*$/"
+      ]
+    },
+    {
       "matchFileNames": ["home-automation/docker-compose.yml"],
       "groupName": "Home automation",
       "groupSlug": "home-automation"
