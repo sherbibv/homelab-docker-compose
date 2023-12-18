@@ -134,3 +134,5 @@ services:
       - 69:69/udp
       - 8083:80
     restart: unless-stopped
+    networks:
+      - utility-services
