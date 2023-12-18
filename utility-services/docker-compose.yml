@@ -29,7 +29,6 @@ services:
       - ${VOLUMES_PATH}/utility-services/homepage/config:/app/config
       - ${MEDIA_HDD_PATH}:/media
       - ${SCPRIME_DATA_PATH}:/scprime-data
-      - ${BACKUP_PATH}:/backup
     restart: unless-stopped
     networks:
       - utility-services
