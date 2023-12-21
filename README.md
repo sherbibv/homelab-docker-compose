@@ -8,13 +8,17 @@
 ## Docker networks
 Create networks with ```docker network create <network_name>``` command.
 
+- backup-services
 - media-management-services
+- llm
 - media-services
 - network-services
 - scprime
 - utility-services
 
 ## Services:
+- Backup services
+  - Duplicacy
 - Media services
   - Plex
   - TVHeadend
@@ -39,9 +43,12 @@ Create networks with ```docker network create <network_name>``` command.
   - Speedtest-tracker
   - Scrutiny
   - Filebrowser
-  - Duplicacy
-  - Dozzle
+  - Paridrop
+  - Netbootxyz
+  - MQTT
 - Home automation
   - Homebridge
+  - HomeAssistant
+  - Zigbee2MQTT
 - ScPrime
   - Xa-Miner
