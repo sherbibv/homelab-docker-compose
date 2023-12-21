@@ -3,6 +3,8 @@ version: '3.4'
 networks:
   utility-services:
     external: true
+  mqtt:
+    external: true
 
 services:
   homepage:
@@ -136,3 +138,18 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
+
+  mqtt:
+    image: eclipse-mosquitto:2.0.18
+    container_name: mqtt
+    ports:
+      - 1883:1883
+      - 9001:9001
+    restart: unless-stopped
+    command: mosquitto -c /mosquitto-no-auth.conf
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/mqtt/config:/mosquitto/config
+      - ${VOLUMES_PATH}/utility-services/mqtt/data:/mosquitto/data
+      - ${VOLUMES_PATH}/utility-services/mqtt/log:/mosquitto/log
+    networks:
+      - mqtt
