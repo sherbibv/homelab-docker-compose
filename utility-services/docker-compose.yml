@@ -167,7 +167,7 @@ services:
       - utility-services
 
   redis-paperless-ngx:
-    image: docker.io/library/redis:7
+    image: redis:7.2.3
     container_name: redis-paperless-ngx
     environment:
       - TZ=${TIMEZONE}
