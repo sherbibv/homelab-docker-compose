@@ -194,7 +194,7 @@ services:
       - utility-services
 
   paperless-ngx:
-    image: ghcr.io/paperless-ngx/paperless-ngx:2.1.3
+    image: ghcr.io/paperless-ngx/paperless-ngx:2.2.0
     container_name: paperless-ngx
     ports:
       - 8555:8000    
