@@ -202,6 +202,7 @@ services:
       - PAPERLESS_REDIS=redis://redis-paperless-ngx:6379
       - PAPERLESS_DBHOST=postgres-paperless-ngx
       - COMPOSE_PROJECT_NAME=paperless
+      - PAPERLESS_DBPASS=${POSTGRES_PASSWORD}
     volumes:
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/data:/usr/src/paperless/data
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/media:/usr/src/paperless/media
