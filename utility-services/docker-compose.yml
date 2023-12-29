@@ -184,9 +184,9 @@ services:
       - 5432:5432
     environment:
       - TZ=${TIMEZONE}
-      - POSTGRES_DB=${POSTGRES_DB}
-      - POSTGRES_USER=${POSTGRES_USER}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${PAPERLESS_POSTGRES_DB}
+      - POSTGRES_USER=${PAPERLESS_POSTGRES_USER}
+      - POSTGRES_PASSWORD=${PAPERLESS_POSTGRES_PASSWORD}
     volumes:
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/pgdata:/var/lib/postgresql/data
     restart: unless-stopped
@@ -202,7 +202,7 @@ services:
       - PAPERLESS_REDIS=redis://redis-paperless-ngx:6379
       - PAPERLESS_DBHOST=postgres-paperless-ngx
       - COMPOSE_PROJECT_NAME=paperless
-      - PAPERLESS_DBPASS=${POSTGRES_PASSWORD}
+      - PAPERLESS_DBPASS=${PAPERLESS_POSTGRES_PASSWORD}
     volumes:
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/data:/usr/src/paperless/data
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/media:/usr/src/paperless/media
