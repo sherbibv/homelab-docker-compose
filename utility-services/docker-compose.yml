@@ -162,8 +162,6 @@ services:
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
-    volumes:
-      - ${VOLUMES_PATH}/utility-services/pgadmin/data:/var/lib/pgadmin
     restart: unless-stopped
     networks:
       - utility-services
