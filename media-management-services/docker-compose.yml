@@ -75,7 +75,7 @@ services:
       start_period: 60s
 
   prowlarr:
-    image: linuxserver/prowlarr:1.10.5
+    image: linuxserver/prowlarr:1.11.4
     container_name: prowlarr
     ports:
       - 9696:9696
@@ -94,7 +94,7 @@ services:
       start_period: 60s
 
   plextraktsync:
-    image: lscr.io/linuxserver-labs/plextraktsync:0.27.15-ls61
+    image: lscr.io/linuxserver-labs/plextraktsync:0.27.15-ls62
     container_name: plextraktsync
     environment:
       - PUID=1000
