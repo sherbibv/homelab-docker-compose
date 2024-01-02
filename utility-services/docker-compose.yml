@@ -199,7 +199,7 @@ services:
     ports:
       - 8555:8000    
     environment:
-      - PAPERLESS_TIME_ZONE: ${TIMEZONE}
+      - PAPERLESS_TIME_ZONE=${TIMEZONE}
       - PAPERLESS_REDIS=redis://redis-paperless-ngx:6379
       - PAPERLESS_DBHOST=postgres-paperless-ngx
       - COMPOSE_PROJECT_NAME=paperless
