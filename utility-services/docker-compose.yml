@@ -204,8 +204,8 @@ services:
       - PAPERLESS_DBHOST=postgres-paperless-ngx
       - COMPOSE_PROJECT_NAME=paperless
       - PAPERLESS_DBPASS=${PAPERLESS_POSTGRES_PASSWORD}
-      - PAPERLESS_OCR_LANGUAGES: ron
-      - PAPERLESS_OCR_LANGUAGE: ron
+      - PAPERLESS_OCR_LANGUAGES=ron
+      - PAPERLESS_OCR_LANGUAGE=ron
     volumes:
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/data:/usr/src/paperless/data
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/media:/usr/src/paperless/media
