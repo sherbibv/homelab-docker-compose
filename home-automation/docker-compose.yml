@@ -6,7 +6,7 @@ networks:
 
 services:
   homebridge:
-    image: homebridge/homebridge:2023-12-30
+    image: homebridge/homebridge:2024-01-08
     container_name: homebridge
     expose:
       - 8581
