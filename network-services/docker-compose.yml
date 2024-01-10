@@ -89,7 +89,7 @@ services:
       - network-services
 
   cloudflare:
-    image: cloudflare/cloudflared:2023.10.0
+    image: cloudflare/cloudflared:2024.1.1
     container_name: cloudflare
     environment:
       - PUID=1000
