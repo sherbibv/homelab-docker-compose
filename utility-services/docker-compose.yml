@@ -164,8 +164,8 @@ services:
       - PGID=1000
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
-    volumes:
-      - ${VOLUMES_PATH}/utility-services/pgadmin:/var/lib/pgadmin
+    # volumes:
+    #   - ${VOLUMES_PATH}/utility-services/pgadmin:/var/lib/pgadmin/storage/${PGADMIN_EMAIL}
     restart: unless-stopped
     networks:
       - utility-services
