@@ -165,7 +165,7 @@ services:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
     volumes:
-      - pgadmin:/var/lib/pgadmin
+      - pgadmin_data:/var/lib/pgadmin
     restart: unless-stopped
     networks:
       - utility-services
@@ -226,3 +226,6 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
+
+volumes:
+  - pgadmin_data:
