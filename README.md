@@ -46,6 +46,10 @@ Create networks with ```docker network create <network_name>``` command.
   - Paridrop
   - Netbootxyz
   - MQTT
+  - pgAdmin
+  - Paperless-ngx
+  - Redis(Paperless-ngx)
+  - Postgres(Paperless-ngx)
 - Home automation
   - Homebridge
   - HomeAssistant
