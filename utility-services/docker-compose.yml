@@ -167,7 +167,7 @@ services:
       - utility-services
 
   redis-paperless-ngx:
-    image: redis:7.2.3
+    image: redis:7.2.4
     container_name: redis-paperless-ngx
     environment:
       - TZ=${TIMEZONE}
