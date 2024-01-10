@@ -160,6 +160,8 @@ services:
     ports:
       - 8677:80
     environment:
+      - PUID=1000
+      - PGID=1000
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
     volumes:
