@@ -155,7 +155,7 @@ services:
       - mqtt
 
   pgadmin:
-    image: dpage/pgadmin4:8.1
+    image: dpage/pgadmin4:8.2
     container_name: pgadmin
     ports:
       - 8677:80
