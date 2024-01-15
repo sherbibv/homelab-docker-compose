@@ -169,6 +169,12 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
+    healthcheck:
+      test: ["CMD", "wget", "-O", "-", "http://localhost:80/misc/ping"]
+      interval: 10s
+      timeout: 10s
+      start_period: 160s
+      retries: 3
 
   redis-paperless-ngx:
     image: redis:7.2.4
