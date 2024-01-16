@@ -20,9 +20,7 @@ services:
       - ${BACKUP_VOLUMES_PATH}/duplicacy/logs:/logs
       - ${BACKUP_VOLUMES_PATH}/duplicacy/cache:/cache
       - ${VOLUMES_PATH}:/docker-source
-      - ${BACKUP_PATH}/duplicacy/docker:/docker-backup # used for local backups
-      - ${SCPRIME_METADATA_PATH}:/scprime-source
-      - ${BACKUP_PATH}/duplicacy/scprime:/scprime-backup # used for local backups
+      # - ${BACKUP_PATH}/duplicacy/docker:/docker-backup # used for local backups
     hostname: duplicacy
     restart: unless-stopped
     networks:
