@@ -18,8 +18,9 @@ Create networks with ```docker network create <network_name>``` command.
 ## Services:
 - Backup services
   - Duplicacy
-- LLM
-  - llama-cpp
+- AI Services
+  - Ollama
+  - Ollama-WebUI
 - Media services
   - Plex
 - Media-management
