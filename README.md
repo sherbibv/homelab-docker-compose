@@ -13,15 +13,15 @@ Create networks with ```docker network create <network_name>``` command.
 - llm
 - media-services
 - network-services
-- scprime
 - utility-services
 
 ## Services:
 - Backup services
   - Duplicacy
+- LLM
+  - llama-cpp
 - Media services
   - Plex
-  - TVHeadend
 - Media-management
   - Sonarr
   - Radarr
@@ -45,14 +45,7 @@ Create networks with ```docker network create <network_name>``` command.
   - Filebrowser
   - Paridrop
   - Netbootxyz
-  - MQTT
   - pgAdmin
   - Paperless-ngx
   - Redis(Paperless-ngx)
   - Postgres(Paperless-ngx)
-- Home automation
-  - Homebridge
-  - HomeAssistant
-  - Zigbee2MQTT
-- ScPrime
-  - Xa-Miner
