@@ -31,23 +31,23 @@ services:
       retries: 3
       start_period: 1m00s
 
-  # tvheadend:
-  #   image: linuxserver/tvheadend:amd64-d85c957a-ls196
-  #   container_name: tvheadend
-  #   ports:
-  #     - 9981:9981
-  #     - 9982:9982
-  #     - 9983:9983
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=${TIMEZONE}
-  #   volumes:
-  #     - ${VOLUMES_PATH}/media-services/tvheadend/config:/config
-  #     - ${MEDIA_HDD_PATH}/data/tvheadend/recordings:/recordings
-  #   devices:
-  #     - /dev/dvb:/dev/dvb
-  #     - /dev/dri:/dev/dri
-  #   restart: unless-stopped
-  #   networks:
-  #     - media-services
+  tvheadend:
+    image: linuxserver/tvheadend:amd64-d85c957a-ls196
+    container_name: tvheadend
+    ports:
+      - 9981:9981
+      - 9982:9982
+      - 9983:9983
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-services/tvheadend/config:/config
+      - ${MEDIA_HDD_PATH}/data/tvheadend/recordings:/recordings
+    devices:
+      - /dev/dvb:/dev/dvb
+      - /dev/dri:/dev/dri
+    restart: unless-stopped
+    networks:
+      - media-services
