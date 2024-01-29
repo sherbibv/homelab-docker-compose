@@ -57,24 +57,24 @@ services:
       - PUID=1000
       - PGID=1000
       - DB_CONNECTION=mysql
-      - DB_HOST=speedtest-tracker-maria-db
+      - DB_HOST=mariadb-speedtest-tracker
       - DB_PORT=3306
       - DB_DATABASE=speedtest_tracker
       - DB_USERNAME=${SPEEDTEST_TRACKER_USER}
       - DB_PASSWORD=${SPEEDTEST_TRACKER_PASSWORD}
     volumes:
-      - ${VOLUMES_PATH}/utility-services/speedtest-tracker/config:/config
-      - ${VOLUMES_PATH}/utility-services/speedtest-tracker/web:/etc/ssl/web
+      - ${VOLUMES_PATH}/utility-services/speedtest-tracker/speedtest-tracker/config:/config
+      - ${VOLUMES_PATH}/utility-services/speedtest-tracker/speedtest-tracker/web:/etc/ssl/web
     depends_on:
-      - speedtest-tracker-maria-db
+      - mariadb-speedtest-tracker
     restart: unless-stopped
     networks:
       - utility-services
       
-  speedtest-tracker-maria-db:
-    container_name: speedtest-tracker-maria-db
+  mariadb-speedtest-tracker:
+    container_name: mariadb-speedtest-tracker
     image: mariadb:10.6.16
-    exposes:
+    expose:
       - 3306
     environment:
       - MARIADB_DATABASE=speedtest_tracker
@@ -82,7 +82,7 @@ services:
       - MARIADB_PASSWORD=${SPEEDTEST_TRACKER_PASSWORD}
       - MARIADB_RANDOM_ROOT_PASSWORD=true
     volumes:
-      - ${VOLUMES_PATH}/utility-services/speedtest-tracker-maria-db:/var/lib/mysql
+      - ${VOLUMES_PATH}/utility-services/speedtest-tracker/mariadb:/var/lib/mysql
     restart: unless-stopped
     networks:
       - utility-services
