@@ -66,7 +66,7 @@ services:
       - ${VOLUMES_PATH}/utility-services/speedtest-tracker/config:/config
       - ${VOLUMES_PATH}/utility-services/speedtest-tracker/web:/etc/ssl/web
     depends_on:
-      - speedtest-tracker-v2-maria-db
+      - speedtest-tracker-maria-db
     restart: unless-stopped
     networks:
       - utility-services
