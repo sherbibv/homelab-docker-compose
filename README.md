@@ -42,6 +42,7 @@ Create networks with ```docker network create <network_name>``` command.
   - Homepage
   - Dockerproxy
   - Speedtest-tracker
+  - MariaDB (Speedtest-tracker)
   - Scrutiny
   - Filebrowser
   - Paridrop
