@@ -81,11 +81,19 @@ services:
       - MARIADB_USER=${SPEEDTEST_TRACKER_USER}
       - MARIADB_PASSWORD=${SPEEDTEST_TRACKER_PASSWORD}
       - MARIADB_RANDOM_ROOT_PASSWORD=true
+      - MARIADB_MYSQL_LOCALHOST_USER=true
     volumes:
       - ${VOLUMES_PATH}/utility-services/speedtest-tracker/mariadb:/var/lib/mysql
     restart: unless-stopped
     networks:
       - utility-services
+    healthcheck:
+        test: [ "CMD", "healthcheck.sh", "--su-mysql", "--connect", "--innodb_initialized" ]
+        start_period: 1m
+        start_interval: 10s
+        interval: 1m
+        timeout: 5s
+        retries: 3
 
   scrutiny:
     image: ghcr.io/analogj/scrutiny:v0.7.2-omnibus
