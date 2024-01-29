@@ -10,7 +10,6 @@ Create networks with ```docker network create <network_name>``` command.
 
 - backup-services
 - media-management-services
-- llm
 - media-services
 - network-services
 - utility-services
