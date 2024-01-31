@@ -182,7 +182,7 @@ services:
     networks:
       - media-management-services
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8112 || exit 1
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8383 || exit 1
       interval: 1m00s
       timeout: 15s
       retries: 3
