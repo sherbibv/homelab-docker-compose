@@ -51,7 +51,7 @@ services:
       start_period: 60s
 
   bazarr:
-    image: linuxserver/bazarr:1.4.0
+    image: linuxserver/bazarr:1.4.1
     container_name: bazarr
     ports:
       - 6767:6767
@@ -94,7 +94,7 @@ services:
       start_period: 60s
 
   plextraktsync:
-    image: lscr.io/linuxserver-labs/plextraktsync:0.28.15-ls76
+    image: lscr.io/linuxserver-labs/plextraktsync:0.28.15-ls77
     container_name: plextraktsync
     environment:
       - PUID=1000
