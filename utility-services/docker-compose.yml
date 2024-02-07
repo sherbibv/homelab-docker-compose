@@ -49,7 +49,7 @@ services:
       - utility-services
 
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.14.6
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.15.0
     container_name: speedtest-tracker
     ports:
       - 8081:80
@@ -159,7 +159,7 @@ services:
       - utility-services
 
   netbootxyz:
-    image: ghcr.io/netbootxyz/netbootxyz:0.7.0-nbxyz2
+    image: ghcr.io/netbootxyz/netbootxyz:0.7.1-nbxyz1
     container_name: netbootxyz
     volumes:
       - ${VOLUMES_PATH}/utility-services/netbootxyz/config:/config
