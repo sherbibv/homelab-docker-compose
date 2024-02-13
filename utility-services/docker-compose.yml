@@ -74,7 +74,7 @@ services:
       
   mariadb-speedtest-tracker:
     container_name: mariadb-speedtest-tracker
-    image: mariadb:11.2.2
+    image: mariadb:11.2.3
     expose:
       - 3306
     environment:
@@ -206,7 +206,7 @@ services:
       - utility-services
 
   postgres-paperless-ngx:
-    image: postgres:16.1
+    image: postgres:16.2
     container_name: postgres-paperless-ngx
     ports:
       - 5432:5432
@@ -222,7 +222,7 @@ services:
       - utility-services
 
   paperless-ngx:
-    image: ghcr.io/paperless-ngx/paperless-ngx:2.5.0
+    image: ghcr.io/paperless-ngx/paperless-ngx:2.5.1
     container_name: paperless-ngx
     ports:
       - 8555:8000    
