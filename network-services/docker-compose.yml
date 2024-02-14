@@ -5,36 +5,6 @@ networks:
     external: true
 
 services:
-  wireguard:
-    image: weejewel/wg-easy:7
-    container_name: wireguard
-    ports:
-      - "51820:51820/udp"
-      - "51821:51821/tcp"
-    environment:
-      - WG_HOST=${DOMAIN_URL}
-      - PASSWORD=${WIREGUARD_UI_PASSWORD}
-      - WG_ALLOWED_IPS=${SERVER_SUBNET}
-      - WG_POST_UP=${CUSTOM_WG_POST_UP}
-      - WG_POST_DOWN=${CUSTOM_WG_POST_DOWN}
-    volumes:
-      - ${VOLUMES_PATH}/network-services/wireguard:/etc/wireguard
-    cap_add:
-      - NET_ADMIN
-      - SYS_MODULE
-    sysctls:
-      - net.ipv4.ip_forward=1
-      - net.ipv4.conf.all.src_valid_mark=1
-    restart: unless-stopped
-    networks:
-      - network-services
-    healthcheck:
-      test: wget -qO- http://localhost:51821 >/dev/null || exit 1
-      interval: 60s
-      retries: 5
-      timeout: 10s
-      start_period: 20s
-
   uptime-kuma:
     image: louislam/uptime-kuma:1.23.11
     container_name: uptime-kuma

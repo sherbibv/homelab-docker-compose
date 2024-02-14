@@ -34,7 +34,6 @@ Create networks with ```docker network create <network_name>``` command.
   - Deluge
   - Wizarr
 - Network services
-  - Wireguard
   - Uptime-Kuma
   - Cloudflare
 - Utility services
