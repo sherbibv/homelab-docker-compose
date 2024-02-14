@@ -33,6 +33,7 @@ Create networks with ```docker network create <network_name>``` command.
   - Overseerr
   - Deluge
   - Wizarr
+  - Filelist-API-Whitelist
 - Network services
   - Uptime-Kuma
   - Cloudflare
