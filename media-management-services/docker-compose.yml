@@ -212,3 +212,5 @@ services:
       - FL_PASSWORD=${FILELIST_PASSWORD}
       - CHECK_INTERVAL=${FILELIST_WHITELABLE_POOL_INTERVAL}
     restart: unless-stopped
+    networks:
+      - media-management-services
