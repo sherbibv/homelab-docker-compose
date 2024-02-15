@@ -49,7 +49,7 @@ services:
       - utility-services
 
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.15.3
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.15.4
     container_name: speedtest-tracker
     ports:
       - 8081:80
@@ -222,7 +222,7 @@ services:
       - utility-services
 
   paperless-ngx:
-    image: ghcr.io/paperless-ngx/paperless-ngx:2.5.1
+    image: ghcr.io/paperless-ngx/paperless-ngx:2.5.2
     container_name: paperless-ngx
     ports:
       - 8555:8000    
