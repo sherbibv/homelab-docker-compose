@@ -203,14 +203,14 @@ services:
     networks:
       - media-management-services
 
-  filelist-api-whitelist:
-    container_name: filelist-api-whitelist
-    image: ldoctoru/filelist-api-whitelist:latest
-    environment:
-      - TZ=${TIMEZONE}
-      - FL_USERNAME=${FILELIST_USER}
-      - FL_PASSWORD=${FILELIST_PASSWORD}
-      - CHECK_INTERVAL=${FILELIST_WHITELABLE_POOL_INTERVAL}
-    restart: unless-stopped
-    networks:
-      - media-management-services
+  # filelist-api-whitelist:
+  #   container_name: filelist-api-whitelist
+  #   image: ldoctoru/filelist-api-whitelist:latest
+  #   environment:
+  #     - TZ=${TIMEZONE}
+  #     - FL_USERNAME=${FILELIST_USER}
+  #     - FL_PASSWORD=${FILELIST_PASSWORD}
+  #     - CHECK_INTERVAL=${FILELIST_WHITELABLE_POOL_INTERVAL}
+  #   restart: unless-stopped
+  #   networks:
+  #     - media-management-services
