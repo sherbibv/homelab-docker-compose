@@ -49,7 +49,7 @@ services:
       - utility-services
 
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.16.5
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.16.6
 
     container_name: speedtest-tracker
     ports:
@@ -75,7 +75,7 @@ services:
       
   mariadb-speedtest-tracker:
     container_name: mariadb-speedtest-tracker
-    image: mariadb:11.2.3
+    image: mariadb:11.3.2
     expose:
       - 3306
     environment:
