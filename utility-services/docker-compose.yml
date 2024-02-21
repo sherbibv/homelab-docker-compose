@@ -49,7 +49,7 @@ services:
       - utility-services
 
   speedtest-tracker:
-    image: ghcr.io/alexjustesen/speedtest-tracker:v0.16.5
+    image: ghcr.io/alexjustesen/speedtest-tracker:v0.16.6
 
     container_name: speedtest-tracker
     ports:
