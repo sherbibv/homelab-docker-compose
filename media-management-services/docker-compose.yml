@@ -163,26 +163,23 @@ services:
       retries: 3
       start_period: 1m00s
 
-  qbittorrent:
-    image: lscr.io/linuxserver/qbittorrent:4.6.3
-    container_name: qbittorrent
+  deluge:
+    image: linuxserver/deluge:2.1.1
+    container_name: deluge
     ports:
-      - 8383:8383
-      - 6881:6881
-      - 6881:6881/udp
+      - 8112:8112
     environment:
+      - TZ=${TIMEZONE}
       - PUID=1000
       - PGID=1000
-      - TZ=${TIMEZONE}
-      - WEBUI_PORT=8383
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/qbittorrent:/config
+      - ${VOLUMES_PATH}/media-management-services/deluge:/config
       - ${MEDIA_HDD_PATH}/data/downloads:/downloads
     restart: unless-stopped
     networks:
       - media-management-services
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8383 || exit 1
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8112 || exit 1
       interval: 1m00s
       timeout: 15s
       retries: 3
