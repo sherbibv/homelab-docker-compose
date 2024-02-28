@@ -25,6 +25,11 @@
     {
       "packagePatterns": ["^ghcr\\.io\\/netbootxyz\\/netbootxyz"],
       "versionScheme": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)-nbxyz(?<digest>\\d+)$"
+    },
+    {
+      "packagePatterns": ["^linuxserver\\/deluge"],
+      "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
+      "allowedVersions": "/^(\\d{1,2}\\.)(\\d*\\.)*\\d*$/"
     }
   ]
 }
