@@ -164,7 +164,7 @@ services:
       start_period: 1m00s
 
   deluge:
-    image: linuxserver/deluge:2.1.1
+    image: linuxserver/deluge:18.04.1
     container_name: deluge
     ports:
       - 8112:8112
