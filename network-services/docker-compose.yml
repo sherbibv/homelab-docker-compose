@@ -19,6 +19,17 @@ services:
     networks:
       - network-services
       
+  authelia:
+    image: authelia/authelia:4.37.5
+    container_name: authelia
+    ports:
+      - 9091:9091
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/network-services/authelia/config:/config
+    network_mode: host
+      
   cloudflare:
     image: cloudflare/cloudflared:2024.2.1
     container_name: cloudflare
