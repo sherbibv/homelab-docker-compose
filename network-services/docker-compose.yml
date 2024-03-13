@@ -28,6 +28,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/network-services/authelia/config:/config
+    restart: unless-stopped
     network_mode: host
       
   cloudflare:
