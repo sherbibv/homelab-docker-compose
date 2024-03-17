@@ -30,3 +30,17 @@ services:
       timeout: 15s
       retries: 3
       start_period: 1m00s
+
+  music-assistant:
+    image: ghcr.io/music-assistant/server:2.0
+    container_name: music-assistant
+    volumes:
+      - ${VOLUMES_PATH}/media-services/music-assistant:/data
+    privileged: true
+    network_mode: host
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8095/info
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
