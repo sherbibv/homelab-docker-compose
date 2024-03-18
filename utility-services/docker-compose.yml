@@ -124,7 +124,7 @@ services:
     networks:
       - utility-services
     healthcheck:
-      test: /usr/bin/curl --connect-timeout 15 --silent --show-error --fail http://localhost:8080/api/health | grep -q 'true'
+      test: ["CMD", "curl", "--connect-timeout 15 --silent --show-error --fail", "http://localhost:8080/api/health"]
       interval: 60s
       retries: 5
       timeout: 10s
