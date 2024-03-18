@@ -36,6 +36,9 @@ services:
     container_name: music-assistant
     volumes:
       - ${VOLUMES_PATH}/media-services/music-assistant:/data
+    cap_add:
+      - SYS_ADMIN
+      - DAC_READ_SEARCH
     privileged: true
     network_mode: host
     healthcheck:
