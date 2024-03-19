@@ -40,6 +40,7 @@ services:
       - SYS_ADMIN
       - DAC_READ_SEARCH
     privileged: true
+    restart: unless-stopped
     network_mode: host
     healthcheck:
       test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8095/info
