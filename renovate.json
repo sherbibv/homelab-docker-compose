@@ -33,6 +33,7 @@
     },
     {
       "packagePatterns": ["^linuxserver\\/jellyfin"],
+      "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "allowedVersions": "<2021.12.16"
     }
   ]
