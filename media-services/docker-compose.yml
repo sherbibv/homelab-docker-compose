@@ -54,7 +54,7 @@ services:
     networks:
       - media-services
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8096/jellyfin/health" ]
+      test: ["CMD", "curl", "-f", "http://localhost:8096/health" ]
       interval: 10s
       timeout: 5s
       retries: 5    
