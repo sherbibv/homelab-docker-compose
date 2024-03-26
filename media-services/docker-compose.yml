@@ -31,7 +31,7 @@ services:
       retries: 3
       start_period: 1m00s
 
-jellyfin:
+  jellyfin:
     image: linuxserver/jellyfin:10.8.13
     container_name: jellyfin
     environment:
