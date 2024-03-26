@@ -32,7 +32,7 @@
       "allowedVersions": "/^(\\d{1,2}\\.)(\\d*\\.)*\\d*$/"
     },
     {
-      "packagePatterns": ["^.+\/linuxserver\\/jellyfin"],
+      "packagePatterns": ["^linuxserver\\/jellyfin"],
       "allowedVersions": "<2021.12.16"
     }
   ]
