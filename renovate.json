@@ -30,6 +30,10 @@
       "packagePatterns": ["^linuxserver\\/deluge"],
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "allowedVersions": "/^(\\d{1,2}\\.)(\\d*\\.)*\\d*$/"
+    },
+    {
+      "packagePatterns": ["^.+\/linuxserver\\/jellyfin"],
+      "allowedVersions": "<2021.12.16"
     }
   ]
 }
