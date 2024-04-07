@@ -199,6 +199,12 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:5690/api/health | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
 
   # filelist-api-whitelist:
   #   container_name: filelist-api-whitelist
