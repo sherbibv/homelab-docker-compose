@@ -136,16 +136,16 @@ services:
     ports:
       - 8300:80
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/utility-services/filebrowser/database:/database
       - ${VOLUMES_PATH}/utility-services/filebrowser/config:/config
       - /:/srv
     restart: unless-stopped
-    # networks:
-    #   - utility-services
+    networks:
+      - utility-services
   
   pairdrop:
     image: linuxserver/pairdrop:1.10.7
