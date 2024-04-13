@@ -17,8 +17,8 @@ services:
       - VERSION=docker
     volumes:
       - ${VOLUMES_PATH}/media-services/plex:/config
-      - ${MEDIA_HDD_PATH}/data/series:/tv
-      - ${MEDIA_HDD_PATH}/data/movies:/movies
+      - ${MEDIA_HDD_PATH}/series:/tv
+      - ${MEDIA_HDD_PATH}/movies:/movies
     devices:
       - /dev/dri:/dev/dri # intel hw acc
     restart: unless-stopped
@@ -42,8 +42,8 @@ services:
       - "44"
     volumes:
       - ${VOLUMES_PATH}/media-services/jellyfin:/config
-      - ${MEDIA_HDD_PATH}/data/series:/data/tvshows
-      - ${MEDIA_HDD_PATH}/data/movies:/data/movies
+      - ${MEDIA_HDD_PATH}/series:/data/tvshows
+      - ${MEDIA_HDD_PATH}/movies:/data/movies
     ports:
       - 8096:8096
       - 8920:8920 #optional
