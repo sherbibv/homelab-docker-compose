@@ -6,7 +6,7 @@ networks:
 
 services:
   plex:
-    image: linuxserver/plex:1.40.1
+    image: linuxserver/plex:1.40.2
     container_name: plex
     ports:
       - 32400:32400
