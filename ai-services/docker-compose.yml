@@ -4,6 +4,7 @@ services:
   ollama:
     container_name: ollama
     image: ollama/ollama:0.1.32
+    runtime: nvidia
     volumes:
       - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
     expose:
