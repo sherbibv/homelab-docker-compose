@@ -4,13 +4,19 @@ services:
   ollama:
     container_name: ollama
     image: ollama/ollama:0.1.32
-    runtime: nvidia
     volumes:
       - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
     expose:
       - 11434
     restart: unless-stopped
     network_mode: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
       
   ollama-webui:
     image: ghcr.io/ollama-webui/ollama-webui:main
