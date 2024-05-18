@@ -40,7 +40,7 @@ services:
             - capabilities: [gpu]
 
   jellyfin:
-    image: linuxserver/jellyfin:10.9.1
+    image: linuxserver/jellyfin:10.9.2
     container_name: jellyfin
     environment:
       - PUID=1000
