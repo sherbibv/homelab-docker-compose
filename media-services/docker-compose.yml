@@ -15,8 +15,6 @@ services:
       - PGID=1000
       - TZ=${TIMEZONE}
       - VERSION=docker
-      - NVIDIA_VISIBLE_DEVICES=ALL
-      - NVIDIA_DRIVER_CAPABILITIES=all
     volumes:
       - ${VOLUMES_PATH}/media-services/plex:/config
       - ${MEDIA_HDD_PATH}/series:/tv
@@ -24,7 +22,6 @@ services:
     devices:
       - /dev/dri:/dev/dri # intel hw acc
     restart: unless-stopped
-    runtime: nvidia
     networks:
       - media-services
     healthcheck:
@@ -33,11 +30,6 @@ services:
       timeout: 15s
       retries: 3
       start_period: 1m00s
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - capabilities: [gpu]
 
   jellyfin:
     image: linuxserver/jellyfin:10.9.2
