@@ -68,6 +68,10 @@ services:
       - DB_DATABASE=speedtest_tracker
       - DB_USERNAME=${SPEEDTEST_TRACKER_USER}
       - DB_PASSWORD=${SPEEDTEST_TRACKER_PASSWORD}
+      - APP_KEY=${SPEEDTEST_APP_KEY}
+      - APP_TIMEZONE=${SPEEDTEST_APP_TIMEZONE}
+      - DISPLAY_TIMEZONE=${SPEEDTEST_DISPLAY_TIMEZONE}
+      - SPEEDTEST_SCHEDULE=${SPEEDTEST_SCHEDULE}
     volumes:
       - ${VOLUMES_PATH}/utility-services/speedtest-tracker/speedtest-tracker/config:/config
       - ${VOLUMES_PATH}/utility-services/speedtest-tracker/speedtest-tracker/web:/etc/ssl/web
