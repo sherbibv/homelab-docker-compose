@@ -80,6 +80,12 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
+    healthcheck:
+      test: curl -fSs localhost/api/healthcheck || exit 1
+      interval: 10s
+      retries: 3
+      start_period: 30s
+      timeout: 10s
       
   mariadb-speedtest-tracker:
     container_name: mariadb-speedtest-tracker
