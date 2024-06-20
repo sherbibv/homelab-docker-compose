@@ -120,7 +120,7 @@ services:
       - media-management-services
 
   tautulli:
-    image: linuxserver/tautulli:2.14.2
+    image: linuxserver/tautulli:2.14.3
     container_name: tautulli
     ports:
       - 8181:8181
