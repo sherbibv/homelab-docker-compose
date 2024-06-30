@@ -20,7 +20,7 @@ services:
       - network-services
       
   authelia:
-    image: authelia/authelia:4.38.9
+    image: authelia/authelia:v3.13.0
     container_name: authelia
     ports:
       - 9091:9091
