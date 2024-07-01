@@ -158,7 +158,7 @@ services:
       - utility-services
   
   pairdrop:
-    image: linuxserver/pairdrop:1.10.8
+    image: linuxserver/pairdrop:1.10.9
     container_name: pairdrop 
     ports:
       - 3003:3000
