@@ -22,6 +22,8 @@ Create networks with ```docker network create <network_name>``` command.
   - Ollama-WebUI
 - Media services
   - Plex
+  - Jellyfin
+  - Music-Assistant
 - Media-management
   - Sonarr
   - Radarr
@@ -33,10 +35,11 @@ Create networks with ```docker network create <network_name>``` command.
   - Overseerr
   - Deluge
   - Wizarr
-  - Filelist-API-Whitelist
 - Network services
   - Uptime-Kuma
   - Cloudflare
+  - Authelia
+  - Headscale WebUI
 - Utility services
   - Homepage
   - Dockerproxy
@@ -50,3 +53,5 @@ Create networks with ```docker network create <network_name>``` command.
   - Paperless-ngx
   - Redis(Paperless-ngx)
   - Postgres(Paperless-ngx)
+  - ChangeDetection
+  - Chrome (ChangeDetection)
