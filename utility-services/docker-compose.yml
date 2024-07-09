@@ -280,8 +280,8 @@ services:
     restart: unless-stopped
 
   browser-chrome:
-    hostname: browser-chrome
     image: selenium/standalone-chrome-debug:3.141.59
+    container_name: selenium-chrome-browser
     volumes:
       - /dev/shm:/dev/shm
     restart: unless-stopped
