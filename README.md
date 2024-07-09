@@ -15,43 +15,123 @@ Create networks with ```docker network create <network_name>``` command.
 - utility-services
 
 ## Services:
-- Backup services
-  - Duplicacy
-- AI Services
-  - Ollama
-  - Ollama-WebUI
-- Media services
-  - Plex
-  - Jellyfin
-  - Music-Assistant
-- Media-management
-  - Sonarr
-  - Radarr
-  - Bazarr
-  - Prowlarr
-  - PlexTraktSync
-  - Plex-Auto-Languages
-  - Tautulli
-  - Overseerr
-  - Deluge
-  - Wizarr
-- Network services
-  - Uptime-Kuma
-  - Cloudflare
-  - Authelia
-  - Headscale WebUI
-- Utility services
-  - Homepage
-  - Dockerproxy
-  - Speedtest-tracker
-  - MariaDB (Speedtest-tracker)
-  - Scrutiny
-  - Filebrowser
-  - Paridrop
-  - Netbootxyz
-  - pgAdmin
-  - Paperless-ngx
-  - Redis(Paperless-ngx)
-  - Postgres(Paperless-ngx)
-  - ChangeDetection
-  - Chrome (ChangeDetection)
+<table>
+   <tr>
+      <th>Stack Name</th>
+      <th>Container Name</th>
+   </tr>
+   <tr>
+      <td rowspan="1">Backup Services</td>
+      <td>duplicacy</td>
+   </tr>
+   <tr>
+      <td rowspan="2">AI Services</td>
+      <td>ollama</td>
+   </tr>
+   <tr>
+      <td>ollama-webui</td>
+   </tr>
+   <tr>
+      <td rowspan="3">Media Services</td>
+      <td>plex</td>
+   </tr>
+   <tr>
+      <td>jellyfin</td>
+   </tr>
+   <tr>
+      <td>music-assistant</td>
+   </tr>
+   <tr>
+      <td rowspan="12">Media Management</td>
+      <td>sonarr</td>
+   </tr>
+   <tr>
+      <td>radarr</td>
+   </tr>
+   <tr>
+      <td>bazarr</td>
+   </tr>
+   <tr>
+      <td>prowlarr</td>
+   </tr>
+   <tr>
+      <td>plextraktsync</td>
+   </tr>
+   <tr>
+      <td>plex-auto-languages</td>
+   </tr>
+   <tr>
+      <td>tautulli</td>
+   </tr>
+   <tr>
+      <td>overseerr</td>
+   </tr>
+   <tr>
+      <td>deluge</td>
+   </tr>
+   <tr>
+      <td>wizarr</td>
+   </tr>
+   <tr>
+      <td>qbittorrent</td>
+   </tr>
+   <tr>
+      <td>sabnzbd</td>
+   </tr>
+   <tr>
+      <td rowspan="4">Network Services</td>
+      <td>uptime-kuma</td>
+   </tr>
+   <tr>
+      <td>cloudflare</td>
+   </tr>
+   <tr>
+      <td>authelia</td>
+   </tr>
+   <tr>
+      <td>headscale-webui</td>
+   </tr>
+   <tr>
+      <td rowspan="14">Utility Services</td>
+      <td>homepage</td>
+   </tr>
+   <tr>
+      <td>dockerproxy</td>
+   </tr>
+   <tr>
+      <td>speedtest-tracker</td>
+   </tr>
+   <tr>
+      <td>mariadb (speedtest-tracker)</td>
+   </tr>
+   <tr>
+      <td>scrutiny</td>
+   </tr>
+   <tr>
+      <td>filebrowser</td>
+   </tr>
+   <tr>
+      <td>paridrop</td>
+   </tr>
+   <tr>
+      <td>netbootxyz</td>
+   </tr>
+   <tr>
+      <td>pgadmin</td>
+   </tr>
+   <tr>
+      <td>paperless-ngx</td>
+   </tr>
+   <tr>
+      <td>redis (paperless-ngx)</td>
+   </tr>
+   <tr>
+      <td>postgres (paperless-ngx)</td>
+   </tr>
+   <tr>
+      <td>changedetection</td>
+   </tr>
+   <tr>
+      <td>chrome (changedetection)</td>
+   </tr>
+</table>
