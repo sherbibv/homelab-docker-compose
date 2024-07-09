@@ -42,7 +42,7 @@ Create networks with ```docker network create <network_name>``` command.
       <td>music-assistant</td>
    </tr>
    <tr>
-      <td rowspan="12">Media Management</td>
+      <td rowspan="10">Media Management</td>
       <td>sonarr</td>
    </tr>
    <tr>
@@ -71,12 +71,6 @@ Create networks with ```docker network create <network_name>``` command.
    </tr>
    <tr>
       <td>wizarr</td>
-   </tr>
-   <tr>
-      <td>qbittorrent</td>
-   </tr>
-   <tr>
-      <td>sabnzbd</td>
    </tr>
    <tr>
       <td rowspan="4">Network Services</td>
@@ -132,6 +126,6 @@ Create networks with ```docker network create <network_name>``` command.
       <td>changedetection</td>
    </tr>
    <tr>
-      <td>chrome (changedetection)</td>
+      <td>selenium-chrome-browser</td>
    </tr>
 </table>
