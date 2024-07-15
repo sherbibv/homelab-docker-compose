@@ -6,7 +6,7 @@ networks:
 
 services:
   sonarr:
-    image: linuxserver/sonarr:4.0.6
+    image: linuxserver/sonarr:4.0.7
     container_name: sonarr
     ports:
       - 8989:8989
