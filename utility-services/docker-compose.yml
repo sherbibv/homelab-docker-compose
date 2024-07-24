@@ -276,6 +276,7 @@ services:
       - PGID=1000
       - TZ=${TIMEZONE}
       - LC_ALL=en_US.UTF-8
+      - WEBDRIVER_URL=172.26.0.3
     volumes:
       - ${VOLUMES_PATH}/utility-services/changedetection/config:/config
     restart: unless-stopped
