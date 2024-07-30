@@ -210,7 +210,7 @@ services:
       retries: 3
 
   redis-paperless-ngx:
-    image: redis:7.2.5
+    image: redis:7.4.0
     container_name: redis-paperless-ngx
     environment:
       - TZ=${TIMEZONE}
