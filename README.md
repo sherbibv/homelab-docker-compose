@@ -73,17 +73,26 @@ Create networks with ```docker network create <network_name>``` command.
       <td>wizarr</td>
    </tr>
    <tr>
-      <td rowspan="4">Network Services</td>
+      <td rowspan="7">Network Services</td>
+      <td>authentik-postgresql</td>
+   </tr>
+   <tr>
+      <td>authentik-redis</td>
+   </tr>
+   <tr>
+      <td>authentik-server</td>
+   </tr>
+   <tr>
+      <td>authentik-worker</td>
+   </tr>
+   <tr>
+      <td>traefik</td>
+   </tr>
+   <tr>
       <td>uptime-kuma</td>
    </tr>
    <tr>
       <td>cloudflare</td>
-   </tr>
-   <tr>
-      <td>authelia</td>
-   </tr>
-   <tr>
-      <td>headscale-webui</td>
    </tr>
    <tr>
       <td rowspan="14">Utility Services</td>
