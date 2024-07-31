@@ -5,6 +5,131 @@ networks:
     external: true
 
 services:
+  authentik-postgresql:
+    image: docker.io/library/postgres:12-alpine
+    container_name: authentik-postgresql
+    environment:
+      - POSTGRES_PASSWORD=${PG_PASS}
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_DB=${PG_DB}
+    volumes:
+      - ${VOLUMES_PATH}/network-services/authentik/database:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - network-services
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      start_period: 20s
+      interval: 30s
+      retries: 5
+      timeout: 5s
+
+  authentik-redis:
+    image: docker.io/library/redis:alpine
+    container_name: authentik-redis
+    command: --save 60 1 --loglevel warning
+    volumes:
+      - ${VOLUMES_PATH}/network-services/authentik/redis:/data
+    restart: unless-stopped
+    networks:
+      - network-services
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+      start_period: 20s
+      interval: 30s
+      retries: 5
+      timeout: 3s
+      
+  server:
+    image: ghcr.io/goauthentik/server:2024.6.1
+    container_name: authentik-server
+    command: server
+    ports:
+      - 9006:9000
+      - 9007:9443
+    environment:
+      - AUTHENTIK_REDIS__HOST=authentik-redis
+      - AUTHENTIK_POSTGRESQL__HOST=authentik-postgresql
+      - AUTHENTIK_POSTGRESQL__USER=${PG_USER}
+      - AUTHENTIK_POSTGRESQL__NAME=${PG_DB}
+      - AUTHENTIK_POSTGRESQL__PASSWORD=${PG_PASS}
+      - AUTHENTIK_SECRET_KEY=${AUTHENTIK_SECRET_KEY}
+    volumes:
+      - ${VOLUMES_PATH}/network-services/authentik/media:/media
+      - ${VOLUMES_PATH}/network-services/authentik/custom-templates:/templates
+    depends_on:
+      - authentik-postgresql
+      - authentik-redis
+    restart: unless-stopped
+    networks:
+      - network-services
+      
+  worker:
+    image: ghcr.io/goauthentik/server:2024.6.1
+    container_name: authentik-worker
+    command: worker
+    user: root
+    environment:
+      - AUTHENTIK_REDIS__HOST=authentik-redis
+      - AUTHENTIK_POSTGRESQL__HOST=authentik-postgresql
+      - AUTHENTIK_POSTGRESQL__USER=${PG_USER}
+      - AUTHENTIK_POSTGRESQL__NAME=${PG_DB}
+      - AUTHENTIK_POSTGRESQL__PASSWORD=${PG_PASS}
+      - AUTHENTIK_SECRET_KEY=${AUTHENTIK_SECRET_KEY}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ${VOLUMES_PATH}/network-services/authentik/media:/media
+      - ${VOLUMES_PATH}/network-services/authentik/certs:/certs
+      - ${VOLUMES_PATH}/network-services/authentik/custom-templates:/templates
+    depends_on:
+      - authentik-postgresql
+      - authentik-redis
+    restart: unless-stopped
+    networks:
+      - network-services
+
+  traefik:
+    image: traefik:v3.1.0
+    container_name: traefik
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 80:80
+      - 443:443
+      - 51820:51820 # wiregaurd
+      - 9981:9981  # tvheadend webui
+      - 9982:9982  # tvheadend stream
+      - 32400:32400 # plex
+    environment:
+      - CF_API_EMAIL=${CF_EMAIL}
+      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ${VOLUMES_PATH}/network-services/traefik/traefik.yml:/traefik.yml:ro
+      - ${VOLUMES_PATH}/network-services/traefik/acme.json:/acme.json
+      - ${VOLUMES_PATH}/network-services/traefik/config:/config
+      - ${VOLUMES_PATH}/network-services/traefik/logs:/var/log/traefik
+    restart: unless-stopped
+    networks:
+      - network-services
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.entrypoints=http"
+      - "traefik.http.routers.traefik.rule=Host(`${TRAEFIK_SUBDOMAIN}.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.traefik.middlewares=traefik-https-redirect"
+      - "traefik.http.routers.traefik-secure.entrypoints=https"
+      - "traefik.http.routers.traefik-secure.rule=Host(`${TRAEFIK_SUBDOMAIN}.${BASE_DOMAIN}`)"
+      - "traefik.http.routers.traefik-secure.middlewares=traefik-auth"
+      - "traefik.http.routers.traefik-secure.tls=true"
+      - "traefik.http.routers.traefik-secure.tls.certresolver=cloudflare"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].main=${BASE_DOMAIN}"
+      - "traefik.http.routers.traefik-secure.tls.domains[0].sans=*.${BASE_DOMAIN}"
+      - "traefik.http.routers.traefik-secure.service=api@internal"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=${BASIC_AUTH}"
+      - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+
   uptime-kuma:
     image: louislam/uptime-kuma:1.23.13
     container_name: uptime-kuma
@@ -18,26 +143,14 @@ services:
     restart: unless-stopped
     networks:
       - network-services
-      
-  authelia:
-    image: authelia/authelia:4.38.9
-    container_name: authelia
-    ports:
-      - 9091:9091
-    environment:
-      - TZ=${TIMEZONE}
-    volumes:
-      - ${VOLUMES_PATH}/network-services/authelia/config:/config
-    restart: unless-stopped
-    network_mode: host
-      
+            
   cloudflare:
     image: cloudflare/cloudflared:2024.6.1
     container_name: cloudflare
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
     environment:
       - PUID=1000
       - PGID=1000
-    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
     restart: unless-stopped
     networks:
       - network-services
