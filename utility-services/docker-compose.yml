@@ -148,12 +148,12 @@ services:
     ports:
       - 8300:80
     environment:
-      - PUID=0
-      - PGID=0
+      - PUID=1000
+      - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
-      - ${VOLUMES_PATH}/utility-services/filebrowser/database:/database
-      - ${VOLUMES_PATH}/utility-services/filebrowser/config:/config
+      - ${VOLUMES_PATH}/utility-services/filebrowser/filebrowser.db:/filebrowser.db
+      - ${VOLUMES_PATH}/utility-services/filebrowser/.filebrowser.json:/.filebrowser.json
       - /:/srv
     restart: unless-stopped
     networks:
