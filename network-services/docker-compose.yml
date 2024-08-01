@@ -93,6 +93,8 @@ services:
     container_name: traefik
     security_opt:
       - no-new-privileges:true
+    command:
+      - --ping=true
     ports:
       - 80:80
       - 443:443
@@ -136,7 +138,6 @@ services:
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
     
-
   uptime-kuma:
     image: louislam/uptime-kuma:1.23.13
     container_name: uptime-kuma
