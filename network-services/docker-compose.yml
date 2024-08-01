@@ -113,6 +113,12 @@ services:
     restart: unless-stopped
     networks:
       - network-services
+    healthcheck:
+      test: ["CMD", "traefik", "healthcheck", "--ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=http"
@@ -129,6 +135,7 @@ services:
       - "traefik.http.middlewares.traefik-auth.basicauth.users=${BASIC_AUTH}"
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
+    
 
   uptime-kuma:
     image: louislam/uptime-kuma:1.23.13
