@@ -57,7 +57,6 @@ services:
     volumes:
       - ${VOLUMES_PATH}/network-services/authentik/media:/media
       - ${VOLUMES_PATH}/network-services/authentik/custom-templates:/templates
-      - ${VOLUMES_PATH}/network-services/authentik/custom-style.css:/web/dist/custom.css
     depends_on:
       - authentik-postgresql
       - authentik-redis
