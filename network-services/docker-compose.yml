@@ -93,8 +93,6 @@ services:
     container_name: traefik
     security_opt:
       - no-new-privileges:true
-    command:
-      - --ping=true
     ports:
       - 80:80
       - 443:443
