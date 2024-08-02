@@ -109,7 +109,7 @@ services:
       - ${VOLUMES_PATH}/network-services/traefik/traefik.yml:/traefik.yml:ro
       - ${VOLUMES_PATH}/network-services/traefik/acme.json:/acme.json
       - ${VOLUMES_PATH}/network-services/traefik/config:/config
-      - ${LOGS_PATH}/crowdsec/traefik/:/var/log/traefik/
+      - ${VOLUMES_PATH}/network-services/traefik/logs/:/var/log/traefik/
     restart: unless-stopped
     networks:
       - network-services
