@@ -35,7 +35,7 @@ services:
     image: ghcr.io/open-webui/open-webui:0.3.11
     container_name: open-webui
     ports:
-      - 3010:8080
+      - 3011:8080
     environment:
       - OLLAMA_BASE_URL=http://${SERVER_IP}:11434
     volumes:
