@@ -2,12 +2,12 @@ version: "3.9"
 
 services:
   ollama:
-    container_name: ollama
     image: ollama/ollama:0.3.3
-    volumes:
-      - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
+    container_name: ollama
     expose:
       - 11434
+    volumes:
+      - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
     restart: unless-stopped
     network_mode: host
     deploy:
@@ -21,12 +21,23 @@ services:
   ollama-webui:
     image: ghcr.io/ollama-webui/ollama-webui:main
     container_name: ollama-webui
-    restart: unless-stopped
-    volumes:
-      - ${VOLUMES_PATH}/ai-services/ollama-webui/webui:/app/backend/data
     ports:
       - 3010:8080
     environment:
       - OLLAMA_API_BASE_URL=http://${SERVER_IP}:11434/api
+    volumes:
+      - ${VOLUMES_PATH}/ai-services/ollama-webui/webui:/app/backend/data
+    restart: unless-stopped
     extra_hosts:
       - host.docker.internal:host-gateway
+
+  open-webui: 
+    image: ghcr.io/open-webui/open-webui:0.3.11
+    container_name: open-webui
+    ports:
+      - 3010:8080
+    environment:
+      - OLLAMA_BASE_URL=http://${SERVER_IP}:11434
+    volumes:
+      - ${VOLUMES_PATH}/ai-services/open-webui:/app/backend/data
+    restart: unless-stopped
