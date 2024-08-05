@@ -135,7 +135,39 @@ services:
       - "traefik.http.middlewares.traefik-auth.basicauth.users=${BASIC_AUTH}"
       - "traefik.http.middlewares.traefik-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
-    
+
+  crowdsec:
+    image: crowdsecurity/crowdsec:v1.6.2
+    container_name: crowdsec
+    security_opt:
+      - no-new-privileges=true
+    ports:
+      - 8080:8080
+    environment:
+      PGID: "1000"
+      COLLECTIONS: "crowdsecurity/linux crowdsecurity/traefik crowdsecurity/http-cve crowdsecurity/whitelist-good-actors crowdsecurity/sshd"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ${VOLUMES_PATH}/network-services/crowdsec/acquis.yaml:/etc/crowdsec/acquis.yaml
+      - ${VOLUMES_PATH}/network-services/crowdsec/crowdsec-db:/var/lib/crowdsec/data/
+      - ${VOLUMES_PATH}/network-services/crowdsec/config:/etc/crowdsec/
+      - ${VOLUMES_PATH}/network-services/traefik/logs:/var/log/traefik/:ro
+    restart: unless-stopped
+    networks:
+      - network-services
+
+  bouncer-traefik:
+    image: fbonalair/traefik-crowdsec-bouncer:0.5.0
+    container_name: bouncer-traefik
+    environment:
+      CROWDSEC_BOUNCER_API_KEY: ${CROWDSEC_BOUNCER_API_KEY}
+      CROWDSEC_AGENT_HOST: crowdsec:8080  
+    restart: unless-stopped
+    depends_on:
+      - crowdsec
+    networks:
+      - network-services
+
   uptime-kuma:
     image: louislam/uptime-kuma:1.23.13
     container_name: uptime-kuma
