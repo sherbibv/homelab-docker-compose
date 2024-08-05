@@ -161,17 +161,17 @@ services:
       timeout: 5s
       retries: 5  
 
-  bouncer-traefik:
-    image: fbonalair/traefik-crowdsec-bouncer:0.5.0
-    container_name: bouncer-traefik
-    environment:
-      CROWDSEC_BOUNCER_API_KEY: ${CROWDSEC_BOUNCER_API_KEY}
-      CROWDSEC_AGENT_HOST: crowdsec:8080  
-    restart: unless-stopped
-    depends_on:
-      - crowdsec
-    networks:
-      - network-services
+  # bouncer-traefik:
+  #   image: fbonalair/traefik-crowdsec-bouncer:0.5.0
+  #   container_name: bouncer-traefik
+  #   environment:
+  #     CROWDSEC_BOUNCER_API_KEY: ${CROWDSEC_BOUNCER_API_KEY}
+  #     CROWDSEC_AGENT_HOST: crowdsec:8080  
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - crowdsec
+  #   networks:
+  #     - network-services
 
   uptime-kuma:
     image: louislam/uptime-kuma:1.23.13
