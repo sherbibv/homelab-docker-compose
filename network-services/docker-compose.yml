@@ -157,6 +157,9 @@ services:
       - network-services
     healthcheck:  
       test: ["CMD", "cscli", "version"]
+      interval: 10s
+      timeout: 5s
+      retries: 5  
 
   bouncer-traefik:
     image: fbonalair/traefik-crowdsec-bouncer:0.5.0
