@@ -93,6 +93,9 @@ services:
     container_name: traefik
     security_opt:
       - no-new-privileges:true
+    command:
+      - --experimental.plugins.crowdsec-bouncer.modulename=github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin
+      - --experimental.plugins.crowdsec-bouncer.version=v1.3.3
     ports:
       - 80:80
       - 443:443
