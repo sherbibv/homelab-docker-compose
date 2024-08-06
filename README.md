@@ -73,7 +73,7 @@ Create networks with ```docker network create <network_name>``` command.
       <td>wizarr</td>
    </tr>
    <tr>
-      <td rowspan="7">Network Services</td>
+      <td rowspan="8">Network Services</td>
       <td>authentik-postgresql</td>
    </tr>
    <tr>
@@ -88,6 +88,9 @@ Create networks with ```docker network create <network_name>``` command.
    <tr>
       <td>traefik</td>
    </tr>
+   <tr>
+      <td>crowdsec</td>
+   </tr> 
    <tr>
       <td>uptime-kuma</td>
    </tr>
