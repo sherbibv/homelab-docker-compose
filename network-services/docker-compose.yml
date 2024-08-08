@@ -100,6 +100,7 @@ services:
       - 9981:9981  # tvheadend webui
       - 9982:9982  # tvheadend stream
       - 32400:32400 # plex
+      - 11434:11434 # ollama
     environment:
       - CF_API_EMAIL=${CF_EMAIL}
       - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
