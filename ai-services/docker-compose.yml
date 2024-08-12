@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   ollama:
-    image: ollama/ollama:0.3.5
+    image: ollama/ollama:0.3.4
     container_name: ollama
     expose:
       - 11434
