@@ -25,6 +25,11 @@ services:
       - 3011:8080
     environment:
       - OLLAMA_BASE_URL=http://${SERVER_IP}:11434
+      - OAUTH_CLIENT_ID=${OAUTH_CLIENT_ID}
+      - OAUTH_CLIENT_SECRET=${OAUTH_CLIENT_SECRET}
+      - OPENID_PROVIDER_URL=${OPENID_PROVIDER_URL}
+      - OAUTH_SCOPES=${OAUTH_SCOPES}
+      - OAUTH_MERGE_ACCOUNTS_BY_EMAIL=${OAUTH_MERGE_ACCOUNTS_BY_EMAIL}
     volumes:
       - ${VOLUMES_PATH}/ai-services/open-webui:/app/backend/data
     restart: unless-stopped
