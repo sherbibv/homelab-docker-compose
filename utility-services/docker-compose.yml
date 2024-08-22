@@ -190,7 +190,7 @@ services:
       - utility-services
 
   pgadmin:
-    image: dpage/pgadmin4:8.10
+    image: dpage/pgadmin4:8.11
     container_name: pgadmin
     ports:
       - 8677:80
