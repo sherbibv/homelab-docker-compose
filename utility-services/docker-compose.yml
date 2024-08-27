@@ -293,5 +293,19 @@ services:
     shm_size: "2g"
     restart: unless-stopped
 
+  stirling-pdf:
+    image: frooodle/s-pdf:0.28.2-fat
+    container_name: stirling-pdf
+    ports:
+      - 8067:8080
+    environment:
+      - DOCKER_ENABLE_SECURITY=true
+      - SECURITY_ENABLE_LOGIN=true
+      - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=false
+      - LANGS=en_GB
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/stirling/trainingData:/usr/share/tessdata
+      - ${VOLUMES_PATH}/utility-services/stirling/extraConfigs:/configs
+
 volumes:
   pgadmin_data:
