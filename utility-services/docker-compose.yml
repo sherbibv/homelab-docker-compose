@@ -294,7 +294,7 @@ services:
     restart: unless-stopped
 
   stirling-pdf:
-    image: frooodle/s-pdf:0.28.3-fat
+    image: frooodle/s-pdf:0.29.0-fat
     container_name: stirling-pdf
     ports:
       - 8067:8080
