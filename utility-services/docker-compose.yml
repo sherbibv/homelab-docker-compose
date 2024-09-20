@@ -282,6 +282,8 @@ services:
     volumes:
       - ${VOLUMES_PATH}/utility-services/changedetection/config:/config
     restart: unless-stopped
+    networks:
+      - utility-services
 
   standalone-chromium:
     image: selenium/standalone-chromium:4.24.0
@@ -292,6 +294,8 @@ services:
       - /dev/shm:/dev/shm
     shm_size: "2g"
     restart: unless-stopped
+    networks:
+      - utility-services
 
   stirling-pdf:
     image: frooodle/s-pdf:0.29.0-fat
@@ -306,6 +310,8 @@ services:
     volumes:
       - ${VOLUMES_PATH}/utility-services/stirling/trainingData:/usr/share/tessdata
       - ${VOLUMES_PATH}/utility-services/stirling/extraConfigs:/configs
+    networks:
+      - utility-services
 
 volumes:
   pgadmin_data:
