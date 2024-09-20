@@ -1,5 +1,9 @@
 version: "3.9"
 
+networks:
+  ai-services:
+    external: true
+
 services:
   ollama:
     image: ollama/ollama:0.3.11
@@ -9,7 +13,8 @@ services:
     volumes:
       - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
     restart: unless-stopped
-    network_mode: host
+    networks: 
+      - ai-services
     deploy:
       resources:
         reservations:
@@ -33,3 +38,5 @@ services:
     volumes:
       - ${VOLUMES_PATH}/ai-services/open-webui:/app/backend/data
     restart: unless-stopped
+    networks: 
+      - ai-services
