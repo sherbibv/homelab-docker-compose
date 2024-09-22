@@ -284,7 +284,7 @@ services:
       - utility-services
 
   standalone-chromium:
-    image: selenium/standalone-chromium:4.24.0
+    image: selenium/standalone-chromium:4.25.0
     container_name: standalone-chromium
     ports:
       - 4444:4444
