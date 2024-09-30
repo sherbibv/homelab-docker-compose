@@ -163,7 +163,7 @@ services:
       retries: 5  
 
   uptime-kuma:
-    image: louislam/uptime-kuma:1.23.13
+    image: louislam/uptime-kuma:1.23.15
     container_name: uptime-kuma
     ports:
       - 1337:3001
