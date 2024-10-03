@@ -141,7 +141,7 @@ services:
       start_period: 20s
 
   filebrowser:
-    image: filebrowser/filebrowser:v2.31.1
+    image: filebrowser/filebrowser:v2.31.2
     container_name: filebrowser
     ports:
       - 8300:80
