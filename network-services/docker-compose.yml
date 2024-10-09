@@ -14,9 +14,6 @@ services:
       - POSTGRES_DB=${PG_DB}
     volumes:
       - ${VOLUMES_PATH}/network-services/authentik/database:/var/lib/postgresql/data
-    command:
-      - "--experimental.plugins.crowdsec-bouncer.modulename=github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin" 
-      - "--experimental.plugins.crowdsec-bouncer.version=v1.3.3"
     restart: unless-stopped
     networks:
       - network-services
@@ -114,6 +111,9 @@ services:
       - ${VOLUMES_PATH}/network-services/traefik/acme.json:/acme.json
       - ${VOLUMES_PATH}/network-services/traefik/config:/config
       - ${VOLUMES_PATH}/network-services/traefik/logs/:/var/log/traefik/
+    command:
+      - "--experimental.plugins.crowdsec-bouncer.modulename=github.com/maxlerebourg/crowdsec-bouncer-traefik-plugin" 
+      - "--experimental.plugins.crowdsec-bouncer.version=v1.3.3"
     restart: unless-stopped
     networks:
       - network-services
