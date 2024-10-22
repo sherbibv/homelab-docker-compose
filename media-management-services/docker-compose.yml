@@ -75,7 +75,7 @@ services:
       start_period: 60s
 
   prowlarr:
-    image: linuxserver/prowlarr:1.24.3
+    image: linuxserver/prowlarr:1.25.4
     container_name: prowlarr
     ports:
       - 9696:9696
