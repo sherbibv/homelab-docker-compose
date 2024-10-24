@@ -178,7 +178,7 @@ services:
       - network-services
             
   cloudflare:
-    image: cloudflare/cloudflared:2024.10.0
+    image: cloudflare/cloudflared:2024.10.1
     container_name: cloudflare
     command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
     environment:
