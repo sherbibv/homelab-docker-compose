@@ -294,6 +294,14 @@ services:
     restart: unless-stopped
     networks:
       - utility-services
+      
+  iperf3:
+    image: mlabbe/iperf3:3.16-r0
+    container_name: iperf3
+    ports:
+      - "5201:5201/tcp"
+      - "5201:5201/udp"
+    restart: unless-stopped
 
 volumes:
   pgadmin_data:
