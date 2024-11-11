@@ -176,14 +176,3 @@ services:
     restart: unless-stopped
     networks:
       - network-services
-            
-  cloudflare:
-    image: cloudflare/cloudflared:2024.11.0
-    container_name: cloudflare
-    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}
-    environment:
-      - PUID=1000
-      - PGID=1000
-    restart: unless-stopped
-    networks:
-      - network-services
