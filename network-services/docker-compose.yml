@@ -41,7 +41,7 @@ services:
       timeout: 3s
       
   authentik-server:
-    image: ghcr.io/goauthentik/server:2024.10.3
+    image: ghcr.io/goauthentik/server:2024.10.4
     container_name: authentik-server
     command: server
     ports:
@@ -65,7 +65,7 @@ services:
       - network-services
       
   authentik-worker:
-    image: ghcr.io/goauthentik/server:2024.10.3
+    image: ghcr.io/goauthentik/server:2024.10.4
     container_name: authentik-worker
     command: worker
     user: root
