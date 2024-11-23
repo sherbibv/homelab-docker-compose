@@ -221,7 +221,7 @@ services:
       - utility-services
 
   postgres-paperless-ngx:
-    image: postgres:16.5
+    image: postgres:16.6
     container_name: postgres-paperless-ngx
     ports:
       - 5432:5432
