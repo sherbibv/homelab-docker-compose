@@ -38,5 +38,4 @@ services:
     volumes:
       - ${VOLUMES_PATH}/ai-services/open-webui:/app/backend/data
     restart: unless-stopped
-    networks: 
-      - ai-services
+    network_mode: host
