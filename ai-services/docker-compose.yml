@@ -40,3 +40,4 @@ services:
     restart: unless-stopped
     networks: 
       - ai-services
+      - host
