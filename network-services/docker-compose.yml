@@ -138,7 +138,7 @@ services:
       - "traefik.http.middlewares.sslheader.headers.customrequestheaders.X-Forwarded-Proto=https"
 
   crowdsec:
-    image: crowdsecurity/crowdsec:v1.6.3
+    image: crowdsecurity/crowdsec:v1.6.4
     container_name: crowdsec
     security_opt:
       - no-new-privileges=true
