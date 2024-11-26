@@ -5,23 +5,23 @@ networks:
     external: true
 
 services:
-  ollama:
-    image: ollama/ollama:0.4.4
-    container_name: ollama
-    ports:
-      - 11434:11434
-    volumes:
-      - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
-    restart: unless-stopped
-    networks: 
-      - ai-services
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+  # ollama:
+  #   image: ollama/ollama:0.4.4
+  #   container_name: ollama
+  #   ports:
+  #     - 11434:11434
+  #   volumes:
+  #     - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
+  #   restart: unless-stopped
+  #   networks: 
+  #     - ai-services
+  #   deploy:
+  #     resources:
+  #       reservations:
+  #         devices:
+  #           - driver: nvidia
+  #             count: 1
+  #             capabilities: [gpu]
   
   open-webui: 
     image: ghcr.io/open-webui/open-webui:v0.4.5
@@ -29,7 +29,7 @@ services:
     ports:
       - 3011:8080
     environment:
-      - OLLAMA_BASE_URL=http://${SERVER_IP}:11434
+      - OLLAMA_BASE_URL=http://${GPU_MACHINE_IP}:11434
       - OAUTH_CLIENT_ID=${OAUTH_CLIENT_ID}
       - OAUTH_CLIENT_SECRET=${OAUTH_CLIENT_SECRET}
       - OPENID_PROVIDER_URL=${OPENID_PROVIDER_URL}
