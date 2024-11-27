@@ -1,0 +1,49 @@
+networks:
+  crypto-services:
+    external: true
+
+services:
+  honeygain:
+    image: honeygain/honeygain:0.8.1
+    container_name: honeygain
+    environment:
+      - HONEYGAIN_EMAIL=${HONEYGAIN_EMAIL}
+      - HONEYGAIN_PASSWORD=${HONEYGAIN_PASSWORD}
+      - HONEYGAIN_DEVICE_NAME=${HONEYGAIN_DEVICE_NAME}
+    command: -tou-accept -email $HONEYGAIN_EMAIL -pass '$HONEYGAIN_PASSWORD' -device $HONEYGAIN_DEVICE_NAME
+    restart: unless-stopped
+    networks: 
+      - crypto-services
+
+  mysterium-node:
+    image: mysteriumnetwork/myst:1.31.2-alpine
+    container_name: mysterium-node
+    ports:
+      - 4449:4449
+    command: service --agreed-terms-and-conditions
+    volumes:
+      - ${VOLUMES_PATH}/crypto-services/mysterium-node:/var/lib/mysterium-node
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+    networks: 
+      - crypto-services
+
+  proxyservice:
+    image: proxylite/proxyservice
+    container_name: proxylite
+    environment:
+      - USER_ID=${PROXYLITE_USER_ID}
+    restart: unless-stopped
+    networks: 
+      - crypto-services
+
+  repocket:
+    image: repocket/repocket:1.1.42
+    container_name: repocket
+    environment:
+      - RP_EMAIL=${RP_EMAIL}
+      - RP_API_KEY=${RP_API_KEY}
+    restart: unless-stopped
+    networks: 
+      - crypto-services
