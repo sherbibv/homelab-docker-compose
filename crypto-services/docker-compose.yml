@@ -16,7 +16,7 @@ services:
       - crypto-services
 
   mysterium-node:
-    image: mysteriumnetwork/myst:1.31.2-alpine
+    image: mysteriumnetwork/myst:1.31.3-alpine
     container_name: mysterium-node
     ports:
       - 4449:4449
