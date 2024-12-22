@@ -119,6 +119,7 @@ services:
       - 8086:8086
     environment:
       - TZ=${TIMEZONE}
+      - COLLECTOR_CRON_SCHEDULE="*/5 * * * *"
     volumes:
       - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
       - ${VOLUMES_PATH}/utility-services/scrutiny/influxdb:/opt/scrutiny/influxdb
