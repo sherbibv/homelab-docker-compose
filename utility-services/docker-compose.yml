@@ -121,6 +121,7 @@ services:
       - TZ=${TIMEZONE}
       - COLLECTOR_CRON_SCHEDULE="*/5 * * * *"
     volumes:
+      - /run/udev:/run/udev:ro
       - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
       - ${VOLUMES_PATH}/utility-services/scrutiny/influxdb:/opt/scrutiny/influxdb
     restart: unless-stopped
