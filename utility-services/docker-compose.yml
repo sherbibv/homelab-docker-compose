@@ -113,7 +113,7 @@ services:
 
   scrutiny-web:
     image: ghcr.io/analogj/scrutiny:v0.8.1-web
-    container_name: scrutiny
+    container_name: scrutiny-web
     ports:
       - 8082:8080
     environment:
