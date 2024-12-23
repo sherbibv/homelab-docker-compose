@@ -111,25 +111,20 @@ services:
         timeout: 5s
         retries: 3
 
-  scrutiny:
-    image: ghcr.io/analogj/scrutiny:v0.8.1-omnibus
+  scrutiny-web:
+    image: ghcr.io/analogj/scrutiny:v0.8.1-web
     container_name: scrutiny
     ports:
       - 8082:8080
-      - 8086:8086
     environment:
       - TZ=${TIMEZONE}
-      - COLLECTOR_CRON_SCHEDULE="0 */2 * * *"
+      - SCRUTINY_WEB_INFLUXDB_HOST=scrutiny-influxdb
     volumes:
-      - /run/udev:/run/udev:ro
       - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
-      - ${VOLUMES_PATH}/utility-services/scrutiny/influxdb:/opt/scrutiny/influxdb
-    devices:
-      - /dev/sdb
-    cap_add:
-      - SYS_RAWIO
-    privileged: true
     restart: unless-stopped
+    depends_on:
+      scrutiny-influxdb:
+        condition: service_healthy
     networks:
       - utility-services
     healthcheck:
@@ -138,6 +133,22 @@ services:
       retries: 5
       timeout: 10s
       start_period: 20s
+      
+  scrutiny-influxdb:
+    image: influxdb:2.2
+    container_name: scrutiny-influxdb
+    ports:
+      - 8086:8086
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/scrutiny/influxdb:/var/lib/influxdb2
+    restart: unless-stopped
+    networks:
+      - utility-services
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8086/health"]
+      interval: 5s
+      timeout: 10s
+      retries: 20
 
   filebrowser:
     image: filebrowser/filebrowser:v2.31.2
