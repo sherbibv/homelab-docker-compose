@@ -118,12 +118,12 @@ services:
       - 8082:8080
     environment:
       - TZ=${TIMEZONE}
-      - SCRUTINY_WEB_INFLUXDB_HOST=scrutiny-influxdb
+      - SCRUTINY_WEB_INFLUXDB_HOST=influxdb-scrutiny
     volumes:
       - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
     restart: unless-stopped
     depends_on:
-      scrutiny-influxdb:
+      influxdb-scrutiny:
         condition: service_healthy
     networks:
       - utility-services
@@ -134,9 +134,9 @@ services:
       timeout: 10s
       start_period: 20s
       
-  scrutiny-influxdb:
+  influxdb-scrutiny:
     image: influxdb:2.2
-    container_name: scrutiny-influxdb
+    container_name: influxdb-scrutiny
     ports:
       - 8086:8086
     volumes:
