@@ -89,7 +89,7 @@ services:
       - network-services
 
   traefik:
-    image: traefik:v3.2.3
+    image: traefik:v3.3.0
     container_name: traefik
     security_opt:
       - no-new-privileges:true
