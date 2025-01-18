@@ -37,13 +37,3 @@ services:
     restart: unless-stopped
     networks: 
       - crypto-services
-
-  repocket:
-    image: repocket/repocket:1.1.46
-    container_name: repocket
-    environment:
-      - RP_EMAIL=${RP_EMAIL}
-      - RP_API_KEY=${RP_API_KEY}
-    restart: unless-stopped
-    networks: 
-      - crypto-services
