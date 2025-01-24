@@ -119,6 +119,7 @@ services:
     environment:
       - TZ=${TIMEZONE}
       - SCRUTINY_WEB_INFLUXDB_HOST=influxdb-scrutiny
+      - SCRUTINY_NOTIFY_URLS= [ ${DISCORD_WEBHOOK} ]
     volumes:
       - ${VOLUMES_PATH}/utility-services/scrutiny/config:/opt/scrutiny/config
     restart: unless-stopped
