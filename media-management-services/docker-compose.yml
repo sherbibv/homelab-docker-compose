@@ -241,6 +241,12 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+    healthcheck:
+      test: ["CMD", "wget", "-O", "-", "http://localhost:5004"]
+      interval: 10s
+      timeout: 10s
+      start_period: 160s
+      retries: 3
 
   # filelist-api-whitelist:
   #   container_name: filelist-api-whitelist
