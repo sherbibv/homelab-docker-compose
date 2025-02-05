@@ -3,6 +3,8 @@ version: "3.9"
 networks:
   media-management-services:
     external: true
+  media-services:
+    external: true
 
 services:
   sonarr:
@@ -105,6 +107,7 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+      - media-services
 
   plex-auto-languages:
     image: remirigal/plex-auto-languages:v1.2.3
@@ -118,6 +121,7 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+      - media-services
 
   tautulli:
     image: linuxserver/tautulli:2.15.1
