@@ -118,7 +118,7 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/media-management-services/plex-auto-languages/config:/config
-    restart: unless-stopped
+    restart: always
     networks:
       - media-management-services
       - media-services
@@ -230,6 +230,17 @@ services:
       timeout: 15s
       retries: 3
       start_period: 1m00s
+      
+  antennas:
+    container_name: antennas
+    image: thejf/antennas:4.2.0
+    ports:
+      - 5004:5004
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/antennas/config:/antennas/config
+    restart: unless-stopped
+    networks:
+      - media-management-services
 
   # filelist-api-whitelist:
   #   container_name: filelist-api-whitelist
