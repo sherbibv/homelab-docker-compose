@@ -212,7 +212,7 @@ services:
 
   maintainerr:
     container_name: maintainerr
-    image: ghcr.io/jorenn92/maintainerr:2.8.0
+    image: ghcr.io/jorenn92/maintainerr:2.9.0
     ports:
       - 6246:6246 
     environment:
