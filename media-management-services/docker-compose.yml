@@ -248,14 +248,22 @@ services:
       start_period: 160s
       retries: 3
 
-  # filelist-api-whitelist:
-  #   container_name: filelist-api-whitelist
-  #   image: ldoctoru/filelist-api-whitelist:latest
-  #   environment:
-  #     - TZ=${TIMEZONE}
-  #     - FL_USERNAME=${FILELIST_USER}
-  #     - FL_PASSWORD=${FILELIST_PASSWORD}
-  #     - CHECK_INTERVAL=${FILELIST_WHITELABLE_POOL_INTERVAL}
-  #   restart: unless-stopped
-  #   networks:
-  #     - media-management-services
+  flaresolverr:
+    container_name: flaresolverr
+    image: ghcr.io/flaresolverr/flaresolverr:v3.3.21
+    ports:
+      - 8191:8191
+    environment:
+      - LOG_LEVEL=${LOG_LEVEL}
+      - LOG_HTML=${LOG_HTML}
+      - CAPTCHA_SOLVER=${CAPTCHA_SOLVER}
+      - TZ=${TIMEZONE}
+    restart: unless-stopped
+    networks:
+      - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8191 | grep -q 'FlareSolverr is ready!'
+      interval: 1m00s
+      timeout: 15s
+      retries: 3
+      start_period: 1m00s
