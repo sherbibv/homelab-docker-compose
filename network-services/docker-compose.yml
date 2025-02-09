@@ -111,7 +111,7 @@ services:
       - ${VOLUMES_PATH}/network-services/traefik/acme.json:/acme.json
       - ${VOLUMES_PATH}/network-services/traefik/config:/config
       - ${VOLUMES_PATH}/network-services/traefik/logs/:/var/log/traefik/
-    restart: unless-stopped
+    restart: always
     networks:
       - network-services
     healthcheck:
