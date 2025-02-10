@@ -108,6 +108,34 @@ services:
     networks:
       - media-management-services
       - media-services
+      
+  plextraktsync-thebatcave:
+    image: lscr.io/linuxserver-labs/plextraktsync:0.34.1-ls153
+    container_name: plextraktsync-thebatcave
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/plextraktsync-thebatcave/config:/config
+    restart: unless-stopped
+    networks:
+      - media-management-services
+      - media-services
+
+  plextraktsync-budiplex:
+    image: lscr.io/linuxserver-labs/plextraktsync:0.34.1-ls153
+    container_name: plextraktsync-budiplex
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/plextraktsync-budiplex/config:/config
+    restart: unless-stopped
+    networks:
+      - media-management-services
+      - media-services
 
   plex-auto-languages:
     image: remirigal/plex-auto-languages:v1.2.3
