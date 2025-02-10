@@ -231,22 +231,22 @@ services:
       retries: 3
       start_period: 1m00s
       
-  antennas:
-    container_name: antennas
-    image: thejf/antennas:4.2.0
-    ports:
-      - 5004:5004
-    volumes:
-      - ${VOLUMES_PATH}/media-management-services/antennas/config:/antennas/config
-    restart: unless-stopped
-    networks:
-      - media-management-services
-    healthcheck:
-      test: ["CMD", "wget", "-O", "-", "http://localhost:5004"]
-      interval: 10s
-      timeout: 10s
-      start_period: 160s
-      retries: 3
+  # antennas:
+  #   container_name: antennas
+  #   image: thejf/antennas:4.2.0
+  #   ports:
+  #     - 5004:5004
+  #   volumes:
+  #     - ${VOLUMES_PATH}/media-management-services/antennas/config:/antennas/config
+  #   restart: unless-stopped
+  #   networks:
+  #     - media-management-services
+  #   healthcheck:
+  #     test: ["CMD", "wget", "-O", "-", "http://localhost:5004"]
+  #     interval: 10s
+  #     timeout: 10s
+  #     start_period: 160s
+  #     retries: 3
 
   flaresolverr:
     container_name: flaresolverr
