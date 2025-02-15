@@ -8,8 +8,6 @@ services:
   plex:
     image: linuxserver/plex:1.41.4
     container_name: plex
-    ports:
-      - 32400:32400
     environment:
       - PUID=1000
       - PGID=1000
@@ -22,8 +20,7 @@ services:
     devices:
       - /dev/dri:/dev/dri # intel hw acc
     restart: unless-stopped
-    networks:
-      - media-services
+    network_mode: host
     healthcheck:
       test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:32400/identity
       interval: 1m00s
