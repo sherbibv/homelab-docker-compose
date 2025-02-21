@@ -195,23 +195,49 @@ services:
       retries: 3
       start_period: 1m00s
 
-  deluge:
-    image: linuxserver/deluge:2.1.1
-    container_name: deluge
+  # deluge:
+  #   image: linuxserver/deluge:2.1.1
+  #   container_name: deluge
+  #   ports:
+  #     - 8112:8112
+  #   environment:
+  #     - TZ=${TIMEZONE}
+  #     - PUID=1000
+  #     - PGID=1000
+  #   volumes:
+  #     - ${VOLUMES_PATH}/media-management-services/deluge:/config
+  #     - ${MEDIA_HDD_PATH}/downloads:/downloads
+  #   restart: unless-stopped
+  #   networks:
+  #     - media-management-services
+  #   healthcheck:
+  #     test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8112 || exit 1
+  #     interval: 1m00s
+  #     timeout: 15s
+  #     retries: 3
+  #     start_period: 1m00s
+      
+  qbittorrent:
+    image: lscr.io/linuxserver/qbittorrent:5.0.3
+    container_name: qbittorrent
     ports:
-      - 8112:8112
+      - 8080:8080
+      - 6881:6881
+      - 6881:6881/udp
     environment:
-      - TZ=${TIMEZONE}
       - PUID=1000
       - PGID=1000
+      - TZ=${TIMEZONE}
+      - WEBUI_PORT=8080
+      - TORRENTING_PORT=6881
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/deluge:/config
+      - ${VOLUMES_PATH}/media-management-services/qbittorrent/appdata:/config
       - ${MEDIA_HDD_PATH}/downloads:/downloads
     restart: unless-stopped
     networks:
       - media-management-services
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8112 || exit 1
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8080/api/v2/app/version || exit 1
       interval: 1m00s
       timeout: 15s
       retries: 3
@@ -259,23 +285,6 @@ services:
       retries: 3
       start_period: 1m00s
       
-  # antennas:
-  #   container_name: antennas
-  #   image: thejf/antennas:4.2.0
-  #   ports:
-  #     - 5004:5004
-  #   volumes:
-  #     - ${VOLUMES_PATH}/media-management-services/antennas/config:/antennas/config
-  #   restart: unless-stopped
-  #   networks:
-  #     - media-management-services
-  #   healthcheck:
-  #     test: ["CMD", "wget", "-O", "-", "http://localhost:5004"]
-  #     interval: 10s
-  #     timeout: 10s
-  #     start_period: 160s
-  #     retries: 3
-
   flaresolverr:
     container_name: flaresolverr
     image: ghcr.io/flaresolverr/flaresolverr:v3.3.21
