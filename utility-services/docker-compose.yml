@@ -232,7 +232,7 @@ services:
       - utility-services
 
   postgres-paperless-ngx:
-    image: postgres:16.7
+    image: postgres:16.8
     container_name: postgres-paperless-ngx
     ports:
       - 5432:5432
