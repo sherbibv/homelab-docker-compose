@@ -30,7 +30,7 @@ services:
       start_period: 60s
 
   radarr:
-    image: linuxserver/radarr:5.18.4
+    image: linuxserver/radarr:5.19.3
     container_name: radarr
     ports:
       - 7878:7878
