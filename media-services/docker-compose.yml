@@ -51,7 +51,7 @@ services:
     networks:
       - media-services
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8096/health" ]
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8096/health
       interval: 10s
       timeout: 5s
       retries: 5    
@@ -68,7 +68,7 @@ services:
     restart: unless-stopped
     network_mode: host
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8095/info
+      test: wget --timeout=15 --quiet --server-response --spider http://localhost:8095/info
       interval: 1m00s
       timeout: 15s
       retries: 3
