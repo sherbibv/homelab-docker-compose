@@ -279,7 +279,7 @@ services:
       retries: 5
 
   changedetection.io:
-    image: linuxserver/changedetection.io:0.49.6
+    image: linuxserver/changedetection.io:0.49.7
     container_name: changedetection
     ports:
       - 5000:5000
