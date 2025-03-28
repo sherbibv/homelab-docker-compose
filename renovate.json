@@ -39,19 +39,6 @@
       "packagePatterns": ["^linuxserver\\/changedetection.io"],
       "versionScheme": "regex:^(?<compatibility>.*(\\d+\\.)?)(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "allowedVersions": "/^(\\d{1,3}\\.)(\\d*\\.)*\\d{1,3}$/"
-    },
-    {
-      "matchDatasources": ["docker"],
-      "matchPackageNames": ["docker.io/library/postgres", "postgres"],
-      "matchFileNames": [
-        "network-services/docker-compose.yml",
-        "utility-services/docker-compose.yml"
-      ],
-      "matchDepNames": [
-        "services.authentik-postgresql.image",
-        "services.postgres-paperless-ngx.image"
-      ],
-      "enabled": false
     }
   ]
 }
