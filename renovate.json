@@ -43,7 +43,7 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["docker.io/library/postgres", "postgres"],
-      "matchPaths": [
+      "matchFileNames": [
         "network-services/docker-compose.yml",
         "utility-services/docker-compose.yml"
       ],
