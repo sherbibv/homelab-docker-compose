@@ -317,5 +317,16 @@ services:
     networks:
       - utility-services
 
+  paperless-ai:
+    image: clusterzx/paperless-ai:2.7.6
+    container_name: paperless-ai
+    ports:
+      - 3001:3000
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/paperless-ai/data:/app/data
+    restart: unless-stopped
+    networks:
+      - utility-services  
+
 volumes:
   pgadmin_data:
