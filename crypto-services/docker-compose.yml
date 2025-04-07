@@ -28,12 +28,3 @@ services:
     restart: unless-stopped
     networks: 
       - crypto-services
-
-  proxyservice:
-    image: proxylite/proxyservice
-    container_name: proxylite
-    environment:
-      - USER_ID=${PROXYLITE_USER_ID}
-    restart: unless-stopped
-    networks: 
-      - crypto-services
