@@ -5,23 +5,16 @@ networks:
     external: true
 
 services:
-  # ollama:
-  #   image: ollama/ollama:0.4.4
-  #   container_name: ollama
-  #   ports:
-  #     - 11434:11434
-  #   volumes:
-  #     - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
-  #   restart: unless-stopped
-  #   networks: 
-  #     - ai-services
-  #   deploy:
-  #     resources:
-  #       reservations:
-  #         devices:
-  #           - driver: nvidia
-  #             count: 1
-  #             capabilities: [gpu]
+  ollama:
+     image: ollama/ollama:0.6.6
+     container_name: ollama
+     ports:
+       - 11434:11434
+     volumes:
+       - ${VOLUMES_PATH}/ai-services/ollama:/root/.ollama
+     restart: unless-stopped
+     networks: 
+       - ai-services
   
   open-webui: 
     image: ghcr.io/open-webui/open-webui:v0.6.5
