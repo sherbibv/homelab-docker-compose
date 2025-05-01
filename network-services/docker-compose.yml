@@ -13,8 +13,10 @@ services:
       - POSTGRES_USER=${PG_USER}
       - POSTGRES_DB=${PG_DB}
     volumes:
-      - ${VOLUMES_PATH}/network-services/authentik/database:/var/lib/postgresql/data
+      - ${VOLUMES_PATH}/network-s
+      ervices/authentik/database:/var/lib/postgresql/data
     restart: unless-stopped
+    network_mode: none
     networks:
       - network-services
     healthcheck:
