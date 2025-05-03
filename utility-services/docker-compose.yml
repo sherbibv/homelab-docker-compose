@@ -221,16 +221,16 @@ services:
       start_period: 160s
       retries: 3
 
-  # redis-paperless-ngx:
-  #   image: redis:7.4.3
-  #   container_name: redis-paperless-ngx
-  #   environment:
-  #     - TZ=${TIMEZONE}
-  #   volumes:
-  #     - ${VOLUMES_PATH}/utility-services/paperless-ngx/redis:/data
-  #   restart: unless-stopped
-  #   networks:
-  #     - utility-services
+  redis-paperless-ngx:
+    image: redis:7.4.3
+    container_name: redis-paperless-ngx
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/paperless-ngx/redis:/data
+    restart: unless-stopped
+    networks:
+      - utility-services
 
   postgres-paperless-ngx:
     image: postgres:17.4
@@ -248,35 +248,35 @@ services:
     networks:
       - utility-services
 
-  # paperless-ngx:
-  #   image: ghcr.io/paperless-ngx/paperless-ngx:2.15.3
-  #   container_name: paperless-ngx
-  #   ports:
-  #     - 8555:8000    
-  #   environment:
-  #     - PAPERLESS_TIME_ZONE=${TIMEZONE}
-  #     - PAPERLESS_REDIS=redis://redis-paperless-ngx:6379
-  #     - PAPERLESS_DBHOST=postgres-paperless-ngx
-  #     - COMPOSE_PROJECT_NAME=paperless
-  #     - PAPERLESS_DBPASS=${PAPERLESS_POSTGRES_PASSWORD}
-  #     - PAPERLESS_OCR_LANGUAGES=ron
-  #     - PAPERLESS_OCR_LANGUAGE=ron
-  #   volumes:
-  #     - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/data:/usr/src/paperless/data
-  #     - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/media:/usr/src/paperless/media
-  #     - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/export:/usr/src/paperless/export
-  #     - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/consume:/usr/src/paperless/consume
-  #   restart: unless-stopped
-  #   networks:
-  #     - utility-services
-  #   depends_on:
-  #     - postgres-paperless-ngx
-  #     - redis-paperless-ngx
-  #   healthcheck:
-  #     test: ["CMD", "curl", "-fs", "-S", "--max-time", "2", "http://localhost:8000"]
-  #     interval: 30s
-  #     timeout: 10s
-  #     retries: 5
+  paperless-ngx:
+    image: ghcr.io/paperless-ngx/paperless-ngx:2.15.3
+    container_name: paperless-ngx
+    ports:
+      - 8555:8000    
+    environment:
+      - PAPERLESS_TIME_ZONE=${TIMEZONE}
+      - PAPERLESS_REDIS=redis://redis-paperless-ngx:6379
+      - PAPERLESS_DBHOST=postgres-paperless-ngx
+      - COMPOSE_PROJECT_NAME=paperless
+      - PAPERLESS_DBPASS=${PAPERLESS_POSTGRES_PASSWORD}
+      - PAPERLESS_OCR_LANGUAGES=ron
+      - PAPERLESS_OCR_LANGUAGE=ron
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/data:/usr/src/paperless/data
+      - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/media:/usr/src/paperless/media
+      - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/export:/usr/src/paperless/export
+      - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/consume:/usr/src/paperless/consume
+    restart: unless-stopped
+    networks:
+      - utility-services
+    depends_on:
+      - postgres-paperless-ngx
+      - redis-paperless-ngx
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "-S", "--max-time", "2", "http://localhost:8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   changedetection.io:
     image: linuxserver/changedetection.io:0.49.16
