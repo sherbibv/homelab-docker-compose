@@ -6,7 +6,7 @@ networks:
 
 services:
   plex:
-    image: linuxserver/plex:1.41.6
+    image: linuxserver/plex:1.41.7
     container_name: plex
     environment:
       - PUID=1000
