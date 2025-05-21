@@ -318,7 +318,7 @@ services:
       - utility-services
 
   paperless-ai:
-    image: clusterzx/paperless-ai:3.0.3
+    image: clusterzx/paperless-ai:3.0.4
     container_name: paperless-ai
     ports:
       - 3001:3000
