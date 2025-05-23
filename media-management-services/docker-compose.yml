@@ -252,7 +252,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
-      - APP_URL=${WIZARR_APP_URL}
       - DISABLE_BUILTIN_AUTH=true
     volumes:
       - ${VOLUMES_PATH}/media-management-services/wizarr3/database:/data/database
