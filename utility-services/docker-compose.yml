@@ -186,7 +186,7 @@ services:
       - utility-services
 
   netbootxyz:
-    image: ghcr.io/netbootxyz/netbootxyz:0.7.5-nbxyz3
+    image: ghcr.io/netbootxyz/netbootxyz:0.7.6-nbxyz2
     container_name: netbootxyz
     volumes:
       - ${VOLUMES_PATH}/utility-services/netbootxyz/config:/config
