@@ -96,7 +96,7 @@ services:
       start_period: 60s
 
   plextraktsync:
-    image: lscr.io/linuxserver-labs/plextraktsync:0.34.11-ls168
+    image: lscr.io/linuxserver-labs/plextraktsync:0.34.11-ls169
     container_name: plextraktsync
     environment:
       - PUID=1000
@@ -110,7 +110,7 @@ services:
       - media-services
       
   plextraktsync-thebatcave:
-    image: lscr.io/linuxserver-labs/plextraktsync:0.34.11-ls168
+    image: lscr.io/linuxserver-labs/plextraktsync:0.34.11-ls169
     container_name: plextraktsync-thebatcave
     environment:
       - PUID=1000
@@ -124,7 +124,7 @@ services:
       - media-services
 
   plextraktsync-budiplex:
-    image: lscr.io/linuxserver-labs/plextraktsync:0.34.11-ls168
+    image: lscr.io/linuxserver-labs/plextraktsync:0.34.11-ls169
     container_name: plextraktsync-budiplex
     environment:
       - PUID=1000
