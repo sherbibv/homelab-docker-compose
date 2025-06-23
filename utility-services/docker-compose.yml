@@ -162,8 +162,8 @@ services:
       - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
-      - ${VOLUMES_PATH}/utility-services/filebrowser/filebrowser.db:/filebrowser.db
-      - ${VOLUMES_PATH}/utility-services/filebrowser/.filebrowser.json:/.filebrowser.json
+      - ${VOLUMES_PATH}/utility-services/filebrowser/database:/database
+      - ${VOLUMES_PATH}/utility-services/filebrowser/config:/config 
       - /:/srv
     restart: unless-stopped
     networks:
