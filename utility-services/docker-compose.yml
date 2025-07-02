@@ -153,7 +153,7 @@ services:
       retries: 20
 
   filebrowser:
-    image: filebrowser/filebrowser:v2.34.2
+    image: filebrowser/filebrowser:v2.36.0
     container_name: filebrowser
     ports:
       - 8300:80
