@@ -222,7 +222,7 @@ services:
       retries: 3
 
   redis-paperless-ngx:
-    image: redis:8.0.2
+    image: redis:8.0.3
     container_name: redis-paperless-ngx
     environment:
       - TZ=${TIMEZONE}
