@@ -90,7 +90,7 @@ services:
       
   mariadb-speedtest-tracker:
     container_name: mariadb-speedtest-tracker
-    image: mariadb:11.8.2
+    image: mariadb:12.0.2
     expose:
       - 3306
     environment:
