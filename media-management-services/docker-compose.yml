@@ -103,7 +103,7 @@ services:
       - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/plextraktsync/config:/config
+      - ${VOLUMES_PATH}/media-management-services/plextraktsync/config:/app/config
     restart: unless-stopped
     networks:
       - media-management-services
