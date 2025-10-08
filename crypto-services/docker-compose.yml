@@ -3,18 +3,6 @@ networks:
     external: true
 
 services:
-  honeygain:
-    image: honeygain/honeygain:0.8.1
-    container_name: honeygain
-    environment:
-      - HONEYGAIN_EMAIL=${HONEYGAIN_EMAIL}
-      - HONEYGAIN_PASSWORD=${HONEYGAIN_PASSWORD}
-      - HONEYGAIN_DEVICE_NAME=${HONEYGAIN_DEVICE_NAME}
-    command: -tou-accept -email $HONEYGAIN_EMAIL -pass '$HONEYGAIN_PASSWORD' -device $HONEYGAIN_DEVICE_NAME
-    restart: unless-stopped
-    networks: 
-      - crypto-services
-
   mysterium-node:
     image: mysteriumnetwork/myst:1.35.5-alpine
     container_name: mysterium-node
