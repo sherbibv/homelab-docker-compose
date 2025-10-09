@@ -9,8 +9,8 @@ services:
     image: linuxserver/plex:1.42.2
     container_name: plex
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=${TIMEZONE}
       - VERSION=docker
     volumes:
@@ -18,7 +18,10 @@ services:
       - ${MEDIA_HDD_PATH}/series:/tv
       - ${MEDIA_HDD_PATH}/movies:/movies
     devices:
-      - /dev/dri:/dev/dri # intel hw acc
+      - /dev/dri:/dev/dri
+    group_add:
+      - ${VIDEO_GROUP}
+      - ${RENDER_GROUP} 
     restart: unless-stopped
     network_mode: host
     healthcheck:
