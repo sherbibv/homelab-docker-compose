@@ -35,8 +35,8 @@ services:
     image: linuxserver/jellyfin:10.10.7
     container_name: jellyfin
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=${TIMEZONE}
     group_add: 
       - "44"
