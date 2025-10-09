@@ -20,8 +20,8 @@ services:
     devices:
       - /dev/dri:/dev/dri
     group_add:
-      - ${VIDEO_GROUP}
-      - ${RENDER_GROUP} 
+      - ${PLEX_LXC_VIDEO_GROUP}
+      - ${PLEX_LXC_RENDER_GROUP} 
     restart: unless-stopped
     network_mode: host
     healthcheck:
