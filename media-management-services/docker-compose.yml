@@ -23,7 +23,7 @@ services:
     networks:
       - media-management-services
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8989/ping | grep -q 'ok'
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:8989/ping | grep -q 'OK'
       interval: 60s
       retries: 5
       timeout: 10s
@@ -259,7 +259,7 @@ services:
     networks:
       - media-management-services
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:5690/health | grep -q 'OK'
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:5690/health | grep -q 'ok'
       interval: 60s
       retries: 5
       timeout: 10s
