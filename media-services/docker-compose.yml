@@ -9,8 +9,8 @@ services:
     image: linuxserver/plex:1.42.2
     container_name: plex
     environment:
-      - PUID=0
-      - PGID=0
+      - PUID=1000
+      - PGID=1000
       - TZ=${TIMEZONE}
       - VERSION=docker
     volumes:
