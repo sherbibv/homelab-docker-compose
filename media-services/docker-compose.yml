@@ -36,12 +36,7 @@ services:
     image: linuxserver/jellyfin:10.10.7
     container_name: jellyfin
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=${TIMEZONE}
-    group_add:
-      - ${LXC_VIDEO_GROUP}
-      - ${LXC_RENDER_GROUP}
     user: "1000:1000"
     volumes:
       - ${VOLUMES_PATH}/media-services/jellyfin:/config
