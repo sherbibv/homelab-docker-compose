@@ -48,6 +48,7 @@ services:
       - 7359:7359/udp
     devices:
       - /dev/dri:/dev/dri
+    user: "1000:1000"
     restart: unless-stopped
     networks:
       - media-services
