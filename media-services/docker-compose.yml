@@ -21,7 +21,8 @@ services:
       - /dev/dri:/dev/dri
     group_add:
       - ${PLEX_LXC_VIDEO_GROUP}
-      - ${PLEX_LXC_RENDER_GROUP} 
+      - ${PLEX_LXC_RENDER_GROUP}
+    user: "1000:1000"
     restart: unless-stopped
     network_mode: host
     healthcheck:
