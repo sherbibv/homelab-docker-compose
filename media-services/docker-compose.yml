@@ -36,6 +36,8 @@ services:
     image: linuxserver/jellyfin:10.10.7
     container_name: jellyfin
     environment:
+      - PUID=1000
+      - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
       - ${VOLUMES_PATH}/media-services/jellyfin:/config
