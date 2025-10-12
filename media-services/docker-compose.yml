@@ -52,6 +52,7 @@ services:
     group_add:
       - ${LXC_VIDEO_GROUP}
       - ${LXC_RENDER_GROUP}
+    user: "1000:1000"
     restart: unless-stopped
     networks:
       - media-services
