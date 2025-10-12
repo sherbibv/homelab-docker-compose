@@ -37,7 +37,6 @@ services:
     container_name: jellyfin
     environment:
       - TZ=${TIMEZONE}
-    user: "1000:1000"
     volumes:
       - ${VOLUMES_PATH}/media-services/jellyfin:/config
       - ${MEDIA_HDD_PATH}/series:/data/tvshows
@@ -48,7 +47,9 @@ services:
       - 7359:7359/udp
     devices:
       - /dev/dri:/dev/dri
-    user: "1000:1000"
+    group_add:
+      - ${LXC_VIDEO_GROUP}
+      - ${LXC_RENDER_GROUP}
     restart: unless-stopped
     networks:
       - media-services
