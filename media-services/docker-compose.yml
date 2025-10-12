@@ -20,8 +20,8 @@ services:
     devices:
       - /dev/dri:/dev/dri
     group_add:
-      - ${PLEX_LXC_VIDEO_GROUP}
-      - ${PLEX_LXC_RENDER_GROUP}
+      - ${LXC_VIDEO_GROUP}
+      - ${LXC_RENDER_GROUP}
     user: "1000:1000"
     restart: unless-stopped
     network_mode: host
@@ -36,19 +36,21 @@ services:
     image: linuxserver/jellyfin:10.10.7
     container_name: jellyfin
     environment:
-      - PUID=0
-      - PGID=0
+      - PUID=1000
+      - PGID=1000
       - TZ=${TIMEZONE}
-    group_add: 
-      - "44"
+    group_add:
+      - ${LXC_VIDEO_GROUP}
+      - ${LXC_RENDER_GROUP}
+    user: "1000:1000"
     volumes:
       - ${VOLUMES_PATH}/media-services/jellyfin:/config
       - ${MEDIA_HDD_PATH}/series:/data/tvshows
       - ${MEDIA_HDD_PATH}/movies:/data/movies
     ports:
       - 8096:8096
-      - 8920:8920 #optional
-      - 7359:7359/udp #optional
+      - 8920:8920
+      - 7359:7359/udp
     devices:
       - /dev/dri:/dev/dri
     restart: unless-stopped
