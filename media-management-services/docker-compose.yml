@@ -253,7 +253,6 @@ services:
       - PGID=1000
       - TZ=${TIMEZONE}
       - DISABLE_BUILTIN_AUTH=true
-      - APP_URL=${WIZARR_APP_URL}
     volumes:
       - ${VOLUMES_PATH}/media-management-services/wizarr3/database:/data/database
     restart: unless-stopped
