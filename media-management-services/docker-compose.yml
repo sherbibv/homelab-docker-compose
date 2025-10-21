@@ -206,7 +206,7 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/seerr/config:/config
+      - ${VOLUMES_PATH}/media-management-services/seerr/config:/app/config
     restart: unless-stopped
     networks:
       - media-management-services
