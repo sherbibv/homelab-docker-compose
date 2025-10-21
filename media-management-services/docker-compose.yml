@@ -173,9 +173,31 @@ services:
       retries: 3
       start_period: 1m00s
 
-  overseerr:
-    image: linuxserver/overseerr:1.34.0
-    container_name: overseerr
+  # overseerr:
+  #   image: linuxserver/overseerr:1.34.0
+  #   container_name: overseerr
+  #   ports:
+  #     - 5055:5055
+  #   environment:
+  #     - LOG_LEVEL=debug
+  #     - TZ=${TIMEZONE}
+  #     - PUID=1000
+  #     - PGID=1000
+  #   volumes:
+  #     - ${VOLUMES_PATH}/media-management-services/overseerr/config:/config
+  #   restart: unless-stopped
+  #   networks:
+  #     - media-management-services
+  #   healthcheck:
+  #     test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:5055/api/v1/status | grep -q '"restartRequired":false'
+  #     interval: 1m00s
+  #     timeout: 15s
+  #     retries: 3
+  #     start_period: 1m00s
+
+  seerr:
+    image: linuxserver/jellyseerr:2.7.3
+    container_name: seerr
     ports:
       - 5055:5055
     environment:
@@ -184,16 +206,16 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/overseerr/config:/config
+      - ${VOLUMES_PATH}/media-management-services/seerr/config:/config
     restart: unless-stopped
     networks:
       - media-management-services
     healthcheck:
-      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:5055/api/v1/status | grep -q '"restartRequired":false'
-      interval: 1m00s
-      timeout: 15s
+      test: wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/status || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
       retries: 3
-      start_period: 1m00s
 
   # deluge:
   #   image: linuxserver/deluge:2.1.1
