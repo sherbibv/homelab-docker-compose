@@ -267,7 +267,7 @@ services:
 
   wizarr:
     container_name: wizarr
-    image: ghcr.io/wizarrrr/wizarr:v2025.11.1
+    image: ghcr.io/wizarrrr/wizarr:v2025.11.2
     ports:
       - 5690:5690
     environment:
