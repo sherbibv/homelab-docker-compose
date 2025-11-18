@@ -98,7 +98,6 @@ services:
   plextraktsync:
     image: lscr.io/linuxserver-labs/plextraktsync:0.34.19-ls184
     container_name: plextraktsync
-    command: sync
     environment:
       - PUID=1000
       - PGID=1000
