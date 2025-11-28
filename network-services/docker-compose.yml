@@ -15,8 +15,9 @@ services:
     volumes:
       - ${VOLUMES_PATH}/network-services/authentik/database:/var/lib/postgresql/data
     restart: unless-stopped
+    network_mode: none
     networks:
-      - none
+      - network-services
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
       start_period: 20s
