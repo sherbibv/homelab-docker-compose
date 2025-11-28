@@ -23,22 +23,6 @@ services:
       interval: 30s
       retries: 5
       timeout: 5s
-
-  authentik-redis:
-    image: docker.io/library/redis:alpine
-    container_name: authentik-redis
-    command: --save 60 1 --loglevel warning
-    volumes:
-      - ${VOLUMES_PATH}/network-services/authentik/redis:/data
-    restart: unless-stopped
-    networks:
-      - network-services
-    healthcheck:
-      test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
-      start_period: 20s
-      interval: 30s
-      retries: 5
-      timeout: 3s
       
   authentik-server:
     image: ghcr.io/goauthentik/server:2025.10.2
