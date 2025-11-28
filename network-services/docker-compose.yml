@@ -43,7 +43,6 @@ services:
       - ${VOLUMES_PATH}/network-services/authentik/custom-templates:/templates
     depends_on:
       - authentik-postgresql
-      - authentik-redis
     restart: unless-stopped
     networks:
       - network-services
@@ -67,7 +66,6 @@ services:
       - ${VOLUMES_PATH}/network-services/authentik/custom-templates:/templates
     depends_on:
       - authentik-postgresql
-      - authentik-redis
     restart: unless-stopped
     networks:
       - network-services
