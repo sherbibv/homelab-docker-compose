@@ -247,7 +247,8 @@ services:
     volumes:
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/pgdata:/var/lib/postgresql
     restart: unless-stopped
-    network_mode: none
+    networks:
+      - utility-services
 
   paperless-ngx:
     image: ghcr.io/paperless-ngx/paperless-ngx:2.20.1
