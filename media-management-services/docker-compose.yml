@@ -327,3 +327,12 @@ services:
       timeout: 15s
       retries: 3
       start_period: 1m00s
+
+  pasta:
+    container_name: pasta
+    image: cglatot/pasta:2.0.0
+    ports:
+      - 8087:80 
+    restart: unless-stopped
+    networks:
+      - media-management-services
