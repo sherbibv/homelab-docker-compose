@@ -235,7 +235,7 @@ services:
       - utility-services
 
   postgres-paperless-ngx:
-    image: postgres:18.1
+    image: docker.io/library/postgres:18-alpine
     container_name: postgres-paperless-ngx
     ports:
       - 5432:5432
