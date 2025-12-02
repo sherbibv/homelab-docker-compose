@@ -235,7 +235,7 @@ services:
       - utility-services
 
   postgres-paperless-ngx:
-    image: postgres:17.7
+    image: postgres:18.1
     container_name: postgres-paperless-ngx
     ports:
       - 5432:5432
@@ -247,8 +247,7 @@ services:
     volumes:
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/pgdata:/var/lib/postgresql/data
     restart: unless-stopped
-    networks:
-      - utility-services
+    network_mode: none
 
   paperless-ngx:
     image: ghcr.io/paperless-ngx/paperless-ngx:2.20.1
