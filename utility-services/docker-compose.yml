@@ -245,7 +245,7 @@ services:
       - POSTGRES_USER=${PAPERLESS_POSTGRES_USER}
       - POSTGRES_PASSWORD=${PAPERLESS_POSTGRES_PASSWORD}
     volumes:
-      - ${VOLUMES_PATH}/utility-services/paperless-ngx/pgdata:/var/lib/postgresql/data
+      - ${VOLUMES_PATH}/utility-services/paperless-ngx/pgdata:/var/lib/postgresql
     restart: unless-stopped
     network_mode: none
 
