@@ -43,7 +43,7 @@ services:
       - utility-services
 
   dockerproxy:
-    image: ghcr.io/tecnativa/docker-socket-proxy:v0.4.1
+    image: ghcr.io/tecnativa/docker-socket-proxy:v0.4.2
     container_name: dockerproxy
     ports:
       - 2375:2375
