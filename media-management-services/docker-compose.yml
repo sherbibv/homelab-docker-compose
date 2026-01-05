@@ -53,7 +53,7 @@ services:
       start_period: 60s
 
   bazarr:
-    image: linuxserver/bazarr:1.5.3
+    image: linuxserver/bazarr:1.5.4
     container_name: bazarr
     ports:
       - 6767:6767
