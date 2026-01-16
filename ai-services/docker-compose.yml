@@ -6,7 +6,7 @@ networks:
 
 services:
   ollama:
-     image: ollama/ollama:0.13.5
+     image: ollama/ollama:0.14.2
      container_name: ollama
      ports:
        - 11434:11434
