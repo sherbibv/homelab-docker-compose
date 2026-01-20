@@ -330,7 +330,7 @@ services:
 
   pasta:
     container_name: pasta
-    image: cglatot/pasta:2.2.3
+    image: cglatot/pasta:2.2.4
     ports:
       - 8087:80 
     restart: unless-stopped
