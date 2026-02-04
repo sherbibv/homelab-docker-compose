@@ -57,7 +57,7 @@ services:
       - utility-services
 
   speedtest-tracker:
-    image: linuxserver/speedtest-tracker:1.13.5
+    image: linuxserver/speedtest-tracker:1.13.7
     container_name: speedtest-tracker
     ports:
       - 8081:80
