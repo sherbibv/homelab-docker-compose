@@ -143,7 +143,7 @@ services:
       retries: 5  
 
   uptime-kuma:
-    image: louislam/uptime-kuma:2.1.0
+    image: louislam/uptime-kuma:2.1.1
     container_name: uptime-kuma
     ports:
       - 1337:3001
