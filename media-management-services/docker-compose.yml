@@ -152,7 +152,7 @@ services:
       - media-services
 
   tautulli:
-    image: linuxserver/tautulli:2.16.0
+    image: linuxserver/tautulli:2.16.1
     container_name: tautulli
     ports:
       - 8181:8181
