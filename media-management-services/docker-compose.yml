@@ -196,7 +196,7 @@ services:
   #     start_period: 1m00s
 
   seerr:
-    image: fallenbagel/jellyseerr:2.7.3
+    image: ghcr.io/seerr-team/seerr:v3.0.1
     container_name: seerr
     ports:
       - 5055:5055
