@@ -115,7 +115,7 @@ services:
         retries: 3
 
   scrutiny-web:
-    image: ghcr.io/starosdev/scrutiny:1.25-web
+    image: ghcr.io/starosdev/scrutiny:1.26-web
     container_name: scrutiny-web
     ports:
       - 8082:8080
