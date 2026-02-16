@@ -62,7 +62,7 @@ services:
       retries: 5    
 
   music-assistant:
-    image: ghcr.io/music-assistant/server:2.7.7
+    image: ghcr.io/music-assistant/server:2.7.8
     container_name: music-assistant
     volumes:
       - ${VOLUMES_PATH}/media-services/music-assistant:/data
