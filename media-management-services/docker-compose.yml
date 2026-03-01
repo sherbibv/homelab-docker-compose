@@ -62,6 +62,7 @@ services:
       - PGID=1000
       - TZ=${TIMEZONE}
       - BAZARR_API_KEY=${BAZARR_API_KEY}
+      - DOCKER_MODS=wayller/bazarr-mod-subsync:latest
     volumes:
       - ${VOLUMES_PATH}/media-management-services/bazarr:/config
       - ${MEDIA_HDD_PATH}/movies:/movies
