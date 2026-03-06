@@ -73,7 +73,7 @@ services:
     restart: unless-stopped
     network_mode: host
     healthcheck:
-      test: wget --timeout=15 --quiet --server-response --spider http://localhost:8095/info
+      test: wget --timeout=15 --quiet --server-response http://localhost:8095/info
       interval: 1m00s
       timeout: 15s
       retries: 3
