@@ -336,3 +336,18 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+
+  agregarr:
+    container_name: agregarr
+    image: agregarr/agregarr:2.0.0
+    ports:
+      - 7171:7171
+    environment:
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/agregarr/config:/app/config 
+      - ${MEDIA_HDD_PATH}/movies:/data/movies
+      - ${MEDIA_HDD_PATH}/series:/data/tv
+    restart: unless-stopped
+    networks:
+      - media-management-services
