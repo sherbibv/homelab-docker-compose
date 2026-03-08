@@ -6,8 +6,8 @@ services:
       - "8971:8971"
       - "8554:8554"
       - "1984:1984"
-      - "8556:8555/tcp"
-      - "8556:8555/udp"
+      - "8555:8555/tcp"
+      - "8555:8555/udp"
     environment:
       FRIGATE_RTSP_PASSWORD: ${FRIGATE_RTSP_PASSWORD}
     volumes:
