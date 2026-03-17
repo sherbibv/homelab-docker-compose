@@ -339,7 +339,7 @@ services:
 
   agregarr:
     container_name: agregarr
-    image: agregarr/agregarr:v2.4.1
+    image: agregarr/agregarr:v2.4.2
     ports:
       - 7171:7171
     environment:
