@@ -165,7 +165,7 @@ services:
       - PUID=1000
       - PGID=1000
     volumes:
-      - ${VOLUMES_PATH}/network-services/netronome/data:/data
+      - ${VOLUMES_PATH}/network-services/netronome:/data
     restart: unless-stopped
     networks:
       - network-services
