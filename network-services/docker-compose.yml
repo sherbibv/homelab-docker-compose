@@ -161,6 +161,9 @@ services:
     container_name: netronome
     ports:
       - 7575:7575
+    environment:
+      - PUID=1000
+      - PGID=1000
     volumes:
       - ${VOLUMES_PATH}/network-services/netronome/data:/data
     restart: unless-stopped
