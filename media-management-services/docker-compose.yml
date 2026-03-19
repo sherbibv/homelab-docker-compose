@@ -351,3 +351,15 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+
+  qui:
+    container_name: qui
+    image: ghcr.io/autobrr/qui:v1.15
+    ports:
+      - 7476:7476
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/qui/config:/config
+      - ${MEDIA_HDD_PATH}/downloads:/downloads
+    restart: unless-stopped
+    networks:
+      - media-management-services
