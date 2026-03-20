@@ -159,9 +159,7 @@ services:
   netronome:
     image: ghcr.io/autobrr/netronome:v0.10.0
     container_name: netronome
-    cap_add:
-      - FOWNER
-      - DAC_OVERRIDE
+    user: "0"
     ports:
       - 7575:7575
     volumes:
