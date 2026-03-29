@@ -10,6 +10,7 @@ services:
       - "8555:8555/udp"
     environment:
       FRIGATE_RTSP_PASSWORD: ${FRIGATE_RTSP_PASSWORD}
+      FRIGATE_JWT_SECRET: ${FRIGATE_JWT_SECRET}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${VOLUMES_PATH}/frigate/config:/config
