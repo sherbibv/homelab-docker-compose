@@ -157,7 +157,7 @@ services:
       - network-services
 
   netronome:
-    image: ghcr.io/autobrr/netronome:v0.10.0
+    image: ghcr.io/autobrr/netronome:v0.11.0
     container_name: netronome
     user: "0"
     ports:
