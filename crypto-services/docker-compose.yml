@@ -1,7 +1,3 @@
-networks:
-  crypto-services:
-    external: true
-
 services:
   mysterium-node:
     image: mysteriumnetwork/myst:1.37.10-alpine
@@ -14,5 +10,4 @@ services:
     cap_add:
       - NET_ADMIN
     restart: unless-stopped
-    networks: 
-      - crypto-services
+    network_mode: host
