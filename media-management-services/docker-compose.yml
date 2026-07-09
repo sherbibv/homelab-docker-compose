@@ -99,7 +99,6 @@ services:
   plextraktsync:
     image: ghcr.io/taxel/plextraktsync:0.35.12
     container_name: plextraktsync
-    command: sync
     environment:
       - PUID=1000
       - PGID=1000
