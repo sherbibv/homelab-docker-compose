@@ -1,6 +1,6 @@
 services:
   mysterium-node:
-    image: mysteriumnetwork/myst:1.38.4-alpine
+    image: mysteriumnetwork/myst:1.38.5-alpine
     container_name: mysterium-node
     ports:
       - 4449:4449
