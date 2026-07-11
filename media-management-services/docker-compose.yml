@@ -99,7 +99,6 @@ services:
   plextraktsync:
     image: ghcr.io/taxel/plextraktsync:0.35.14
     container_name: plextraktsync
-    command: sync
     environment:
       - PUID=1000
       - PGID=1000
@@ -114,7 +113,6 @@ services:
   plextraktsync-thebatcave:
     image: ghcr.io/taxel/plextraktsync:0.35.14
     container_name: plextraktsync-thebatcave
-    command: sync
     environment:
       - PUID=1000
       - PGID=1000
@@ -129,7 +127,6 @@ services:
   plextraktsync-budiplex:
     image: ghcr.io/taxel/plextraktsync:0.35.14
     container_name: plextraktsync-budiplex
-    command: sync
     environment:
       - PUID=1000
       - PGID=1000
