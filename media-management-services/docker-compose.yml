@@ -97,15 +97,14 @@ services:
       start_period: 60s
 
   plextraktsync:
-    image: ghcr.io/taxel/plextraktsync:0.35.14
+    image: lscr.io/linuxserver-labs/plextraktsync:0.35.14
     container_name: plextraktsync
-    command: watch
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/plextraktsync/config:/app/config
+      - ${VOLUMES_PATH}/media-management-services/plextraktsync/config:/config
     restart: unless-stopped
     networks:
       - media-management-services
