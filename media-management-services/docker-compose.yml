@@ -111,28 +111,28 @@ services:
       - media-services
       
   plextraktsync-thebatcave:
-    image: ghcr.io/taxel/plextraktsync:0.35.14
+    image: lscr.io/linuxserver-labs/plextraktsync:0.35.14-ls207
     container_name: plextraktsync-thebatcave
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/plextraktsync-thebatcave/config:/app/config
+      - ${VOLUMES_PATH}/media-management-services/plextraktsync-thebatcave/config:/config
     restart: unless-stopped
     networks:
       - media-management-services
       - media-services
 
   plextraktsync-budiplex:
-    image: ghcr.io/taxel/plextraktsync:0.35.14
+    image: lscr.io/linuxserver-labs/plextraktsync:0.35.14-ls207
     container_name: plextraktsync-budiplex
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=${TIMEZONE}
     volumes:
-      - ${VOLUMES_PATH}/media-management-services/plextraktsync-budiplex/config:/app/config
+      - ${VOLUMES_PATH}/media-management-services/plextraktsync-budiplex/config:/config
     restart: unless-stopped
     networks:
       - media-management-services
