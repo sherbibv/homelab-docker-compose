@@ -143,6 +143,27 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5  
+      
+  crowdsec-web-ui:
+    image: ghcr.io/theduffman85/crowdsec-web-ui:2026.7.14
+    container_name: crowdsec-web-ui
+    ports:
+      - 3000:3000
+    environment:
+      - CROWDSEC_URL=${CROWDSEC_URL}
+      - CROWDSEC_USER=${CROWDSEC_USER}
+      - CROWDSEC_PASSWORD=${CROWDSEC_PASSWORD}
+    volumes:
+      - ${VOLUMES_PATH}/network-services/crowdsec-web-ui/data:/app/data
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/api/health').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - network-services
 
   uptime-kuma:
     image: louislam/uptime-kuma:2.4.0
