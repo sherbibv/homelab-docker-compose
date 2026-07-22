@@ -153,6 +153,7 @@ services:
       - CROWDSEC_URL=${CROWDSEC_URL}
       - CROWDSEC_USER=${CROWDSEC_USER}
       - CROWDSEC_PASSWORD=${CROWDSEC_PASSWORD}
+      - CONFIG_INSTANCE_METRICS_URL=${CONFIG_INSTANCE_METRICS_URL}
     volumes:
       - ${VOLUMES_PATH}/network-services/crowdsec-web-ui/data:/app/data
     healthcheck:
