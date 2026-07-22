@@ -38,6 +38,7 @@ services:
       - AUTHENTIK_POSTGRESQL__NAME=${PG_DB}
       - AUTHENTIK_POSTGRESQL__PASSWORD=${PG_PASS}
       - AUTHENTIK_SECRET_KEY=${AUTHENTIK_SECRET_KEY}
+      - AUTHENTIK_LOG_FORMAT=json
     volumes:
       - ${VOLUMES_PATH}/network-services/authentik/media:/media
       - ${VOLUMES_PATH}/network-services/authentik/custom-templates:/templates
@@ -59,6 +60,7 @@ services:
       - AUTHENTIK_POSTGRESQL__NAME=${PG_DB}
       - AUTHENTIK_POSTGRESQL__PASSWORD=${PG_PASS}
       - AUTHENTIK_SECRET_KEY=${AUTHENTIK_SECRET_KEY}
+      - AUTHENTIK_LOG_FORMAT=json
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ${VOLUMES_PATH}/network-services/authentik/media:/media
