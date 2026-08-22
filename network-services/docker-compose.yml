@@ -167,7 +167,7 @@ services:
       - network-services
 
   uptime-kuma:
-    image: louislam/uptime-kuma:2.5.0
+    image: louislam/uptime-kuma:2.5.3
     container_name: uptime-kuma
     ports:
       - 1337:3001
