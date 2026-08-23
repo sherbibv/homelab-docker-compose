@@ -328,7 +328,20 @@ services:
       - ${VOLUMES_PATH}/utility-services/paperless-ai/data:/app/data
     restart: unless-stopped
     networks:
-      - utility-services  
+      - utility-services
+
+  peanut:
+    image: brandawg93/peanut:v6.0.0
+    container_name: peanut
+    ports:
+      - 3005:8080
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/peanut/config:/config
+    environment:
+      - WEB_PORT=8080
+    restart: unless-stopped
+    networks:
+      - utility-services
 
 volumes:
   pgadmin_data:
