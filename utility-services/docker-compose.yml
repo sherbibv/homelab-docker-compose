@@ -331,7 +331,7 @@ services:
       - utility-services
 
   peanut:
-    image: brandawg93/peanut:v6.0.0
+    image: brandawg93/peanut:6.0.0
     container_name: peanut
     ports:
       - 3005:8080
