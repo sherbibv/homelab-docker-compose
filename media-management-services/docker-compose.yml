@@ -79,6 +79,12 @@ services:
     restart: unless-stopped
     networks:
       - media-management-services
+    healthcheck:
+      test: curl --connect-timeout 15 --silent --show-error --fail http://localhost:7474/healthz/readiness | grep -q 'OK'
+      interval: 60s
+      retries: 5
+      timeout: 10s
+      start_period: 60s
       
   bazarr:
     image: linuxserver/bazarr:1.6.0
