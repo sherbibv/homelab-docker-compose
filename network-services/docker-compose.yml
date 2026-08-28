@@ -145,7 +145,7 @@ services:
       retries: 5  
       
   crowdsec-web-ui:
-    image: ghcr.io/theduffman85/crowdsec-web-ui:2026.8.2
+    image: ghcr.io/theduffman85/crowdsec-web-ui:2026.8.3
     container_name: crowdsec-web-ui
     ports:
       - 3000:3000
