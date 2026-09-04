@@ -5,6 +5,12 @@
   ],
   "packageRules": [
     {
+      "matchPackageNames": [
+        "/^linuxserver\\/qbittorrent/"
+      ],
+      "allowedVersions": "/^(?:[1-9]|10)\\.(\\d+\\.)*\\d+$/"
+    },
+    {
       "versioning": "regex:^(?<compatibility>.*(\d+\.)?)(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)?$",
       "matchPackageNames": [
         "/^lscr.io\/linuxserver\//"
