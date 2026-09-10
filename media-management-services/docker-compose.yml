@@ -400,7 +400,7 @@ services:
 
   watchstate:
     container_name: watchstate
-    image: ghcr.io/arabcoders/watchstate:v1.10.3
+    image: ghcr.io/arabcoders/watchstate:v1.10.5
     user: "${UID:-1000}:${UID:-1000}"
     ports:
       - 8085:8080
