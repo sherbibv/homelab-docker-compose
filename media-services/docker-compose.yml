@@ -33,7 +33,7 @@ services:
       start_period: 1m00s
 
   jellyfin:
-    image: jellyfin/jellyfin:10.11.6
+    image: jellyfin/jellyfin:10.11.11
     container_name: jellyfin
     environment:
       - PUID=1000
