@@ -344,7 +344,7 @@ services:
       
   flaresolverr:
     container_name: flaresolverr
-    image: ghcr.io/flaresolverr/flaresolverr:v3.5.0
+    image: ghcr.io/flaresolverr/flaresolverr:v3.5.2
     ports:
       - 8191:8191
     environment:
