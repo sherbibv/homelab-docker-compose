@@ -263,6 +263,7 @@ services:
       - PAPERLESS_DBPASS=${PAPERLESS_POSTGRES_PASSWORD}
       - PAPERLESS_OCR_LANGUAGES=ron
       - PAPERLESS_OCR_LANGUAGE=ron
+      - PAPERLESS_SECRET_KEY=${PAPERLESS_SECRET_KEY}
     volumes:
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/data:/usr/src/paperless/data
       - ${VOLUMES_PATH}/utility-services/paperless-ngx/paperless-ngx/media:/usr/src/paperless/media
