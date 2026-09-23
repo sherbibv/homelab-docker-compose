@@ -1,0 +1,36 @@
+networks:
+  logging-services:
+    external: true
+
+services:
+  loki:
+    image: grafana/loki:3.7.0
+    container_name: loki
+    command: -config.file=/etc/loki/loki.yml
+    ports:
+      - 3100:3100
+    volumes:
+      - ${VOLUMES_PATH}/logging-services/loki:/tmp/loki
+      - ${VOLUMES_PATH}/logging-services/loki-config.yml:/etc/loki/loki.yml:ro
+    restart: unless-stopped
+    networks:
+      - logging-services
+
+  grafana:
+    image: grafana/grafana:12.3.1
+    container_name: grafana
+    user: "${PUID:-0}:${PGID:-0}"
+    depends_on:
+      - loki
+    ports:
+      - 3000:3000
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=${GRAFANA_ROOT_URL:-http://localhost:3000}
+    volumes:
+      - ${VOLUMES_PATH}/logging-services/grafana:/var/lib/grafana
+    restart: unless-stopped
+    networks:
+      - logging-services
