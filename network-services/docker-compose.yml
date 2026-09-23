@@ -1,5 +1,3 @@
-version: '3.4'
-
 networks:
   network-services:
     external: true
