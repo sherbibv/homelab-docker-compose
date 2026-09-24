@@ -66,7 +66,7 @@ services:
       - media-management-services
       
   autobrr:
-    image: ghcr.io/autobrr/autobrr:v1.86.0
+    image: ghcr.io/autobrr/autobrr:v1.87.0
     container_name: autobrr
     ports:
       - 7474:7474
