@@ -321,7 +321,7 @@ services:
 
   maintainerr:
     container_name: maintainerr
-    image: ghcr.io/maintainerr/maintainerr:3.30.0
+    image: ghcr.io/maintainerr/maintainerr:3.30.1
     ports:
       - 6246:6246 
     environment:
