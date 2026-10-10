@@ -301,11 +301,30 @@ services:
     container_name: standalone-chromium
     ports:
       - 4444:4444
-      - 9222:9222
-    environment:
-      - SE_OPTS=--remote-debugging-port=9222
     volumes:
       - /dev/shm:/dev/shm
+    shm_size: "2g"
+    restart: unless-stopped
+    networks:
+      - utility-services
+
+  hermes-chromium:
+    image: jlesage/chromium:v26.09.2
+    container_name: hermes-chromium
+    ports:
+      - 5800:5800
+      - 9222:9222
+    environment:
+      CHROMIUM_REMOTE_DEBUGGING: "1"
+      CHROMIUM_REMOTE_DEBUGGING_PORT: "9222"
+      SECURE_CONNECTION: "1"
+      WEB_AUTHENTICATION: "1"
+      WEB_AUTHENTICATION_USERNAME: ${HERMES_CHROMIUM_USERNAME:?Set in Portainer stack environment}
+      WEB_AUTHENTICATION_PASSWORD: ${HERMES_CHROMIUM_PASSWORD:?Set in Portainer stack environment}
+      WEB_TERMINAL: "0"
+      WEB_FILE_MANAGER: "0"
+    volumes:
+      - ${VOLUMES_PATH}/utility-services/hermes-chromium:/config
     shm_size: "2g"
     restart: unless-stopped
     networks:
