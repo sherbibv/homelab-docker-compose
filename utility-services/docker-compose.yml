@@ -302,6 +302,8 @@ services:
     ports:
       - 4444:4444
       - 9222:9222
+    environment:
+      - SE_OPTS=--remote-debugging-port=9222
     volumes:
       - /dev/shm:/dev/shm
     shm_size: "2g"
