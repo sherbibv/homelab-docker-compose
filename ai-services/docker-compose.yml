@@ -15,7 +15,7 @@ services:
        - ai-services
   
   open-webui: 
-    image: ghcr.io/open-webui/open-webui:v0.12.1
+    image: ghcr.io/open-webui/open-webui:v0.12.2
     container_name: open-webui
     ports:
       - 3011:8080
