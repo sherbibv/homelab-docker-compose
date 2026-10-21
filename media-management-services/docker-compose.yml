@@ -51,7 +51,7 @@ services:
       start_period: 60s
       
   profilarr:
-    image: ghcr.io/dictionarry-hub/profilarr:2.3.0
+    image: ghcr.io/dictionarry-hub/profilarr:2.3.1
     container_name: profilarr
     ports:
       - 6868:6868
