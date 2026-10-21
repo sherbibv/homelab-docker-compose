@@ -128,19 +128,19 @@ services:
       timeout: 10s
       start_period: 60s
 
-  # plextraktsync:
-  #   image: lscr.io/linuxserver-labs/plextraktsync:0.35.14-ls207
-  #   container_name: plextraktsync
-  #   environment:
-  #     - PUID=1000
-  #     - PGID=1000
-  #     - TZ=${TIMEZONE}
-  #   volumes:
-  #     - ${VOLUMES_PATH}/media-management-services/plextraktsync/config:/config
-  #   restart: unless-stopped
-  #   networks:
-  #     - media-management-services
-  #     - media-services
+  plextraktsync:
+    image: lscr.io/linuxserver-labs/plextraktsync:0.35.21-ls217
+    container_name: plextraktsync
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${VOLUMES_PATH}/media-management-services/plextraktsync/config:/config
+    restart: unless-stopped
+    networks:
+      - media-management-services
+      - media-services
       
   # plextraktsync-thebatcave:
   #   image: lscr.io/linuxserver-labs/plextraktsync:0.35.14-ls207
