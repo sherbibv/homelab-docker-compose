@@ -272,7 +272,7 @@ services:
   #     start_period: 1m00s
       
   qbittorrent:
-    image: linuxserver/qbittorrent:5.2.4
+    image: linuxserver/qbittorrent:5.3.0
     container_name: qbittorrent
     ports:
       - 8080:8080
