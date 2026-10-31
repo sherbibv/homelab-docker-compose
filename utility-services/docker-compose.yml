@@ -155,6 +155,7 @@ services:
   filebrowser:
     image: filebrowser/filebrowser:v2.63.23
     container_name: filebrowser
+    user: "0:0"
     ports:
       - 8300:80
     environment:
