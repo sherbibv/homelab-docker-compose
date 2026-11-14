@@ -71,7 +71,7 @@ services:
       - network-services
 
   traefik:
-    image: traefik:v3.7.18
+    image: traefik:v3.7.19
     container_name: traefik
     security_opt:
       - no-new-privileges:true
