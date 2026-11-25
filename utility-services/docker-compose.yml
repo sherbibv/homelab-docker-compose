@@ -310,7 +310,7 @@ services:
       - utility-services
 
   hermes-chromium:
-    image: jlesage/chromium:v26.11.1
+    image: jlesage/chromium:v26.11.2
     container_name: hermes-chromium
     ports:
       - 5800:5800
