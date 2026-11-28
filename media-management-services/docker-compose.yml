@@ -386,7 +386,7 @@ services:
 
   qui:
     container_name: qui
-    image: ghcr.io/autobrr/qui:v1.36
+    image: ghcr.io/autobrr/qui:v1.37
     ports:
       - 7476:7476
     volumes:
